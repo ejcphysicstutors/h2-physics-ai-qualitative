@@ -51,6 +51,14 @@ export default function App() {
     const redirectTo = `${location.origin}${location.pathname}`;
     await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo } });
   }
+
+  async function pilotLogin() {
+    const { error } = await supabase.auth.signInAnonymously();
+    if (error) {
+      alert(error.message || 'Pilot sign-in failed');
+    }
+  }
+
   async function logout() { await supabase.auth.signOut(); }
 
   async function logEvent(eventType, extra = {}) {
@@ -101,7 +109,7 @@ export default function App() {
     </div></header>
 
     {!supabaseConfigured && <div className="notice">Preview mode: Supabase environment variables are not configured yet.</div>}
-    {!loadingAuth && !user && supabaseConfigured && <main className="login-card"><h2>School sign-in</h2><p>Sign in with your school Google account so your progress follows you across devices.</p><button className="btn primary" onClick={login}>Continue with Google</button></main>}
+    {!loadingAuth && !user && supabaseConfigured && <main className="login-card"><h2>School sign-in</h2><p>Sign in with your school Google account so your progress follows you across devices.</p><button className="btn primary" onClick={login}>Continue with Google</button><button className="btn" onClick={pilotLogin} style={{marginLeft:'0.6rem'}}>Continue in pilot mode</button><p style={{marginTop:'0.8rem',fontSize:'0.82rem',opacity:0.7}}>Pilot mode is for testing on this browser. Google sign-in will be enabled later for cross-device progress.</p></main>}
 
     {(!supabaseConfigured || user) && <>
       <div className="controls-bar"><label>Topic</label><select value={topic} onChange={e => { setTopic(e.target.value); setIndex(0); }}><option value="all">All topics</option>{topicList.map(([code,label]) => <option key={code} value={code}>{label}</option>)}</select><button className="btn" onClick={() => setIndex(Math.floor(Math.random()*filtered.length))}>↕ Shuffle</button><span className="progress-label">{index+1} / {filtered.length}</span></div>
