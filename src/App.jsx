@@ -54,9 +54,7 @@ export default function App() {
 
   async function pilotLogin() {
     const { error } = await supabase.auth.signInAnonymously();
-    if (error) {
-      alert(error.message || 'Pilot sign-in failed');
-    }
+    if (error) alert(error.message || 'Pilot sign-in failed');
   }
 
   async function logout() { await supabase.auth.signOut(); }
@@ -101,29 +99,42 @@ export default function App() {
   const correct = Object.values(state).filter(x => x.status === 'correct').length;
   const partial = Object.values(state).filter(x => x.status === 'partial').length;
   const incorrect = Object.values(state).filter(x => x.status === 'incorrect').length;
+  const tutorTurns = current.feedback.filter(m => m.role === 'tutor').length;
 
   return <div className="app-shell">
-    <header className="site-header"><div><h1>H2 Physics</h1><div className="subtitle">AI Tutor Practice — 2026 Syllabus</div></div><div className="account-area">
-      {loadingAuth ? 'Checking sign-in…' : user ? <><span>{shortId(user)}</span><button className="link-btn" onClick={logout}>Sign out</button></> : null}
-      <a className="link-btn" href="#teacher">Teacher dashboard</a>
+    <header className="site-header"><div className="brand"><h1>H2 Physics</h1><div className="subtitle">AI Tutor Practice — 2026 Syllabus</div></div><div className="account-area">
+      {loadingAuth ? <span>Checking sign-in…</span> : user ? <><span className="student-id">{shortId(user)}</span><button className="link-btn" onClick={logout}>Sign out</button></> : null}
+      <a className="link-btn teacher-link" href="#teacher">Teacher dashboard</a>
     </div></header>
 
     {!supabaseConfigured && <div className="notice">Preview mode: Supabase environment variables are not configured yet.</div>}
-    {!loadingAuth && !user && supabaseConfigured && <main className="login-card"><h2>School sign-in</h2><p>Sign in with your school Google account so your progress follows you across devices.</p><button className="btn primary" onClick={login}>Continue with Google</button><button className="btn" onClick={pilotLogin} style={{marginLeft:'0.6rem'}}>Continue in pilot mode</button><p style={{marginTop:'0.8rem',fontSize:'0.82rem',opacity:0.7}}>Pilot mode is for testing on this browser. Google sign-in will be enabled later for cross-device progress.</p></main>}
+    {!loadingAuth && !user && supabaseConfigured && <main className="login-card"><h2>School sign-in</h2><p>Sign in with your school Google account so your progress follows you across devices.</p><div className="login-actions"><button className="btn primary" onClick={login}>Continue with Google</button><button className="btn" onClick={pilotLogin}>Continue in pilot mode</button></div><p className="muted pilot-note">Pilot mode is for testing on this browser. Google sign-in will be enabled later for cross-device progress.</p></main>}
 
     {(!supabaseConfigured || user) && <>
-      <div className="controls-bar"><label>Topic</label><select value={topic} onChange={e => { setTopic(e.target.value); setIndex(0); }}><option value="all">All topics</option>{topicList.map(([code,label]) => <option key={code} value={code}>{label}</option>)}</select><button className="btn" onClick={() => setIndex(Math.floor(Math.random()*filtered.length))}>↕ Shuffle</button><span className="progress-label">{index+1} / {filtered.length}</span></div>
+      <div className="controls-bar"><label>Topic</label><select value={topic} onChange={e => { setTopic(e.target.value); setIndex(0); }}><option value="all">All topics</option>{topicList.map(([code,label]) => <option key={code} value={code}>{label}</option>)}</select><button className="btn shuffle-btn" aria-label="Shuffle questions" onClick={() => setIndex(Math.floor(Math.random()*filtered.length))}><span>↕</span><span className="shuffle-text"> Shuffle</span></button><span className="progress-label">{index+1} / {filtered.length}</span></div>
       <div className="stats-row"><Stat v={questions.length} l="Questions"/><Stat v={completed} l="Assessed"/><Stat v={correct} l="Correct"/><Stat v={partial} l="Partial"/><Stat v={incorrect} l="Incorrect"/></div>
-      <main className="main">{q && <section className="q-card">
-        <div className="q-card-header"><span className="topic-badge">{q.topicCode} {q.topic}</span><span className="q-num">Source Q{q.sourceNumber}</span><span className={`status ${current.status}`}>{current.status || 'Not assessed'}</span></div>
-        <div className="q-body"><div className="q-text">{q.question}</div>{q.images?.map((src,i) => <img className="question-image" src={src} key={i} alt={`Question diagram ${i+1}`} />)}
-          <label className="answer-label">Your answer</label><textarea value={current.answer} onChange={e=>patch({answer:e.target.value})} placeholder="Write your answer here…" disabled={current.busy}/>
-        </div>
-        <div className="action-row"><button className="btn primary" onClick={submitAnswer} disabled={!current.answer.trim() || current.busy || (!user && supabaseConfigured)}>{current.busy?'Thinking…':'Get AI feedback & assess'}</button><button className="btn" onClick={revealMarkScheme} disabled={!user && supabaseConfigured}>Show answer / mark scheme</button></div>
-        {current.feedback.length>0 && <div className="chat-section">{current.feedback.map((m,i)=><div className={`msg ${m.role}`} key={i}><div className="msg-label">{m.role==='tutor'?'AI tutor':'You'}</div><div className="msg-bubble">{m.content}</div></div>)}</div>}
-        {current.revealed && current.markScheme && <div className="mark-scheme"><h3>Checkpoint answer</h3><div>{current.markScheme}</div></div>}
-      </section>}
-      <div className="nav-row"><button className="btn" onClick={()=>setIndex(Math.max(0,index-1))}>← Previous</button><button className="btn primary" onClick={()=>setIndex(Math.min(filtered.length-1,index+1))}>Next question →</button></div></main>
+      <main className="main">{q && <>
+        <section className="q-card">
+          <div className="q-card-header"><span className="topic-badge">{q.topicCode} {q.topic}</span><span className="q-num">Source Q{q.sourceNumber}</span><span className={`status ${current.status}`}>{current.status || 'Not assessed'}</span></div>
+          <div className="q-body">
+            <div className="q-text">{q.question}</div>
+            {q.images?.length > 0 && <div className="question-images">{q.images.map((src,i) => <img className="question-image" src={src} key={i} alt={`Question diagram ${i+1}`} />)}</div>}
+
+            {current.feedback.length > 0 && <section className="conversation-panel" aria-label="AI tutor conversation">
+              <div className="conversation-header"><div><strong>AI Tutor conversation</strong><span className="turn-badge">{tutorTurns} {tutorTurns === 1 ? 'turn' : 'turns'}</span></div></div>
+              <div className="chat-section">{current.feedback.map((m,i)=><div className={`msg ${m.role}`} key={i}><div className="msg-label">{m.role==='tutor'?'AI tutor':'You'}</div><div className="msg-bubble">{m.content}</div></div>)}</div>
+            </section>}
+
+            <div className="answer-composer">
+              <label className="answer-label">{current.feedback.length ? 'Your reply' : 'Your answer'}</label>
+              <textarea value={current.answer} onChange={e=>patch({answer:e.target.value})} placeholder={current.feedback.length ? 'Reply to the AI tutor…' : 'Write your answer here…'} disabled={current.busy}/>
+            </div>
+          </div>
+          <div className="action-row"><button className="btn primary" onClick={submitAnswer} disabled={!current.answer.trim() || current.busy || (!user && supabaseConfigured)}>{current.busy?'Thinking…':current.feedback.length?'Send reply & reassess':'Get AI feedback & assess'}</button><button className="btn" onClick={revealMarkScheme} disabled={!user && supabaseConfigured}>Show answer / mark scheme</button></div>
+          {current.revealed && current.markScheme && <div className="mark-scheme"><h3>Checkpoint answer</h3><div>{current.markScheme}</div></div>}
+        </section>
+        <div className="nav-row"><button className="btn" onClick={()=>setIndex(Math.max(0,index-1))}>← Previous</button><button className="btn primary" onClick={()=>setIndex(Math.min(filtered.length-1,index+1))}>Next question →</button></div>
+      </>}</main>
     </>}
   </div>;
 }
