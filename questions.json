@@ -1,0 +1,2160 @@
+[
+  {
+    "id": "H201-001",
+    "topicCode": "H201",
+    "topic": "Measurements",
+    "sourceNumber": "1",
+    "question": "State what is meant by a scalar quantity and by a vector quantity.",
+    "markScheme": "a scalar has magnitude only\n\na vector has magnitude and direction",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H201-002",
+    "topicCode": "H201",
+    "topic": "Measurements",
+    "sourceNumber": "2",
+    "question": "State how random errors may be reduced.",
+    "markScheme": "take average of several readings",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H201-003",
+    "topicCode": "H201",
+    "topic": "Measurements",
+    "sourceNumber": "3",
+    "question": "Explain why the precision in the value of the resistivity is improved by using a micrometer screw gauge rather than a metre rule to measure the diameter of the wire.",
+    "markScheme": "precision is determined by the range in the measurements\n\nmetre rule measures to ± 1 mm and micrometer\nto ± 0.01 mm\n\nso there is less percentage uncertainty",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H201-004",
+    "topicCode": "H201",
+    "topic": "Measurements",
+    "sourceNumber": "4",
+    "question": "Explain the difference between accuracy and precision.",
+    "markScheme": "accuracy: determined by the closeness of the values to the true value\n\nprecision: determined by the range of the values",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H201-005",
+    "topicCode": "H201",
+    "topic": "Measurements",
+    "sourceNumber": "5",
+    "question": "Describe the effects, one in each case, of systematic errors and random errors when using a micrometer screw gauge to take readings for the diameter of a wire.",
+    "markScheme": "systematic: the reading is larger or smaller than the true reading by a constant amount\n\nrandom: scatter in readings about the true reading",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H202-001",
+    "topicCode": "H202",
+    "topic": "Kinematics",
+    "sourceNumber": "1",
+    "question": "State the conditions necessary in order to use the equations of motion such as\nv = u + at",
+    "markScheme": "1. constant acceleration\n\n2. motion in a straight line",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H203-001",
+    "topicCode": "H203",
+    "topic": "Dynamics",
+    "sourceNumber": "1",
+    "question": "A beach ball is released from a balcony at the top of a tall building. The ball falls vertically from rest and reaches a constant (terminal) velocity.\n\nState and explain the variation, if any, in the magnitude of the acceleration of the ball in during the time interval when the ball is moving downwards before it reaches constant (terminal) velocity.",
+    "markScheme": "air resistance (acting on ball) increases\n\nresultant force (on ball) decreases\nor\nweight constant and air resistance increases\n\nacceleration decreases",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H203-002",
+    "topicCode": "H203",
+    "topic": "Dynamics",
+    "sourceNumber": "2",
+    "question": "Use Newton’s second and third law to explain why, during the collision, the change in momentum of block A is equal and opposite to the change in momentum of block B.",
+    "markScheme": "force on A by B equal and opposite to force on B by A\n(or both A and B exert equal and opposite forces on each other)\n\nforce equals/is proportional to rate of change of momentum\n\nforce is rate of change of momentum and time of contact is same",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H203-003",
+    "topicCode": "H203",
+    "topic": "Dynamics",
+    "sourceNumber": "3",
+    "question": "Explain how the collision is inelastic and still obeys the law of conservation of energy.",
+    "markScheme": "kinetic energy is not conserved but total energy is conserved\n\nsome of the initial kinetic energy is transformed into other forms of energy",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H203-004",
+    "topicCode": "H203",
+    "topic": "Dynamics",
+    "sourceNumber": "4",
+    "question": "State and explain whether linear momentum is conserved during the collision of the ball with the floor.",
+    "markScheme": "there is a change in momentum of the floor\n\nthis is equal and opposite to the change in momentum of the ball\n\nso momentum is conserved\n\nOR\n\nchange of total momentum of ball and floor is zero\n\nso momentum is conserved\n\nOR\n\ntotal momentum of ball and floor before collision is equal to the total momentum of ball and floor after collision\n\nso momentum is conserved",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H204-001",
+    "topicCode": "H204",
+    "topic": "Forces",
+    "sourceNumber": "1",
+    "question": "State the two conditions for a system to be in equilibrium.",
+    "markScheme": "resultant force is zero\n\nresultant torque is zero",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H204-002",
+    "topicCode": "H204",
+    "topic": "Forces",
+    "sourceNumber": "2",
+    "question": "Explain the origin of the upthrust in water.",
+    "markScheme": "pressure increases with depth in water\n\npressure on bottom of cylinder greater than pressure on top\n\nupward force on bottom of cylinder greater than downward force on top",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H205-001",
+    "topicCode": "H205",
+    "topic": "Work, Energy And Power",
+    "sourceNumber": "1",
+    "question": "An object falls vertically from rest through air. State and explain the energy conversions that occur as the object falls.",
+    "markScheme": "loss in potential energy due to decrease in height as P.E. = mgh\n\ngain in kinetic energy due to increase in speed as K.E. = ½ mv2\n\nincrease in thermal energy due to work done against air resistance",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H206-001",
+    "topicCode": "H206",
+    "topic": "Motion In A Circle",
+    "sourceNumber": "1",
+    "question": "Explain why centripetal force does not change the speed of the object moving in a circular motion",
+    "markScheme": "the centripetal force is perpendicular to the motion/velocity of the object\n\nhence it does not do work on the object\n\nno change in kinetic energy",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H206-002",
+    "topicCode": "H206",
+    "topic": "Motion In A Circle",
+    "sourceNumber": "2",
+    "question": "Explain why an object moving in a uniform circular motion accelerates even though its speed remains the same.",
+    "markScheme": "acceleration = rate of change of velocity\n\nvelocity has both magnitude and direction\n\ndirection of velocity changes",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H206-003",
+    "topicCode": "H206",
+    "topic": "Motion In A Circle",
+    "sourceNumber": "3",
+    "question": "Explain, if the car remains in contact with the track, why the centripetal acceleration of the car at point Y must be greater than 9.8 m s–2.",
+    "markScheme": "centripetal force must be greater than weight of car\n\nrequires contact force from track",
+    "images": [
+      "/question-images/H206-003-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-001",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "1",
+    "question": "Explain why, although the planets and the Sun are not point masses, Newton’s Law of Gravitation also applies to planets orbiting the Sun.",
+    "markScheme": "separation much greater than radii (or diameters) of the Sun and planets",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-002",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "2",
+    "question": "By reference to the pattern of the lines of gravitational force near to the surface of the Earth, explain why the acceleration of free fall near to the Earth’s surface is approximately constant.",
+    "markScheme": "the lines are radial\n\nnear the surface the lines are (approximately) parallel\n\nparallel lines so constant field strength\n\nhence constant acceleration of free fall",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-003",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "3",
+    "question": "Explain why the gravitational potential near an isolated mass is always negative.",
+    "markScheme": "gravitational force is attractive\n\ngravitational potential at infinity is zero\n\ndecrease in potential energy as masses approach\n(or displacement and force in opposite directions)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-004",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "4",
+    "question": "Explain why, for changes in vertical position of a point mass near the Earth’s surface, the gravitational field strength may be considered to be constant.",
+    "markScheme": "changes in height much less than radius of Earth\n\nso (radial) field lines are almost parallel\n(or g = GM / R2  ≈ GM / (R + h)2)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-005",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "5",
+    "question": "Explain why, at the surface of a planet, gravitational field strength is numerically equal to the acceleration of free fall.",
+    "markScheme": "acceleration = net force / mass,\n\nfield strength = gravitational force / mass,\n\ngravitational force is the net force",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-006",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "6",
+    "question": "A spherical planet may be assumed to be an isolated point mass with its mass concentrated at its centre. A small mass m is moving near to, and normal to, the surface of the planet. The mass moves away from the planet through a short distance h.\n\nState and explain why the change in gravitational potential energy ∆EP of the mass is given by the expression\n\n∆EP = mgh\n\nwhere g is the acceleration of free fall.",
+    "markScheme": "force on mass = mg (where g is the acceleration of free fall/gravitational field strength)\n\ng = GM/r2\n\nif r >> h, g is constant\n\nΔEP = force × distance moved\n= mgh\n\nOR\n\nΔEP = mΔΦ\n= GMm(1/r1 – 1/r2)\n= GMm(r2 – r1)/r1r2\n\nif r2 ≈ r1, then (r2 – r1) = h and r1r2 = r2\n\ng = GM/r2\n\nΔEP = mgh",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-007",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "7",
+    "question": "Suggest why, for small changes in height near the Earth’s surface, gravitational potential is approximately constant.",
+    "markScheme": "near Earth’s surface, change in height is much lesser than radius\n\npotential inversely proportional to radius and radius approximately constant",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-008",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "8",
+    "question": "Explain how a satellite may be in a circular orbit around a planet.",
+    "markScheme": "gravitational force of attraction between satellite and planet provides centripetal force on satellite about the planet",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-009",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "9",
+    "question": "Explain what is meant by a geostationary satellite.",
+    "markScheme": "satellite is in equatorial orbit\n\ntravelling from west to east\n\nperiod of 24 hours",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-010",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "10",
+    "question": "State four features of the orbit of a geostationary satellite.",
+    "markScheme": "above the Equator\n\nperiod 24 hours\n\norbits west to east\n\none particular orbital radius",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-011",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "11",
+    "question": "Suggest one advantage and one disadvantage of the use of geostationary satellites compared with polar-orbiting satellites for communication between points on the Earth’s surface.",
+    "markScheme": "advantage: no tracking required\n\ndisadvantage: longer time delay",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-012",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "12",
+    "question": "The astronaut reports that he is ‘weightless’, despite being in the Earth’s gravitational field.\n\nSuggest what is meant by the astronaut reporting that he is ‘weightless’.",
+    "markScheme": "gravitational force provides the centripetal force\n\nsensation of weight/contact force/reaction force is difference between gravitational and centripetal force and it is zero",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-013",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "13",
+    "question": "Explain why the normal reaction on the mass will have different values at the equator and at the poles.",
+    "markScheme": "at the equator, the mass is moving in circular motion\n\ngravitational force provides centripetal force, hence normal reaction force is smaller.\n\nat the poles, the mass is not in circular motion\n\ngravitational force is equal to the normal reaction force",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H207-014",
+    "topicCode": "H207",
+    "topic": "Gravitational Field",
+    "sourceNumber": "14",
+    "question": "Suggest one advantage of launching satellites from the Equator in the direction of rotation of the Earth.",
+    "markScheme": "satellite will already have velocity in the correct direction\n\nhence less energy input needed.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H208-001",
+    "topicCode": "H208",
+    "topic": "Temperature And Ideal Gas",
+    "sourceNumber": "1",
+    "question": "Distinguish between melting and evaporation.",
+    "markScheme": "melting: solid to liquid at a specific temperature / at the melting point\n\nevaporation: liquid to vapour / gas molecules escape from surface of liquid at all temperatures",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H208-002",
+    "topicCode": "H208",
+    "topic": "Temperature And Ideal Gas",
+    "sourceNumber": "2",
+    "question": "An ideal gas is assumed to consist of atoms or molecules that behave as hard, identical spheres that are in continuous motion and undergo elastic collisions.\n\nState four further assumptions of the kinetic theory of gases.",
+    "markScheme": "time of collisions negligible compared to time between collisions\n\nno intermolecular forces (except during collisions)\n\nrandom motion (of molecules)\n\nlarge numbers of molecules\n\n(total) volume of molecules negligible compared to volume of containing vessel\nor\naverage/mean separation large compared with size of molecules",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H208-003",
+    "topicCode": "H208",
+    "topic": "Temperature And Ideal Gas",
+    "sourceNumber": "3",
+    "question": "Describe the motion of molecules in a gas, according to the kinetic theory of gases.",
+    "markScheme": "random constant velocity between collisions\n\ndistribution of speeds in different directions",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H208-004",
+    "topicCode": "H208",
+    "topic": "Temperature And Ideal Gas",
+    "sourceNumber": "4",
+    "question": "Use one of the assumptions of the kinetic theory of gases to explain why the potential energy of the molecules of an ideal gas is zero.",
+    "markScheme": "no intermolecular forces\n\nso no potential energy",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H208-005",
+    "topicCode": "H208",
+    "topic": "Temperature And Ideal Gas",
+    "sourceNumber": "5",
+    "question": "Explain why, for an ideal gas, the change in internal energy is directly proportional to the change in thermodynamic temperature of the gas.",
+    "markScheme": "internal energy = sum of kinetic energy and potential energy / EK + EP\n\nin ideal gas, no intermolecular forces so no potential energy\n\ninternal energy is solely kinetic energy of particles\n\nmean kinetic energy of particles proportional to (thermodynamic) temperature of gas",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H208-006",
+    "topicCode": "H208",
+    "topic": "Temperature And Ideal Gas",
+    "sourceNumber": "6",
+    "question": "Explain why the change in kinetic energy of the molecules of ideal gas is equal to the change in internal energy.",
+    "markScheme": "internal energy = sum of kinetic energy and potential energy / EK + EP\n\nno intermolecular forces\n\nno potential energy\n\nso ΔU = ΔEK",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H208-007",
+    "topicCode": "H208",
+    "topic": "Temperature And Ideal Gas",
+    "sourceNumber": "7",
+    "question": "During melting, a solid becomes liquid with little or no change in volume.\n\nUse kinetic theory to explain why, during the melting process, thermal energy is required although there is no change in temperature.",
+    "markScheme": "during melting, bonds between atoms/molecules are broken\n\npotential energy of atoms/molecules is increased\n\nno/little work done\n\nso required input of energy is thermal energy",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H208-008",
+    "topicCode": "H208",
+    "topic": "Temperature And Ideal Gas",
+    "sourceNumber": "8",
+    "question": "During an isovolumetric process, internal energy of an ideal gas decreases.\n\nBy considering molecular energy, state and explain qualitatively the change, if any, in the temperature of the gas.",
+    "markScheme": "no (molecular) potential energy\n\ninternal energy decreases so (total molecular) kinetic energy decreases\n\n(mean molecular) kinetic energy proportional to temperature\n\nso temperature decreases",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H208-009",
+    "topicCode": "H208",
+    "topic": "Temperature And Ideal Gas",
+    "sourceNumber": "9",
+    "question": "Explain qualitatively how molecular movement causes the pressure exerted by a gas.",
+    "markScheme": "molecule(s) rebound from wall of vessel / hits walls\n\nchange in momentum gives rise to impulse / force\n\n(many impulses/forces) averaged to give constant force\n\nBy Newton’s 3rd Law, force on molecule so force on wall\n\npressure = force/area\n\nhence pressure is exerted",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H208-010",
+    "topicCode": "H208",
+    "topic": "Temperature And Ideal Gas",
+    "sourceNumber": "10",
+    "question": "With reference to molecular kinetic and potential energies, describe and explain how the internal energy of the system changes when a gas is heated at constant volume so that its temperature increases.",
+    "markScheme": "no change in separation so no change in (molecular) potential energy\n\ntemperature increases so kinetic energy (of molecules) increases\n\nkinetic energy increases and potential energy unchanged, so internal energy increases",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H208-011",
+    "topicCode": "H208",
+    "topic": "Temperature And Ideal Gas",
+    "sourceNumber": "11",
+    "question": "The pressure of an ideal gas is decreased at constant temperature.\n\nExplain what change, if any, occurs in the internal energy of the gas.",
+    "markScheme": "mean kinetic energy of particles proportional to (thermodynamic) temperature of gas\n\nkinetic energy constant because temperature constant\n\npotential energy constant because no intermolecular forces\n\nso no change in internal energy",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H209-001",
+    "topicCode": "H209",
+    "topic": "First Law Of Thermodynamics",
+    "sourceNumber": "1",
+    "question": "State and explain the total change in internal energy of the gas for one complete cycle.",
+    "markScheme": "final temperature = initial temperature\n\nno change in internal energy",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H209-002",
+    "topicCode": "H209",
+    "topic": "First Law Of Thermodynamics",
+    "sourceNumber": "2",
+    "question": "Explain, by reference to work done and heating, whether the internal energy of the gas changes when the gas in a toy balloon when the balloon bursts suddenly.",
+    "markScheme": "no time for thermal energy to enter or leave the gas\n\ngas expands so work done by gas (against atmosphere)\n\ninternal energy decreases",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H209-003",
+    "topicCode": "H209",
+    "topic": "First Law Of Thermodynamics",
+    "sourceNumber": "3",
+    "question": "Explain, by reference to work done and heating, whether the internal energy of the ice changes when ice melting at constant temperature and at atmospheric pressure to form water that is more dense than the ice.",
+    "markScheme": "volume decreases so work done on ice/water\n(or small volume change so work done on system negligible)\n\nheat absorbed to break lattice structure/\nbreak rigid forces/bonds\n\ninternal energy increases",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H209-004",
+    "topicCode": "H209",
+    "topic": "First Law Of Thermodynamics",
+    "sourceNumber": "4",
+    "question": "When a liquid is boiling, thermal energy must be supplied in order to maintain a constant temperature.\n\nState two processes for which thermal energy is required during boiling.",
+    "markScheme": "increasing separation of molecules / breaking bonds between molecules, hence increasing potential energy\n\ndoing work against atmosphere (during expansion)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H209-005",
+    "topicCode": "H209",
+    "topic": "First Law Of Thermodynamics",
+    "sourceNumber": "5",
+    "question": "State and explain qualitatively the change, if any, in the internal energy of a cylinder containing gas at constant volume is in sunlight so that its temperature rises from 25 °C to 35 °C.",
+    "markScheme": "kinetic energy increases as temperature increases\n\nno change in potential energy\n\ninternal energy increases",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H209-006",
+    "topicCode": "H209",
+    "topic": "First Law Of Thermodynamics",
+    "sourceNumber": "6",
+    "question": "Use the first law of thermodynamics to explain why the specific latent heat of vaporisation is greater than the specific latent heat of fusion for a particular substance.",
+    "markScheme": "when evaporating/vapourising, greater change in separation of atoms/molecules, hence a greater change in potential energy and internal energy\n\ngreater change in volume, hence a greater work done\n\nhence greater heat supplied",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H209-007",
+    "topicCode": "H209",
+    "topic": "First Law Of Thermodynamics",
+    "sourceNumber": "7",
+    "question": "Some water in a saucepan is boiling.\nExplain why\nexternal work is done by the boiling water,\nthere is a change in the internal energy as water changes to steam.",
+    "markScheme": "volume increases on evaporation\n\nso work done pushing back the atmosphere\n\nEk of atoms constant as no temperature change\n\nEp changes because separation of atoms changes\n\nso internal energy changes because\nU = Ek + Ep",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H209-008",
+    "topicCode": "H209",
+    "topic": "First Law Of Thermodynamics",
+    "sourceNumber": "8",
+    "question": "A student states, quite wrongly, that temperature measures the amount of thermal energy (heat) in a body.\n\nState and explain three observations that show why this statement is incorrect.",
+    "markScheme": "two objects of different masses at same temperature and same material would have different amount of heat\n\ntemperature shows direction of heat transfer from high to low regardless of objects\n\nwhen substance melts or boils, there is heat input but no temperature change",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H209-009",
+    "topicCode": "H209",
+    "topic": "First Law Of Thermodynamics",
+    "sourceNumber": "9",
+    "question": "Suggest why the rate of rise of temperature of an object that is being heated decreases to zero.",
+    "markScheme": "losses (to the surroundings) increase as the temperature rises\n\nrise is zero when heat loss = heat input",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H210-001",
+    "topicCode": "H210",
+    "topic": "Oscillations",
+    "sourceNumber": "1",
+    "question": "State two conditions necessary for a mass to be undergoing simple harmonic motion.",
+    "markScheme": "acceleration proportional to displacement from equilibrium\n\nacceleration directed towards equilibrium\n(or displacement and acceleration in opposite directions)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H210-002",
+    "topicCode": "H210",
+    "topic": "Oscillations",
+    "sourceNumber": "2",
+    "question": "The acceleration a of the tube is given by the expression\na = – (Aρg/M) x\nwhere x is the vertical displacement of the tube from its equilibrium position.\n\nUse the expression to explain why the tube undergoes simple harmonic oscillations in the liquid.",
+    "markScheme": "A, ρ, g and M are constant\nHence acceleration  displacement from equilibrium\n\n– sign indicates a and x in opposite directions",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H210-003",
+    "topicCode": "H210",
+    "topic": "Oscillations",
+    "sourceNumber": "3",
+    "question": "Explain how the acceleration-height graph of a vertical mass-spring system shows that it is undergoing simple harmonic motion.",
+    "markScheme": "straight line indicates acceleration  displacement from equilibrium\n\nnegative gradient shows acceleration and displacement are in opposite directions",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H210-004",
+    "topicCode": "H210",
+    "topic": "Oscillations",
+    "sourceNumber": "4",
+    "question": "Explain how the acceleration-displacement from equilibrium graph of a mass-spring system shows that it is undergoing simple harmonic motion.",
+    "markScheme": "straight line cutting through origin indicates acceleration  displacement from equilibrium\n\nnegative gradient shows acceleration and displacement are in opposite directions",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H210-005",
+    "topicCode": "H210",
+    "topic": "Oscillations",
+    "sourceNumber": "5",
+    "question": "Explain what is meant by the natural frequency of vibration of a system.",
+    "markScheme": "frequency at which body will oscillate when there is no external driving force or resistive force acting on it",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H210-006",
+    "topicCode": "H210",
+    "topic": "Oscillations",
+    "sourceNumber": "6",
+    "question": "For an oscillating body, state what is meant by what is meant by forced frequency.",
+    "markScheme": "frequency at which object is made to vibrate/oscillate",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H210-007",
+    "topicCode": "H210",
+    "topic": "Oscillations",
+    "sourceNumber": "7",
+    "question": "Distinguish between free oscillations and forced oscillations.",
+    "markScheme": "free: (body oscillates) without any resistive forces and external forces applied\n\nforced: continuous energy input to a body by an external periodic driving force to vibrate the body",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H210-008",
+    "topicCode": "H210",
+    "topic": "Oscillations",
+    "sourceNumber": "8",
+    "question": "For an oscillating body, state what is meant by resonance.",
+    "markScheme": "maximum transfer of energy from the driver to the oscillator\n\nmaximum amplitude of vibration of oscillating body\n\nwhen forced frequency equals natural frequency",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H210-009",
+    "topicCode": "H210",
+    "topic": "Oscillations",
+    "sourceNumber": "9",
+    "question": "State and explain one situation where resonance is useful.",
+    "markScheme": "vibration of quartz/piezoelectric crystal\n\nfor accurate timing\n(or maximise amplitude of ultrasound waves)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H210-010",
+    "topicCode": "H210",
+    "topic": "Oscillations",
+    "sourceNumber": "10",
+    "question": "State and briefly explain one other situation in which resonance should be avoided.",
+    "markScheme": "metal panels on machinery oscillate\n\nmotor in machine impresses frequency on panel\n\nOR\n\ncar suspension system oscillates\n\ngoing over bumps would give large amplitude vibrations",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H211-001",
+    "topicCode": "H211",
+    "topic": "Wave Motion",
+    "sourceNumber": "1",
+    "question": "State why a sound wave cannot be polarised.",
+    "markScheme": "it is a longitudinal wave",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-001",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "1",
+    "question": "Explain what is meant by coherent waves.",
+    "markScheme": "constant phase difference (between the waves)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-002",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "2",
+    "question": "Explain how the interference fringes are formed.",
+    "markScheme": "As the waves pass through the two narrow slits, they diffract (spread out) which allows waves from each slit to overlap and superpose\n\nwaves from the double slit are coherent (meaning they have constant phase difference over time)\n\ndepending on question context, the answer proceeds as follows:\n\n(A) source are in phase\n\nConstructive interference (Maxima / Bright Fringe/ Loud sound) occurs at points where the path difference is nλ (n = 0,1,2,3…) the waves superpose in phase to interfere constructively.\n\nDestructive interference (Minima / Dark fringe / Soft sound) occurs at points where the path difference is (n + ½)λ (n = 0,1,2,3…) the waves superpose in anti-phase to interfere destructively\n\n(B) source are in anti phase (not tested often)\n\nConstructive interference (Maxima / Bright Fringe/ Loud sound) occurs at points where the path difference is (n + ½)λ (n = 0,1,2,3…) the waves superpose in phase to interfere constructively.\n\nDestructive interference (Minima / Dark fringe / Soft sound) occurs at points where the path difference is nλ (n = 0,1,2,3…) the waves superpose in anti-phase to interfere destructively\n\nBONUS:\nIf asked for “observable interference pattern” include:\n\nThe two superposing waves should have equal or roughly equal amplitude.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-003",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "3",
+    "question": "State the conditions required for maxima to be formed in an interference pattern produced by two sources of microwaves.",
+    "markScheme": "Two waves must overlap and superpose\n\nboth sources are coherent / have constant phase difference (not just constant λ or frequency)\n\nwaves meet/ superpose in phase at that point to interfere constructively (phase difference when they superpose = 0, 2π, 4π… 2nπ or path difference = 0, λ, 2λ if sources are in phase)\n\nsame direction of polarisation or unpolarised",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-004",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "4",
+    "question": "Describe and explain the high intensity regions due to two source interference.",
+    "markScheme": "since  path difference = nλ (where n = 0, 1, 2, …) (for source in phase)\n\nwaves reach in phase or phase difference = 0, 2π, 4π… 2nπ\n\nconstructive interference, hence it is an intensity maximum",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-005",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "5",
+    "question": "The intensity of the light incident on the double slit is now increased without altering its frequency.\n\nCompare the appearance of the fringes after this change with their appearance before this change.",
+    "markScheme": "no change to fringe separation/fringe width/number of fringes\n\nbright fringes are brighter\n\ndark fringes are unchanged\n\ncontrast between fringes increases",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-006",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "6",
+    "question": "The intensity of the light passing through the two slits was initially the same. The intensity of the light through one of the slits is now reduced. Compare the appearance of the fringes before and after the change of intensity.",
+    "markScheme": "same fringe separation\n\nbright fringes less bright\n\ndark fringes brighter\n\ncontrast between fringes decreases",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-007",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "7",
+    "question": "Explain why the pattern of fringes on the screen is seen over a limited area of the screen.",
+    "markScheme": "As light passes through the two narrow slits, it diffracts (spread out) allowing the two beams to overlap and superpose\n\nThe resulting double slit interference pattern of constant fringe separation is enveloped / modulated by the single slit diffraction pattern of the individual slits.\n\nThe intensity of diffracted light from each slit decreases from the central maximum to zero at the first single slit diffraction minimum\n\nTherefore, interference fringes are only bright and visible within this central single slit maximum, limiting the pattern to a small central area of the screen,",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-008",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "8",
+    "question": "Monochromatic light is incident on a diffraction grating.\n\nDescribe the diffraction of the light waves as they pass through the grating.",
+    "markScheme": "as wave(s) pass through the narrow slit(s) of the grating\n\nwave(s) spread into geometric shadow behind each individual slit",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-009",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "9",
+    "question": "Light of a single wavelength is incident on a diffraction grating.\n\nExplain the part played by interference in the production of the first order maximum by the diffraction grating.",
+    "markScheme": "Diffraction and interference: diffraction of waves through each narrow slit overlapping and superposing with each other (from coherent sources at each element)\n\npath difference of exactly 1 λ such that\n\nwaves reach with a phase difference of 360° / 2π\n\n(by principal of superposition) waves interfere constructively to produce the first order maxima",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-010",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "10",
+    "question": "State two differences between the first order spectrum and the second order spectrum.",
+    "markScheme": "The second-order spectrum is wider (more spread out) than the first-order spectrum.\n\nThe second-order spectrum is significantly dimmer (lower intensity) than the first-order spectrum.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-011",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "11",
+    "question": "Suggest one reason why the fringe pattern produced by light passing through a diffraction grating is brighter than that produced from the same source with a double slit.",
+    "markScheme": "More slits for light to pass through such that bright fringe comprise light from more sources superposing in phase to give a higher peak intensity.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-012",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "12",
+    "question": "State the conditions required for the formation of a standing wave/stationary wave.",
+    "markScheme": "two waves travelling in opposite directions (along the same straight line) superposing\n\nwaves are same type and have same speed, frequency and wavelength (and approximately equal amplitudes for complete cancellation at nodes)\n\nNote: coherence is NOT accepted here. (coherence is a source relationship for 2D interference e.g. double slit type of interference. Standing waves meet with different phase differences depending on the point at which they meet e.g. meet in antiphase at node, in phase at antinode)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-013",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "13",
+    "question": "Use the principle of superposition to explain the formation of a standing / stationary wave.",
+    "markScheme": "Two progressive waves of the same type, speed, and frequency travel in opposite directions along the same straight line\n\nAs the waves overlap, they superpose such that the resultant displacement at any point is the vector sum of their individual displacements\n\nAt points where they arrive constantly in phase, they constructively superpose to form antinodes (points of maximum amplitude). At points where they arrive constantly in anti-phase, they cancel out to form nodes (points of zero amplitude)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-014",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "14",
+    "question": "Explain how the standing / stationary wave is formed on a string attached to a wall.",
+    "markScheme": "Progressive transverse wave moves along string and reflects at fixed point/end/wall/boundary (producing a reflected progressive wave travelling in opposite direction)\n\nthe incident and reflected waves have the same speed, frequency and wavelength\n\nThey superpose such that at points where they arrive constantly in phase, they constructively superpose to form antinodes and at points where they arrive in anti-phase, they destructively interfere to form nodes.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-015",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "15",
+    "question": "An incident sinusoidal sound wave of a single frequency travels up a tube.\n\nExplain how the standing / stationary wave is formed from the incident sound wave.",
+    "markScheme": "The incident progressive sound wave travels up the tube and reflects off the end of the tube (either the open or closed boundary), producing a reflected progressive wave travelling in the opposite direction\n\nThe incident and reflected sound waves have the same speed, frequency, and wavelength (as they originate from the same source and travel through the same medium inside the tube)\n\nThe waves overlap and superpose inside the tube. Points of constant in-phase superposition form antinodes (maximum amplitude), and points of constant anti-phase superposition form nodes (zero amplitude)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-016",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "16",
+    "question": "A microwave detector is placed between a source of microwaves S and a metal reflector R.\n\nDescribe how standing /stationary waves are formed between R and S.",
+    "markScheme": "microwave from source S reflects at reflector R\n\nThe incident and reflected waves travel in opposite directions with the same speed, frequency, and wavelength (as they originate from the same source)\n\nThe two waves meet and superpose. At points where they arrive constantly in phase, they constructively superpose to form antinodes (maximum intensity). At points where they arrive constant in antiphase, they destructively superpose to form nodes.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-017",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "17",
+    "question": "State the features of a standing /stationary wave that distinguish it from a progressive wave.",
+    "markScheme": "no net energy transfer (progressive transfer energy in direction of wave propagation)\n\namplitude varies along its length (progressive: all particles oscillate with same amplitude)\n\nnodes and antinodes (progressive don’t have)\n\nneighbouring points within inter-nodal loop vibrate in phase (progressive wave particles have varying phases)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-018",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "18",
+    "question": "The wave on the string is a standing/ stationary wave.\n\nExplain, by reference to the formation of a stationary wave, what is meant by the speed of the wave on the string.",
+    "markScheme": "The standing wave is formed by superposition of two progressive waves (incident and reflected) travelling in opposite directions along the string.\n\nWhile the standing wave profile does not advance (no energy transfer), speed refers to the speed of incident and reflected progressive waves",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-019",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "19",
+    "question": "A standing sound wave is formed in a tube that is closed at one end. State and explain whether this closed boundary represents a displacement node or displacement antinode.",
+    "markScheme": "The rigid closed end of the tube restricts the longitudinal movement of air particles. Thus, air particles at the boundary have zero displacement (amplitude), forming a displacement node.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H212-020",
+    "topicCode": "H212",
+    "topic": "Superposition",
+    "sourceNumber": "20",
+    "question": "A standing sound wave is formed in a tube that is closed at one end. State and explain whether this closed boundary represents a pressure node or pressure antinode.",
+    "markScheme": "Because the particles on either side of the closed end are constantly rushing toward or away from the rigid wall, the fluctuations in air pressure are at a maximum, forming a pressure antinode",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-001",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "1",
+    "question": "For any point outside a spherical conductor, the charge on the sphere may be considered to act as a point charge at its centre.\n\nBy reference to electric field lines, explain this.",
+    "markScheme": "electric field lines are radial/normal to surface (of sphere)\n\nelectric field lines appear to originate from centre (of sphere)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-002",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "2",
+    "question": "Suggest why it may be assumed that the proton and the nucleus behave as point\ncharges when using Coulomb’s law.",
+    "markScheme": "radii of proton and nucleus are very small compared to the distance between them.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-003",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "3",
+    "question": "Suggest why the electric field strength is zero inside metals.",
+    "markScheme": "charges in metal do not move\n\nno (resultant) force on charges so no electric field",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-004",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "4",
+    "question": "Explain whether a plastic sphere can be at equipotential throughout the sphere.",
+    "markScheme": "plastic is an insulator / not a conductor / has no free electrons\n\ncharges do not move on an insulator\n\nso no single value for the potential",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-005",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "5",
+    "question": "The variation with r of the electric potential energy UP of two masses is shown in the figure.\n\nOne of the masses is positively charged. State and explain whether the mass is charged positively or negatively.",
+    "markScheme": "as r decreases,\n\nenergy decreases\n(or work got out due to attraction)\n\nattraction, so point mass is negatively charged",
+    "images": [
+      "/question-images/H213-005-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-006",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "6",
+    "question": "The gradient at a point on the electric potential energy-distance graph is G.\n\nShow that the electric field strength E at this point due to the charged point mass is given by the expression\n\nEq = G\n\nwhere q is the charge at this point.",
+    "markScheme": "electric potential energy = charge × electric potential\n\nelectric field strength is potential gradient\n\nfield strength = gradient of potential energy graph/charge",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-007",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "7",
+    "question": "State one similarity and one difference between the electric field lines and the gravitational field lines around an isolated positively charged metal sphere.",
+    "markScheme": "similarity: lines are radial\n\ndifference: gravitational lines directed towards sphere and electric lines directed away from sphere",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-008",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "8",
+    "question": "Two charged isolated insulating spheres X and Y are near to each other, as shown.\n\nP is a point on the line joining the centres of the spheres.\nExplain why it is not possible for the total electric potential and the resultant electric field to simultaneously be zero at point P.",
+    "markScheme": "for potential to be zero, one potential must be positive and the other potential must be negative\n\nfor potential to be zero, the charges must have opposite sign\n\nfor field to be zero, the fields (due to X and Y) must be in opposite directions\n\nfor field to be zero, the charges must have the same sign\n\nthe signs of the charges cannot (simultaneously) be both the same and opposite (so not possible)",
+    "images": [
+      "/question-images/H213-008-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-009",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "9",
+    "question": "The definitions of electric potential and of gravitational potential at a point have some similarity.\n\nState one similarity between these two definitions.",
+    "markScheme": "ratio of work done to either mass or  charge\n\nOR\n\nwork done per unit mass or charge  in moving either small test mass or charge from infinity\n\nOR\n\nboth have zero potential at infinity",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-010",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "10",
+    "question": "Explain why values of gravitational potential are always negative whereas values of electric potential may be positive or negative.",
+    "markScheme": "gravitational forces are always attractive\n\nelectric forces can be attractive or repulsive\n\nfor gravitational, work got out as masses come together from infinity\n\nfor electric, work done on charges if same sign, work got out if opposite sign as charges come together from infinity",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-011",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "11",
+    "question": "Describe the pattern of the field lines (lines of force) between the plates.",
+    "markScheme": "straight lines and from the positive to negative plate.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-012",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "12",
+    "question": "State what is meant by a field line (line of force) in an electric field.",
+    "markScheme": "represents direction of the electric force on positive charge",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-013",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "13",
+    "question": "By reference to an atom in the air, suggest the mechanism by which the electric field causes the air to become conducting.",
+    "markScheme": "electrons are stripped off the atoms\n\nelectrons and positive ions move in opposite directions,\n\ngiving rise to a current",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-014",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "14",
+    "question": "Explain a situation when a small test charge is moved from a point to another in a field, the net work done is zero.",
+    "markScheme": "Both points are at the same electric potential\n\nwork done = qΔV\n\nΔV = 0 so zero work done",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-015",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "15",
+    "question": "State the relationship between electric potential and electric field strength at a point.",
+    "markScheme": "field strength = – potential gradient",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-016",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "16",
+    "question": "Explain why calculations involving motion of atomic particles in a uniform field between parallel plates do not need to include the gravitational effects on the electron.",
+    "markScheme": "electric force is much greater than gravitational force on electron\n\nOR\n\nacceleration due to electric field is much more greater than acceleration due to gravitational field",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-017",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "17",
+    "question": "By considering energy changes of a charged particle, explain why the speed at which it reaches the collecting plate from the emitting plate is independent of the separation of parallel plates.",
+    "markScheme": "gain in kinetic energy = loss in potential energy)\n\ncharge x p.d. (or qV) = ½mv2\n\nso v is independent of separation",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H213-018",
+    "topicCode": "H213",
+    "topic": "Electric Field",
+    "sourceNumber": "18",
+    "question": "Explain why the path of the particle in the electric field is not an arc of a circle.",
+    "markScheme": "force/acceleration is always constant and normal to plate\n\nnot perpendicular to velocity at all times",
+    "images": [
+      "/question-images/H213-018-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H214-001",
+    "topicCode": "H214",
+    "topic": "Current Of Electricity",
+    "sourceNumber": "1",
+    "question": "Using energy transformations, describe the electromotive force (e.m.f.) of a battery and the potential difference (p.d.) across a resistor.",
+    "markScheme": "e.m.f.: energy transferred from chemical to electrical per unit charge\n\np.d.: energy transferred from electrical to thermal per unit charge",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H214-002",
+    "topicCode": "H214",
+    "topic": "Current Of Electricity",
+    "sourceNumber": "2",
+    "question": "Explain why, for constant current in the wire, the potential difference between any two points on the wire is proportional to the distance between the points.",
+    "markScheme": "for a wire, V = I R\n\nV = I x (ρL/A)\nI, ρ and A are constant\n\nso V ∝ L",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H214-003",
+    "topicCode": "H214",
+    "topic": "Current Of Electricity",
+    "sourceNumber": "3",
+    "question": "On Fig. 6.1, sketch the I–V characteristic of a filament lamp.\n\nExplain the shape of the line.",
+    "markScheme": "(as I increases) the temperature (of the filament wire/lamp) increases\n\n(as I / temperature / V increases) the resistance (of wire/lamp) increases\n\n(as I / temperature / V increases the graph curves because) ratio V / I increases or ratio I / V decreases",
+    "images": [
+      "/question-images/H214-003-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H214-004",
+    "topicCode": "H214",
+    "topic": "Current Of Electricity",
+    "sourceNumber": "4",
+    "question": "State and explain why the resistance of each lamp when they are connected in series is different from the resistance of each lamp when they are connected in parallel.",
+    "markScheme": "each lamp in parallel has a greater p.d. (or greater current)\n\nlamp’s temperature rises\n\nresistance of lamps in parallel increases",
+    "images": [
+      "/question-images/H214-004-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H214-005",
+    "topicCode": "H214",
+    "topic": "Current Of Electricity",
+    "sourceNumber": "5",
+    "question": "For a cell, explain what is meant by internal resistance.",
+    "markScheme": "resistance of the cell causing energy loss in cell  (or causing loss of voltage)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H214-006",
+    "topicCode": "H214",
+    "topic": "Current Of Electricity",
+    "sourceNumber": "6",
+    "question": "Explain, in terms of energy, why V is less than E.",
+    "markScheme": "energy is dissipated in the internal resistance\n\nwhen cell supplies a current",
+    "images": [
+      "/question-images/H214-006-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H214-007",
+    "topicCode": "H214",
+    "topic": "Current Of Electricity",
+    "sourceNumber": "7",
+    "question": "The resistance of R is increased.\n\nState and explain the variation in the terminal p.d.",
+    "markScheme": "the current decreases\n\np.d. across r decreases.\n\nhence p.d. across R increases.",
+    "images": [
+      "/question-images/H214-007-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H214-008",
+    "topicCode": "H214",
+    "topic": "Current Of Electricity",
+    "sourceNumber": "8",
+    "question": "By considering energy, explain why the potential difference across the battery’s terminals is less than the e.m.f. of the battery.",
+    "markScheme": "e.m.f. is total energy available per unit charge\n\nenergy is dissipated in the internal resistance",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H215-001",
+    "topicCode": "H215",
+    "topic": "Dc Circuits",
+    "sourceNumber": "1",
+    "question": "State the potential difference across R when the diode has maximum potential difference across it.\n\nGive a reason for your answer.",
+    "markScheme": "zero because no current in circuit\n\nV = IR, so no p.d. across R\n\nOR\n\nall p.d. across diode",
+    "images": [
+      "/question-images/H215-001-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H215-002",
+    "topicCode": "H215",
+    "topic": "Dc Circuits",
+    "sourceNumber": "2",
+    "question": "The temperature of Z is increased.\n\nState and explain the effect on the potential difference across Z.",
+    "markScheme": "resistance of Z decreases\n\ncurrent (in circuit) is greater\n\np.d. across X and Y is greater hence p.d across Z decreases\n\nOR\n\nUsing potential divider:\n\nRZ decreases so RZ / (RX + RY + RZ) is less\n(where R represents resistance)\n\ntherefore p.d. across Z decreases",
+    "images": [
+      "/question-images/H215-002-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H215-003",
+    "topicCode": "H215",
+    "topic": "Dc Circuits",
+    "sourceNumber": "3",
+    "question": "The switch S remains closed. The intensity of the light on the LDR is increased.\n\nState and explain the change to\n(i) the ammeter reading,\n(ii) the p.d. across XY.",
+    "markScheme": "LDR resistance decreases\n\ntotal resistance (of circuit) is less\n\nhence current increases\n\nresistance across XY is less\n\nless proportion of 12 V across XY hence p.d. is less",
+    "images": [
+      "/question-images/H215-003-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H215-004",
+    "topicCode": "H215",
+    "topic": "Dc Circuits",
+    "sourceNumber": "4",
+    "question": "State an advantage of using the circuit of Fig. 5.3, compared to the circuit of Fig 5.1, when using the circuits to vary the potential difference across the 6.0  resistor.",
+    "markScheme": "full range of current / p.d. possible\n\ncurrents / p.d. can go down to zero",
+    "images": [
+      "/question-images/H215-004-1.png",
+      "/question-images/H215-004-2.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-001",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "1",
+    "question": "State the condition for a charged particle to experience a force in a magnetic field.",
+    "markScheme": "particle must be moving\n\nwith component of velocity normal to magnetic field",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-002",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "2",
+    "question": "By reference to the side view, state and explain the direction of the force on the magnets.",
+    "markScheme": "using Fleming’s left-hand rule force on wire is upwards\n\nby Newton’s third law, force on magnet is downwards",
+    "images": [
+      "/question-images/H216-002-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-003",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "3",
+    "question": "When a direct current is switched on in the wire, the reading on the balance is seen to decrease.\n\nState and explain the direction of:\n(i)  the force acting on the wire\n(ii) the current in the wire.",
+    "markScheme": "by Newton’s third law\n\nforce on magnet is upwards\n\nso force on wire downwards\n\nusing (Fleming’s) left-hand rule\n\ncurrent from B to A",
+    "images": [
+      "/question-images/H216-003-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-004",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "4",
+    "question": "There is a force acting on the particle, causing it to accelerate.\n\nExplain why the speed of the particle on leaving the magnetic field is v.",
+    "markScheme": "the force on the particle is always perpendicular to the velocity\n\nno work is done by the force on the particle (or there is no acceleration in the direction of the velocity)\n(or the acceleration is always perpendicular to the velocity)",
+    "images": [
+      "/question-images/H216-004-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-005",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "5",
+    "question": "Explain why the path of the electron in the magnetic field is the arc of a circle.",
+    "markScheme": "magnetic force always normal to velocity/direction of motion\n\nmagnitude of magnetic force constant\n\nso provides the centripetal force\n\nspeed is constant while changing direction of velocity",
+    "images": [
+      "/question-images/H216-005-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-006",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "6",
+    "question": "Suggest, with a reason, why the path of a charged particle in a magnetic field is a spiral, rather than the arc of a circle.",
+    "markScheme": "speed is decreasing\n\nso the radius is becoming smaller",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-007",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "7",
+    "question": "Explain how a uniform magnetic field and a uniform electric field may be used as a velocity selector for charged particles.",
+    "markScheme": "electric and magnetic fields normal to each other\n\nvelocity of particle normal to both fields\n\nforces (on particle) due to fields are in opposite directions\n\nno deviation for particles with selected velocity\nv = E / B",
+    "images": [
+      "/question-images/H216-007-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-008",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "8",
+    "question": "A uniform magnetic field is to be applied in the same region as the electric field so that the particle passes undeviated through the region between the plates.\n\nState and explain the direction of the magnetic field.",
+    "markScheme": "force due to electric field downwards so force due to magnetic field upwards\n\nmagnetic field is into the plane of the paper",
+    "images": [
+      "/question-images/H216-008-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-009",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "9",
+    "question": "A uniform electric field is applied in the same region as the magnetic field so that the proton passes undeviated through the fields.\n\nState and explain the deviation, if any, of\nan -particle with same initial velocity.\nan electron with twice the initial velocity.",
+    "markScheme": "Bqv = qE\n\nforces are independent of mass and charge ‘cancels’\n\nso no deviation\n\nmagnetic force > electric force\n\nso deflects in the direction of magnetic force\n(mention specific direction e.g. upwards)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-010",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "10",
+    "question": "Currents in two parallel wires are not equal.\n\nExplain whether the force per unit length on the two wires will be the same, or different.",
+    "markScheme": "by Newton’s third law, action and reaction are equal and opposite\n\n(or force per unit length depends on product of the two currents\nsince    )\n\nso same for both",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-011",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "11",
+    "question": "Explain why, when a current is switched on in the coil, the separation of the loops of the coil decreases.",
+    "markScheme": "magnetic field due to current in one loop is normal to current in second loop\n\nexerts a force on second loop\n\nby Newton’s 3rd law, the second loop exerts an equal and opposite force on the first loop\n\ngives rise to attraction\n\nOR\n\neach loop acts as a coil\n\nproduces magnetic field in same direction\n\nso all loops attract",
+    "images": [
+      "/question-images/H216-011-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-012",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "12",
+    "question": "The two wires are parallel and carrying currents in the same direction.\n\nExplain why a magnetic force is exerted on each wire.",
+    "markScheme": "current in (each) wire creates a magnetic field (at the other wire)\n\ncurrent (in wire) at 90° to field causes force",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H216-013",
+    "topicCode": "H216",
+    "topic": "Electromagnetism",
+    "sourceNumber": "13",
+    "question": "Two parallel wires are carrying sinusoidal alternating currents of equal peak values. The currents are in phase.\n\nDescribe the variation, if any, of the force experienced by one of the wires.",
+    "markScheme": "force always towards the other wire\n\nalways in same direction\n\nvaries from zero (to a maximum value)\n\nvariation is sinusoidal (or sin2)\n\nat twice frequency of current",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-001",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "1",
+    "question": "Use laws of electromagnetic induction to explain why, when the switch is closed, the current increases gradually to its maximum value.",
+    "markScheme": "increasing current causes increasing flux\n\nby Faraday’s law, increasing flux induces e.m.f. in coil\n\ninduced e.m.f. opposes growth of current",
+    "images": [
+      "/question-images/H217-001-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-002",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "2",
+    "question": "The d.c. supply is now replaced with a sinusoidal alternating supply.\n\nDescribe qualitatively the e.m.f. that is now induced in coil C.",
+    "markScheme": "alternating sinusoidally\n\nwith same frequency as supply",
+    "images": [
+      "/question-images/H217-002-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-003",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "3",
+    "question": "As the current in the solenoid is switched on, there is a current induced in the small coil. This induced current gives rise to a magnetic field in the small coil.\n\nUse Lenz’s law to state and explain the direction of the magnetic field due to the induced current in the small coil.",
+    "markScheme": "magnetic field in solenoid is increasing\n\nBy Lenz’s law, field in coil in opposite direction to oppose increase\n\nhence pointing upwards",
+    "images": [
+      "/question-images/H217-003-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-004",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "4",
+    "question": "An aluminium ring is placed on the core. The ring can move freely along the length of the core.\n\nThe switch is initially open.\n\nUse Faraday’s law and Lenz’s law to explain why the aluminium ring jumps upwards when the switch is closed.",
+    "markScheme": "current in coil produces flux\n\ncore links flux to the ring\n\nby Faraday’s law, changing flux induces e.m.f. in ring\n\ncurrent in ring causes field around ring\n\nby Lenz’s law, field around ring opposes field around coil",
+    "images": [
+      "/question-images/H217-004-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-005",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "5",
+    "question": "As an iron core is inserted into the solenoid, an e.m.f. that opposes the e.m.f. of the battery is induced in the solenoid.\n\nSuggest an explanation for the observation.",
+    "markScheme": "core is magnetised and magnetic field is induced in it\n\nfield cut by the turns of the solenoid\n\nby Faraday’s law, an e.m.f. is induced in the solenoid\n\nby Lenz’s law, this e.m.f. opposes the battery e.m.f.\n\nOR\n\ncore causes increase in magnetic flux in the solenoid\n\nchanging flux threads in solenoid\n\nby Faraday’s law, an e.m.f. is induced in the solenoid\n\nby Lenz’s law, this e.m.f. opposes the battery e.m.f.",
+    "images": [
+      "/question-images/H217-005-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-006",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "6",
+    "question": "An alternating current is passed through the coil. The heating effect of the current in the coil is negligible.\n\nExplain why the temperature of the core rises.",
+    "markScheme": "(non-uniform) magnetic flux in core is changing\n\nby Faraday’s law, induces (different) e.m.f. in (different parts of) the core\n\neddy currents form in the core\n\nwhich give rise to heating",
+    "images": [
+      "/question-images/H217-006-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-007",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "7",
+    "question": "Use Faraday’s law and energy conservation to explain why the amplitude of the oscillations of the magnet reduces when the switch is closed.",
+    "markScheme": "coil cuts flux/field of moving magnet\n\nby Faraday’s law, inducing e.m.f. in coil\n\ninduced current in resistor causes heating\n\nthermal energy/heat derived from energy of oscillations of magnet",
+    "images": [
+      "/question-images/H217-007-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-008",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "8",
+    "question": "The cardboard cup is now replaced with a cup made of aluminium foil.\n\nUse Faraday’s law of electromagnetic induction to explain why the amplitude of the oscillations decreases.",
+    "markScheme": "as magnet moves, flux is cut by cup\n\nby Faraday’s law, giving rise to induced e.m.f. in cup\n\ninduced e.m.f. gives rise to currents and heating of the cup\n\nthermal energy derived from oscillations of magnet so amplitude decreases\n\nOR\n\nas magnet moves, flux is cut by cup\n\nby Faraday’s law, giving rise to induced e.m.f. in cup\n\ninduced e.m.f. gives rise to currents which generate a magnetic field\n\nby Lenz’s law, the magnetic field opposes the motion of the magnet so amplitude decreases",
+    "images": [
+      "/question-images/H217-008-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-009",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "9",
+    "question": "The magnet is displaced vertically and then released.\n\nUse Faraday’s law to explain why\nthere is a reading on the voltmeter,\nthis reading varies in magnitude,\nthe reading has both positive and negative values.",
+    "markScheme": "moving magnet causes change of flux linkage in the coil\n\nspeed of magnet varies so varying rate of change of flux\n\nmagnet changes direction of motion/velocity, with flux increasing when moving down and decreasing when going up",
+    "images": [
+      "/question-images/H217-009-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-010",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "10",
+    "question": "The magnets do not touch the sides of the tubes.\n\nExplain why magnet B takes much longer than magnet A to fall through the tube.",
+    "markScheme": "as magnet falls, tube cuts magnetic flux\n\nby Faraday’s law, e.m.f. induced in aluminium tube\n\neddy current results in heating of tube\nwith energy taken from falling magnet\n(or eddy currents produce magnetic field that opposes motion of magnet)\n\nso magnet B has acceleration < g\n(or magnet B has smaller acceleration)",
+    "images": [
+      "/question-images/H217-010-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-011",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "11",
+    "question": "As the magnet is being moved into the solenoid, thermal energy is transferred in the resistor.\n\nUse laws of electromagnetic induction to explain the origin of this thermal energy.",
+    "markScheme": "moving magnet induces e.m.f. and current in solenoid\n\ninduced current creates field/flux in solenoid that opposes motion of magnet\n\nwork is done (or energy is needed) to move magnet into solenoid\n\ninduced current gives heating effect in resistor which comes from the work done",
+    "images": [
+      "/question-images/H217-011-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-012",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "12",
+    "question": "Making reference to the laws of electromagnetic induction, suggest why\n\n(i) an e.m.f. is induced in the wire,\n\n(ii) the e.m.f. is alternating.",
+    "markScheme": "the wire cuts magnetic field\n\nby Faraday’s law, e.m.f. induced when there is a change in flux (or there is cutting of flux)\n\nby Lenz’s law, e.m.f. opposes change causing it\n\nas direction of motion changes, so does e.m.f.",
+    "images": [
+      "/question-images/H217-012-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-013",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "13",
+    "question": "Use Faraday’s law of electromagnetic induction to explain why an e.m.f. is induced in the disc.\n\nExplain why eddy currents are induced in the metal disc.\n\nUse energy principles to explain why the disc comes to rest after a few oscillations.",
+    "markScheme": "flux is cut as the disc moves\n\nby Faraday’s law, this induces an e.m.f\n\nSome parts of metal disc is cutting flux\n\nso e.m.f. is induced in parts of disc that cuts flux\n\nleads to eddy current within the disc\n\neddy currents dissipate thermal energy in disc\n\nenergy derived from oscillation of disc\n\nenergy of disc depends on amplitude of oscillations",
+    "images": [
+      "/question-images/H217-013-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-014",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "14",
+    "question": "The terminals of the smaller solenoid are connected together. The smaller solenoid is then removed from inside the larger solenoid.\n\nWith reference to magnetic fields, explain why a force is needed to remove the smaller solenoid.",
+    "markScheme": "change of flux (linkage) in smaller solenoid induces e.m.f. in smaller solenoid\n\n(induced) current in smaller solenoid causes field around it\n\nthe two fields (interact to) create an attractive force",
+    "images": [
+      "/question-images/H217-014-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-015",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "15",
+    "question": "The wheel is rotating clockwise.\n\nThere is a uniform magnetic field of flux density\n0.18 T into the plane of the page.\n\nUse Lenz’s law to explain whether the potential is higher at end A or end X of the spoke.",
+    "markScheme": "force (on spoke) must be anticlockwise,\n\nby Fleming’s left hand rule, current is from A to X\n\nso X is at the higher potential",
+    "images": [
+      "/question-images/H217-015-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-016",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "16",
+    "question": "A heavy aluminium disc has a radius of 0.36 m. The disc rotates with the wheels of a vehicle and forms part of an electromagnetic braking system on the vehicle.\nIn order to activate the braking system, a uniform magnetic field of flux density 0.17 T is switched on. This magnetic field is perpendicular to the plane of rotation of the disc, as shown.\n\nThe axle and the rim are connected into an external circuit that enables the energy of the rotation of the disc to be stored for future use. The direction of rotation is shown.\nUse Lenz’s law of electromagnetic induction to determine whether the current in the disc is from the rim to the axle or from the axle to the rim. Explain your reasoning.",
+    "markScheme": "current (in disc) is perpendicular to magnetic field\nor\ncurrent causes force to act on disc\n\nforce opposes rotation of disc\n\nleft-hand rule indicates current is from rim to axle",
+    "images": [
+      "/question-images/H217-016-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-017",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "17",
+    "question": "A bar magnet is held a small distance above the surface of an aluminium disc by means of a rod, as illustrated\n\nThe aluminium disc is supported horizontally and held stationary.\n\nThe magnet is rotated about a vertical axis at constant speed.\n\nUse laws of electromagnetic induction to explain why there is a torque acting on the aluminium\ndisc.",
+    "markScheme": "either disc cuts flux lines (of the magnet)\nor\nthere is a changing flux in the disc\n\n(by Faraday’s law) e.m.f. is induced in the disc\n\ne.m.f. causes (eddy) currents in the disc\n\ncurrent in the magnetic field (of the magnet) causes force on disc",
+    "images": [
+      "/question-images/H217-017-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-018",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "18",
+    "question": "A loosely coiled metal spring is suspended from a fixed point, as shown\n\nWith the switch closed, the small mass on the free end of the spring is now made to oscillate vertically.\nUse the principles of electromagnetic induction to explain why small fluctuations in the current in the spring are found to occur.",
+    "markScheme": "sheet cuts (magnetic) flux and causes induced emf\n\n(induced) emf causes (eddy) currents (in sheet)\n\n(oscillating) coils cut magnetic flux\nor\nas separation of coils changes, magnetic flux changes\n\ncutting flux causes induced e.m.f. in coils\n\nchanging (induced) e.m.f. causes changing current (in coil)",
+    "images": [
+      "/question-images/H217-018-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H217-019",
+    "topicCode": "H217",
+    "topic": "Electromagnetic Induction",
+    "sourceNumber": "19",
+    "question": "An alternating current is passed through an air-cored solenoid.\nAn iron core is inserted into the solenoid and then held stationary within the solenoid. The current in the solenoid is now smaller.\n\nExplain why the root-mean-square (r.m.s.) value of the current in the solenoid is reduced as a result of inserting the core.",
+    "markScheme": "iron core causes increase in magnetic flux in the solenoid for the same current\n\ngives larger rates of change of flux linkage\n\ne.m.f induced in solenoid is greater\n\ninduced e.m.f. opposes applied e.m.f.\n\nso net current smaller",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-001",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "1",
+    "question": "Explain by reference to heating effect, what is meant by the root-mean-square (r.m.s.) value of an alternating current.",
+    "markScheme": "that value of the direct current producing the same heating effect as the alternating current in a resistor",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-002",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "2",
+    "question": "Explain why an alternating current gives rise to a heating effect in a resistor",
+    "markScheme": "either heating effect in a resistor ∝ (current)2\n\nsquare of value of an alternating current is always positive\n\nso heating effect\n\nOR\n\ncurrent moves in opposite directions in resistor during half-cycles\n\nheating effect is independent of direction",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-003",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "3",
+    "question": "Explain why the core of a transformer is made of iron",
+    "markScheme": "to reduce flux losses\n\nincrease flux linkage\n\neasily magnetised and demagnetised",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-004",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "4",
+    "question": "Suggest why the core of a transformer is a continuous loop.",
+    "markScheme": "prevent loss of magnetic flux\n\nOR\n\nimproves flux linkage with secondary",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-005",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "5",
+    "question": "Suggest why thermal energy is generated in the core of a transformer.",
+    "markScheme": "by Faraday’s law, changing flux in core induces e.m.f in core\n\nInduced currents in core give rise to a heating effect",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-006",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "6",
+    "question": "Suggest why the core of a transformer is laminated.",
+    "markScheme": "reduces eddy current\n\nso reduces losses of energy in core",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-007",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "7",
+    "question": "Explain why, for a transformer, the supply to the primary coil must be alternating current, not direct current.",
+    "markScheme": "flux/field in core must be changing\n\nso that an e.m.f./current is induced in the secondary",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-008",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "8",
+    "question": "Explain why, for constant input power, the output current must decrease if the output voltage increases for a transformer.",
+    "markScheme": "power = VI\n\noutput power is constant\n\nso if output voltage increases, output current decreases",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-009",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "9",
+    "question": "Transmission of electrical energy is frequently achieved using alternating high voltages.\n\nSuggest why\n(i) high voltages are used,\n(ii) the voltage is alternating.",
+    "markScheme": "for same power, transmission at higher voltage results in lower current\n\nless power loss in transmission cables\n\nvoltage can be (easily) stepped up or down\n\ntransformers only work with a.c. generators produce a.c.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-010",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "10",
+    "question": "State two advantages of the use of alternating voltages for the transmission and use of electrical energy.",
+    "markScheme": "can step up or down voltage easily\n\nhigh voltage transmission reduces power losses",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-011",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "11",
+    "question": "State one disadvantage of the use of alternating rather than direct current in the home.",
+    "markScheme": "cables require greater insulation\n\nrectification from AC to DC required.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-012",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "12",
+    "question": "An e.m.f. is induced in the secondary coil of the transformer.\n\nExplain how a current in the primary coil gives rise to this induced e.m.f.\n\nOR\n\nBy reference to the action of a transformer, explain why the input to the transformer is an alternating voltage, rather than a constant voltage.",
+    "markScheme": "alternating current / voltage gives rise to changing flux in core\n\nflux links the secondary coil\n\nby Faraday’s law, changing flux induces e.m.f. in secondary coil",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-013",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "13",
+    "question": "Explain why an electromotive force (e.m.f.) is not induced at the output of a transformer when a constant direct voltage is at the input.",
+    "markScheme": "by Faraday’s law, e.m.f. induced only when flux in coil is changing\n\nconstant direct voltage gives constant flux",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-014",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "14",
+    "question": "Explain why, when there is an alternating current in the primary coil, there is a current in the load resistor.",
+    "markScheme": "current in primary coil gives rise to magnetic flux\n\nchanging magnetic flux in core links with secondary coil\n\ninduced e.m.f. in secondary coil causes current in load resistor",
+    "images": [
+      "/question-images/H218-014-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-015",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "15",
+    "question": "Explain why the alternating current in the primary coil of a transformer is not in phase with the alternating e.m.f. induced in the secondary coil.",
+    "markScheme": "current in primary coil give rise to magnetic flux/field\n\nmagnetic flux/field in core is in phase with current in primary coil\n\nmagnetic flux threads/links/cuts secondary coil inducing e.m.f. in secondary coil\n\nby Faraday’s law, e.m.f. induced proportional to rate of change of flux linkage (or rate of cutting of flux)\n\nso not in phase",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H218-016",
+    "topicCode": "H218",
+    "topic": "Alternating Current",
+    "sourceNumber": "16",
+    "question": "Use Lenz’s law to explain why the input potential difference and the output e.m.f. of a transformer are not in phase.",
+    "markScheme": "induced current in secondary produces magnetic field\n\nopposes changing field produced in primary\n\nso not in phase",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-001",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "1",
+    "question": "A polished calcium plate in a vacuum is investigated by illuminating the surface with light.\nIt is found that no photoelectric current is produced when the frequency of the light is less than 6.93 × 1014 Hz.\nExplain how the photon model of electromagnetic radiation accounts for this phenomenon.",
+    "markScheme": "photons are (discrete) packets of energy\n\nenergy of photons depends on frequency (of EM radiation)\n\nelectrons can only absorb a single photon (of energy)\n\nemission only possible if photon energy is at least the work function",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-002",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "2",
+    "question": "State a piece of evidence provided by the photoelectric effect for a particulate nature of electromagnetic radiation.",
+    "markScheme": "existence of frequency below which no emission of electrons",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-003",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "3",
+    "question": "It is found that, on exposure of a metal surface to light, either electrons are emitted immediately or they are not emitted at all.\nSuggest why this observation does not support a wave theory of light.",
+    "markScheme": "for a wave, electron can absorb energy continuously\n\nfor a wave, electron will always be emitted at all frequencies\n\nafter a sufficiently long delay",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-004",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "4",
+    "question": "Explain why, for the photoelectric effect, the existence of a threshold frequency and a very short emission time provide evidence for the particulate nature of electromagnetic radiation, as opposed to a wave theory.",
+    "markScheme": "wave theory predicts any frequency would give rise to emission of electron\n\nif exposure time is sufficiently long\n\nphoton has specific value of energy and dependent on frequency\n\nemission if energy greater than minimum energy to liberate electrons from metal",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-005",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "5*",
+    "question": "Electrons are emitted from a metal surface when light of a particular wavelength is incident on the surface.\n\nExplain why the emitted electrons have a range of values of kinetic energy below a maximum value.",
+    "markScheme": "EMAX corresponds to electron emitted from surface\n\nelectron below surface requires energy to bring it to surface, so less than EMAX",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-006",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "6*",
+    "question": "Light of a particular wavelength is incident on a metal surface and gives rise to a photoelectric current.\nThe wavelength is reduced. The intensity of the light is kept constant.\nState and explain the effect, if any, on the photoelectric current.",
+    "markScheme": "each photon has more energy\n\nfewer photons per unit time\n\nfewer emitted electrons per unit time\n\nless current",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-007",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "7*",
+    "question": "The intensity of the incident radiation is maintained constant and the wavelength is now reduced.\nState and explain the effect of this change on\nthe maximum kinetic energy of the photoelectrons,\nthe maximum photoelectric current I .",
+    "markScheme": "photon energy larger\n\nso maximum kinetic energy of electron is larger\n\nfewer photons per unit time\n\nso maximum current is smaller",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-008",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "8*",
+    "question": "Electromagnetic radiation of a single constant frequency is incident on a metal surface. This\ncauses an electron to be emitted.\nExplain why the maximum kinetic energy of the electron is independent of the intensity of the incident radiation.",
+    "markScheme": "frequency determines energy of photon\n\nintensity determines number of photons (per unit time)\n\nintensity does not determine energy of a photon\n\nkinetic energy (of the electron) depends on the energy of one photon",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-009",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "9",
+    "question": "The beam of red light is now replaced with a beam of blue light of the same intensity.\nSuggest and explain whether the pressure exerted on the mirror by the beam of blue light is less than, the same as, or greater than the pressure exerted by the beam of red light.",
+    "markScheme": "photons have greater momentum\n\nfewer photons per unit time\n\ngreater photon momentum but smaller number of photons (per unit time) so pressure is the same",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-010",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "10",
+    "question": "Describe the appearance of a visible line emission spectrum, as seen using a diffraction grating.",
+    "markScheme": "coloured lines on dark background",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-011",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "11",
+    "question": "An emission spectrum is seen as a series of differently coloured lines on a black background.\n\nSuggest how this observation provides evidence for discrete electron energy levels in atoms.",
+    "markScheme": "each coloured line corresponds to one wavelength/frequency\n\nenergy = Planck constant × frequency\n\neach wavelength is associated with a discrete change in energy\n\ndiscrete energy change implies discrete levels",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-012",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "12",
+    "question": "A beam of light consists of a continuous range of wavelengths from 420 nm to 740 nm. The spectrum of the light emerging from the cloud of cool gas is viewed using a diffraction grating.\n\nExplain why this spectrum contains a number of dark lines.",
+    "markScheme": "electrons in gas atoms/molecules interact with photons\n\nphoton energy causes electron to move to higher energy level (or to be excited)\n\nphoton energy = difference in energy of electron energy levels\n\nwhen electrons de-excite, photons\nre-emitted in all directions\n\nso dark lines on a spectrum\n(or dark lines on coloured background)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-013",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "13",
+    "question": "State what is meant by the de Broglie wavelength.",
+    "markScheme": "wavelength associated with a particle\nthat is moving/has momentum/has speed/has velocity",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-014",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "14",
+    "question": "Suggest whether electron diffraction could be observed using a beam of electrons of wavelength 10–10 m are incident on a thin copper crystal.",
+    "markScheme": "wavelength is similar to separation of atoms\n\nso diffraction observed",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-015",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "15",
+    "question": "Electrons, travelling at speed v in a vacuum, are incident on a very thin carbon film.\nThe emergent electrons are incident on a fluorescent screen.\nA series of concentric rings is observed on the screen.\n\nSuggest why the observed rings provide evidence for the wave nature of particles.",
+    "markScheme": "if light passes through suitable film / cork dust etc.\n\ndiffraction occurs and similar pattern to those of X-ray observed\n\nconcentric circles are evidence of diffraction\n\ndiffraction is a wave property",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-016",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "16",
+    "question": "Describe an experiment to demonstrate the wave nature of electrons.\n\nYou may draw a diagram if you wish.",
+    "markScheme": "electron beam in a vacuum\n\nincident on thin metal target / carbon film\n\nelectrons hit a fluorescent screen\n\npattern of concentric rings observed\n\npattern similar to diffraction pattern observed with visible light (or X-ray)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-017",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "17",
+    "question": "Electrons are accelerated through a high p.d. to form a beam that is incident on a thin graphite crystal.\n\nAfter passing through the graphite crystal, the electrons reach the fluorescent screen. The\nscreen glows where the electrons strike it.\n\nThe electrons in are now accelerated through a greater potential difference between the cathode and the anode.\nExplain, with reference to de Broglie wavelength, the change in the pattern on the\nfluorescent screen.",
+    "markScheme": "(greater p.d. so) electrons to have greater momentum\n\ngreater momentum so decrease in (de Broglie) wavelength\n\nlower (de Broglie) wavelength (for same grating spacing in crystal) causes:\nsmaller diffraction angle\nor\nsmaller angle of intensity maxima (for each order)\nor\ndecrease in fringe spacing in diffraction pattern",
+    "images": [
+      "/question-images/H219-017-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H219-018",
+    "topicCode": "H219",
+    "topic": "Quantum Physics",
+    "sourceNumber": "18",
+    "question": "State an effect, one in each case, that provides evidence for\nthe wave nature of a particle,\nthe particulate nature of electromagnetic radiation.",
+    "markScheme": "electron diffraction\n\nOR\n\nelectron microscope\n\nphotoelectric effect\n\nOR\n\nCompton scattering (not in syllabus)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-001",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "1",
+    "question": "The results of the α-particle scattering experiment provide evidence for the structure of the atom.\n\nresult 1: The vast majority of α-particles pass straight through the metal foil or are deviated by small angles.\n\nresult 2: A very small minority of α -particles are scattered through angles greater than 90°.\n\nState what may be inferred from\n(i) result 1,\n(ii) result 2.",
+    "markScheme": "result 1:\nmost of the atom is empty space, so the nucleus volume is very small compared to the atom\n\nresult 2:\nnucleus is (positively) charged\n\nthe mass is concentrated in very small nucleus\n(or the majority of mass in very small nucleus)",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-002",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "2",
+    "question": "In an α-particle scattering experiment, the beam of α-particles is incident on a very thin gold foil.\n\nSuggest why the gold foil must be very thin.",
+    "markScheme": "so that single interactions between nucleus and α-particle can be studied\n\nOR\n\nso that multiple deflections with nucleus do not occur",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-003",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "3",
+    "question": "α-particles originated from the decay of a radioactive nuclide.\n\nSuggest two reasons why β-particles from a radioactive source would be inappropriate for Rutherford’s scattering experiment.",
+    "markScheme": "β-particles have a range of energies\n\nβ-particles may be deviated by orbital electrons\n\nβ-particle has very small mass",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-004",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "4",
+    "question": "Explain why experiments involving α-particles are done in vacuum.",
+    "markScheme": "range of α-particle is only few cm in air/loss of energy of the α-particles due\nto collision with air molecules/ionisation of the air molecules",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-005",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "5",
+    "question": "Explain the process by which α-particles lose energy when they pass through air.",
+    "markScheme": "collision with molecules\n\ncauses ionisation (of the molecule) / electron is removed",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-006",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "6",
+    "question": "Distinguish, for an atom, between a nucleus and a nucleon.",
+    "markScheme": "nucleus: small central core of an atom\n\nnucleon: proton or a neutron\n\nparticle contained within a nucleus",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-007",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "7",
+    "question": "State what is meant by the binding energy of a nucleus.",
+    "markScheme": "energy required to separate the nucleons in a nucleus to infinity\n\nOR\n\nenergy released when nucleons come together to form nucleus from infinity",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-008",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "8",
+    "question": "Explain why Nuclear force must have a short range.",
+    "markScheme": "outside nucleus there is repulsion between protons\n\nattractive force must act only in nucleus\n\nif not short range, all nuclei would stick together",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-009",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "9",
+    "question": "State what is meant by nuclear fusion and nuclear fission.",
+    "markScheme": "fusion: two nuclei of low nucleon number combine to form a more massive nucleus\n\nfission: nucleus with high nucleon number splits into two nuclei of approximately equal mass",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-010",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "10",
+    "question": "The total mass of the daughter nucleus and the α-particle is less than that of parent nucleus in α-decay.\n\nExplain this difference in mass.",
+    "markScheme": "mass-energy is conserved\n\nmass lost is released as gamma radiation, kinetic energies of α-particle and daughter nucleus",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-011",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "11",
+    "question": "Explain, using the law of mass-energy conservation, how energy is released in a nuclear reaction.",
+    "markScheme": "total mass of the reactants is greater than total mass of products\n\ndifference in mass is converted to energy",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-012",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "12",
+    "question": "By reference to binding energy, explain, without any calculation, why this fission reaction is energetically possible.",
+    "markScheme": "total binding energy of Mo-95 and La-139 is greater than binding energy of U-235",
+    "images": [
+      "/question-images/H220-012-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-013",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "13",
+    "question": "Strontium-90 decays with the emission of a β-particle to form Yttrium-90. The reaction is represented by the equation\n\nSuggest, with a reason, which nucleus, or, has the greater binding energy.",
+    "markScheme": "energy is released\n\nso final total binding energy is greater than initial total binding energy\n\nelectron has zero binding energy\n\nhas greater binding energy",
+    "images": [
+      "/question-images/H220-013-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-014",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "14",
+    "question": "With reference to the curve of the variation with nucleon number A of the binding energy per nucleon BE of nuclei, explain how fission is energetically possible.",
+    "markScheme": "binding energy of nucleus = BE × A\n\nbinding energy of parent nucleus is less than sum of binding energies of fragments",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-015",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "15",
+    "question": "In one type of nuclear process, deuterium () undergoes the reaction\n\nExplain, with reference to the variation of binding energy per nucleon with nucleon number, why this reaction results in the release of energy.",
+    "markScheme": "both particles have low A values\nor\nboth particles are at left-hand end of graph\n\nHe-3 has higher binding energy (per nucleon) than H-2",
+    "images": [
+      "/question-images/H220-015-1.png",
+      "/question-images/H220-015-2.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-016",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "16",
+    "question": "The binding energy per nucleon of a nucleus varies with the nucleon number.\nUse this variation to explain why the reaction would not result in an overall release of energy.",
+    "markScheme": "binding energy per nucleon is a maximum at around A = 56\n\nproducts of splitting a 56Fe nucleus must have a lower total binding energy\n\n(reaction would require) a net input of energy",
+    "images": [
+      "/question-images/H220-016-1.png"
+    ],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-017",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "17",
+    "question": "The nuclear fission reaction produces neutrons. In the power station, the neutrons may be absorbed by rods made of boron-10.\n\nSuggest why, when neutrons are absorbed in the boron rods, the rods become hot as a result of this nuclear reaction.",
+    "markScheme": "emitted particles have kinetic energy\n\nparticles stopped in rods\n\nlose kinetic energy in rods\n\nkinetic energy of particles converted to thermal energy",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-018",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "18",
+    "question": "State the quantities, other than momentum, that are conserved in a nuclear reaction.",
+    "markScheme": "mass-energy\n\nproton number or charge\n\nnucleon number",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-019",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "19",
+    "question": "An isotope of an element is radioactive.\n\nExplain what is meant by radioactive decay.",
+    "markScheme": "nucleus/nuclei emits\n\nspontaneously and randomly\n\nα-particles, β-particles, γ-ray photons",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-020",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "20",
+    "question": "Explain the meaning of spontaneous radioactive decay.",
+    "markScheme": "rate of decay not affected by any external factors such as changes in temperature and pressure etc.",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-021",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "21",
+    "question": "State the experimental observations that show radioactive decay is\n(i) spontaneous,\n(ii) random.",
+    "markScheme": "the half life / count rate / activity is the same no matter what external environmental factors such as temperature and pressure changes are applied\n\nthe observations of the count rate /  activity during decay shows fluctuations",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-022",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "22",
+    "question": "Explain why the initial velocities of the daughter nucleus and the α-particle must be in opposite directions in α-decay.",
+    "markScheme": "zero momentum before decay\n\nmomentum is conserved so zero momentum after decay\n\nso α-particle and daughter nucleus must have the same magnitude of momenta in opposite directions",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-023",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "23",
+    "question": "Close examination of the α-decay of a nucleus indicates that the daughter nucleus and the α-particle are not ejected exactly in opposite directions.\n\nSuggest an explanation for this observation.",
+    "markScheme": "another particle (or gamma photon) is emitted at an angle to the direction of the α-particle",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-024",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "24",
+    "question": "Use the conservation of mass-energy to explain the release of energy in a nuclear reaction.",
+    "markScheme": "total mass before decay is greater than total mass after the decay\n\nthe difference in mass is released as kinetic energy of the products, and also γ radiation",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-025",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "25",
+    "question": "State two possible reasons why the sum of the kinetic energy of the β-particle and the energy of the γ radiation is less than the total energy released during the decay of a nucleus.",
+    "markScheme": "an antineutrino is produced and it has energy\n\nthe daughter nucleus has kinetic energy",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-026",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "26",
+    "question": "Suggest why the β– particles are emitted with a range of kinetic energies.",
+    "markScheme": "antineutrinos emitted\n\nenergy and momentum shared with antineutrinos",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-027",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "27",
+    "question": "The emitted β -particles have a range of energies up to a maximum value.\n\nUse conservation laws to explain why this range of energies leads to the suggestion that another particle is emitted by the decaying strontium-90 nucleus together with the β-particle .",
+    "markScheme": "if no other particle, β-particle would always have same energy\n\nrange of energies means range of speeds / momenta\n\nfor conservation of energy and momentum\nmust be another particle to share energy / momentum",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-028",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "28",
+    "question": "The isotopes Radium-224 and Radium-226 both undergo spontaneous α-particle decay. The energy of the α-particles emitted from Radium-224 is larger than that of Radium-226.\n\nSuggest, with a reason, which of the two isotopes has the larger decay constant.",
+    "markScheme": "greater energy of α-particle means parent nucleus is less stable\n\nnucleus more likely to decay\n\nhence Radium-224",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-029",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "29",
+    "question": "A radiation detector is placed close to a radioactive source. The detector does not surround the source.\nRadiation is emitted in all directions and, as a result, the activity of the source and the\nmeasured count rate are different.\n\nSuggest two other reasons why the activity and the measured count rate may be different.",
+    "markScheme": "emission from radioactive daughter products\n\nself-absorption in source\n\nabsorption in air before reaching detector\n\ndetector not sensitive to all radiations\n\nwindow of detector may absorb some radiation\n\ndead-time of counter\n\nbackground radiation",
+    "images": [],
+    "syllabusVersion": "2026"
+  },
+  {
+    "id": "H220-030",
+    "topicCode": "H220",
+    "topic": "Nuclear Physics",
+    "sourceNumber": "30",
+    "question": "A radioactive element has a half-life of approximately 4 hours.\n\nSuggest why measurement of the mass and activity of a sample of this element is not appropriate for the determination of its half-life.",
+    "markScheme": "sample activity would decay appreciably whilst measurements are being made",
+    "images": [],
+    "syllabusVersion": "2026"
+  }
+]
