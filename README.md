@@ -4,7 +4,7 @@ React/Vite pilot for H2 Physics qualitative practice. It uses the updated 2026 q
 
 ## What is already included
 
-- 207 questions across H201-H220 imported from `Qualitative Questions (2026 Syllabus) edit superposition.docx`.
+- 205 questions across H201-H220. The main bank was imported from `Qualitative Questions (2026 Syllabus) edit superposition.docx`; H212 Superposition has been reconciled to the latest reviewed `Superposition update (5).docx` revision.
 - 45 question/diagram images extracted from the document and linked to their questions.
 - Private `data/questions.json` with mark schemes, plus generated browser-safe `src/data/questions.public.json` without mark schemes.
 - Google OAuth via Supabase.
