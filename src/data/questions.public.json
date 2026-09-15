@@ -591,7 +591,7 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "5",
-    "question": "The intensity of the light incident on the double slit is now increased without altering its frequency.\n\nCompare the appearance of the fringes after this change with their appearance before this change.",
+    "question": "The intensity of the light incident on the double slit is now increased without altering its frequency. \n\nCompare the appearance of the fringes after this change with their appearance before this change.",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -618,7 +618,7 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "8",
-    "question": "Monochromatic light is incident on a diffraction grating.\n\nDescribe the diffraction of the light waves as they pass through the grating.",
+    "question": "Monochromatic light is incident on a diffraction grating. \n\nDescribe the diffraction of the light waves as they pass through the grating.",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -627,7 +627,7 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "9",
-    "question": "Light of a single wavelength is incident on a diffraction grating.\n\nExplain the part played by interference in the production of the first order maximum by the diffraction grating.",
+    "question": "Light of a single wavelength is incident on a diffraction grating. \n\nExplain the part played by interference in the production of the first order maximum by the diffraction grating.",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -654,7 +654,7 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "12",
-    "question": "State the conditions required for the formation of a standing wave/stationary wave.",
+    "question": "State the conditions required for the formation of a stationary wave.",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -663,7 +663,7 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "13",
-    "question": "Use the principle of superposition to explain the formation of a standing / stationary wave.",
+    "question": "Use the principle of superposition to explain the formation of an observable stationary wave.",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -672,7 +672,7 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "14",
-    "question": "Explain how the standing / stationary wave is formed on a string attached to a wall.",
+    "question": "Explain how the stationary wave is formed on a string attached to a wall.",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -681,7 +681,7 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "15",
-    "question": "An incident sinusoidal sound wave of a single frequency travels up a tube.\n\nExplain how the standing / stationary wave is formed from the incident sound wave.",
+    "question": "An incident sinusoidal sound wave of a single frequency travels up a tube.\n\nExplain how the stationary wave is formed from the incident sound wave.",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -690,7 +690,7 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "16",
-    "question": "A microwave detector is placed between a source of microwaves S and a metal reflector R.\n\nDescribe how standing /stationary waves are formed between R and S.",
+    "question": "A microwave detector is placed between a source of microwaves S and a metal reflector R. \n\nDescribe how stationary waves are formed between R and S.",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -699,7 +699,7 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "17",
-    "question": "State the features of a standing /stationary wave that distinguish it from a progressive wave.",
+    "question": "State the features of a stationary wave that distinguish it from a progressive wave.",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -708,25 +708,7 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "18",
-    "question": "The wave on the string is a standing/ stationary wave.\n\nExplain, by reference to the formation of a stationary wave, what is meant by the speed of the wave on the string.",
-    "images": [],
-    "syllabusVersion": "2026"
-  },
-  {
-    "id": "H212-019",
-    "topicCode": "H212",
-    "topic": "Superposition",
-    "sourceNumber": "19",
-    "question": "A standing sound wave is formed in a tube that is closed at one end. State and explain whether this closed boundary represents a displacement node or displacement antinode.",
-    "images": [],
-    "syllabusVersion": "2026"
-  },
-  {
-    "id": "H212-020",
-    "topicCode": "H212",
-    "topic": "Superposition",
-    "sourceNumber": "20",
-    "question": "A standing sound wave is formed in a tube that is closed at one end. State and explain whether this closed boundary represents a pressure node or pressure antinode.",
+    "question": "The wave on the string is a stationary wave.\n\nExplain, by reference to the formation of a stationary wave, what is meant by the speed of the wave on the string.",
     "images": [],
     "syllabusVersion": "2026"
   },
