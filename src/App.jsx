@@ -20,18 +20,57 @@ function shortId(user) {
 }
 
 
-function formatMarkScheme(markScheme) {
+function cleanMarkText(text) {
+  return text
+    .replace(/(\d)o\b/g, '$1°')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function formatMarkScheme(markScheme, questionId) {
   if (!markScheme) return [];
 
-  return markScheme
+  const blocks = markScheme
     .split(/\n\s*\n/)
-    .map(block => block.replace(/\s*\n\s*/g, ' ').replace(/\s+/g, ' ').trim())
-    .filter(Boolean)
-    .map((text, index) => ({
-      id: `${index}-${text.slice(0, 24)}`,
-      text,
-      note: /^note:/i.test(text)
-    }));
+    .map(block => cleanMarkText(block.replace(/\s*\n\s*/g, ' ')))
+    .filter(Boolean);
+
+  // This question has several equivalent/related conditions. Group them by idea
+  // so the display does not imply that every printed line is a separate mark.
+  if (questionId === 'H212-002') {
+    const note = blocks.find(text => /^note:/i.test(text));
+    const points = blocks.filter(text => !/^note:/i.test(text));
+
+    const groups = [
+      {
+        id: 'formation',
+        label: 'Formation',
+        lines: points.slice(0, 2)
+      },
+      {
+        id: 'bright',
+        label: 'Bright / maximum fringes',
+        lines: points.slice(2, 4)
+      },
+      {
+        id: 'dark',
+        label: 'Dark / minimum fringes',
+        lines: points.slice(4, 6)
+      }
+    ].filter(group => group.lines.length);
+
+    if (note) {
+      groups.push({ id: 'note', text: note, note: true });
+    }
+
+    return groups;
+  }
+
+  return blocks.map((text, index) => ({
+    id: `${index}-${text.slice(0, 24)}`,
+    text,
+    note: /^note:/i.test(text)
+  }));
 }
 
 export default function App() {
@@ -470,10 +509,19 @@ export default function App() {
                     <div className="mark-scheme">
                       <h3>Checkpoint answer</h3>
                       <div className="mark-points">
-                        {formatMarkScheme(current.markScheme).map(point =>
+                        {formatMarkScheme(current.markScheme, q.id).map(point =>
                           point.note ? (
                             <div key={point.id} className="mark-note">
                               {point.text}
+                            </div>
+                          ) : point.lines ? (
+                            <div key={point.id} className="mark-group">
+                              <div className="mark-group-label">{point.label}</div>
+                              {point.lines.map((line, lineIndex) => (
+                                <div key={`${point.id}-${lineIndex}`} className="mark-group-line">
+                                  {line}
+                                </div>
+                              ))}
                             </div>
                           ) : (
                             <div key={point.id} className="mark-point">
@@ -482,6 +530,9 @@ export default function App() {
                             </div>
                           )
                         )}
+                      </div>
+                      <div className="mark-scheme-hint">
+                        Lines are grouped by idea for readability; they do not represent one mark each.
                       </div>
                     </div>
                   )}
