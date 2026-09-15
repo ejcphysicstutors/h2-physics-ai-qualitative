@@ -627,7 +627,7 @@
     "topic": "Superposition",
     "sourceNumber": "2",
     "question": "Explain how the interference fringes are formed.",
-    "markScheme": "As the waves pass through the two narrow slits, they diffract (spread out) which allows waves from each slit to overlap and superpose\n\nwaves from the double slit are coherent (meaning they have constant phase difference over time)\n\ndepending on question context, the answer proceeds as follows:\n\n(A) source are in phase\n\nConstructive interference (Maxima / Bright Fringe/ Loud sound) occurs at points where the path difference is nλ (n = 0,1,2,3…) the waves superpose in phase to interfere constructively.\n\nDestructive interference (Minima / Dark fringe / Soft sound) occurs at points where the path difference is (n + ½)λ (n = 0,1,2,3…) the waves superpose in anti-phase to interfere destructively\n\n(B) source are in anti phase (not tested often)\n\nConstructive interference (Maxima / Bright Fringe/ Loud sound) occurs at points where the path difference is (n + ½)λ (n = 0,1,2,3…) the waves superpose in phase to interfere constructively.\n\nDestructive interference (Minima / Dark fringe / Soft sound) occurs at points where the path difference is nλ (n = 0,1,2,3…) the waves superpose in anti-phase to interfere destructively\n\nBONUS:\nIf asked for “observable interference pattern” include:\n\nThe two superposing waves should have equal or roughly equal amplitude.",
+    "markScheme": "waves from the double slit are coherent \n\nwaves from each slit meet + superpose\n\n(assume sources in phase) maximum / bright fringe where path difference is nλ \n\nwaves reach with a phase difference of n360o / 2π n rad\n\nminimum / dark fringe where path \ndifference is (n + ½)λ\n\nwaves reach with a phase difference of \n(2n + 1) 180o / (2n + 1)π rad\n\nNote: Avoid using the phrase “interfere”",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -637,7 +637,7 @@
     "topic": "Superposition",
     "sourceNumber": "3",
     "question": "State the conditions required for maxima to be formed in an interference pattern produced by two sources of microwaves.",
-    "markScheme": "Two waves must overlap and superpose\n\nboth sources are coherent / have constant phase difference (not just constant λ or frequency)\n\nwaves meet/ superpose in phase at that point to interfere constructively (phase difference when they superpose = 0, 2π, 4π… 2nπ or path difference = 0, λ, 2λ if sources are in phase)\n\nsame direction of polarisation or unpolarised",
+    "markScheme": "waves meet + superpose \n\ncoherence / constant phase difference (not constant λ or frequency)\n\npath difference = 0, λ, 2λ \nphase difference = 0, 2π, 4π \n\nsame direction of polarisation or unpolarised\n\nNote: Avoid using the phrase “interfere”",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -647,7 +647,7 @@
     "topic": "Superposition",
     "sourceNumber": "4",
     "question": "Describe and explain the high intensity regions due to two source interference.",
-    "markScheme": "since  path difference = nλ (where n = 0, 1, 2, …) (for source in phase)\n\nwaves reach in phase or phase difference = 0, 2π, 4π… 2nπ\n\nconstructive interference, hence it is an intensity maximum",
+    "markScheme": "path difference = nλ (where n = 0, 1, 2, …)\n\nphase difference = 0 or waves meet and superpose in phase\n\nconstructive interference, hence it is an intensity maximum",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -656,7 +656,7 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "5",
-    "question": "The intensity of the light incident on the double slit is now increased without altering its frequency.\n\nCompare the appearance of the fringes after this change with their appearance before this change.",
+    "question": "The intensity of the light incident on the double slit is now increased without altering its frequency. \n\nCompare the appearance of the fringes after this change with their appearance before this change.",
     "markScheme": "no change to fringe separation/fringe width/number of fringes\n\nbright fringes are brighter\n\ndark fringes are unchanged\n\ncontrast between fringes increases",
     "images": [],
     "syllabusVersion": "2026"
@@ -667,7 +667,7 @@
     "topic": "Superposition",
     "sourceNumber": "6",
     "question": "The intensity of the light passing through the two slits was initially the same. The intensity of the light through one of the slits is now reduced. Compare the appearance of the fringes before and after the change of intensity.",
-    "markScheme": "same fringe separation\n\nbright fringes less bright\n\ndark fringes brighter\n\ncontrast between fringes decreases",
+    "markScheme": "same fringe separation\n \nbright fringes less bright\n\ndark fringes brighter\n\ncontrast between fringes decreases",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -677,7 +677,7 @@
     "topic": "Superposition",
     "sourceNumber": "7",
     "question": "Explain why the pattern of fringes on the screen is seen over a limited area of the screen.",
-    "markScheme": "As light passes through the two narrow slits, it diffracts (spread out) allowing the two beams to overlap and superpose\n\nThe resulting double slit interference pattern of constant fringe separation is enveloped / modulated by the single slit diffraction pattern of the individual slits.\n\nThe intensity of diffracted light from each slit decreases from the central maximum to zero at the first single slit diffraction minimum\n\nTherefore, interference fringes are only bright and visible within this central single slit maximum, limiting the pattern to a small central area of the screen,",
+    "markScheme": "pattern seen due to diffraction (at each slit)\n\nfor large amount of diffraction, wavelength is about slit width\n\nslit width is much bigger than wavelength, so very little diffraction",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -686,8 +686,8 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "8",
-    "question": "Monochromatic light is incident on a diffraction grating.\n\nDescribe the diffraction of the light waves as they pass through the grating.",
-    "markScheme": "as wave(s) pass through the narrow slit(s) of the grating\n\nwave(s) spread into geometric shadow behind each individual slit",
+    "question": "Monochromatic light is incident on a diffraction grating. \n\nDescribe the diffraction of the light waves as they pass through the grating.",
+    "markScheme": "as wave(s) pass through the slit(s)\n\nwave(s) spread (into geometric shadow)",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -696,8 +696,8 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "9",
-    "question": "Light of a single wavelength is incident on a diffraction grating.\n\nExplain the part played by interference in the production of the first order maximum by the diffraction grating.",
-    "markScheme": "Diffraction and interference: diffraction of waves through each narrow slit overlapping and superposing with each other (from coherent sources at each element)\n\npath difference of exactly 1 λ such that\n\nwaves reach with a phase difference of 360° / 2π\n\n(by principal of superposition) waves interfere constructively to produce the first order maxima",
+    "question": "Light of a single wavelength is incident on a diffraction grating. \n\nExplain the part played by interference in the production of the first order maximum by the diffraction grating.",
+    "markScheme": "interference: meeting of waves (from coherent sources at each element)\n\npath difference λ\n\nwaves reach with a phase difference of 360° / 2π \n\nproduces the first order",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -707,7 +707,7 @@
     "topic": "Superposition",
     "sourceNumber": "10",
     "question": "State two differences between the first order spectrum and the second order spectrum.",
-    "markScheme": "The second-order spectrum is wider (more spread out) than the first-order spectrum.\n\nThe second-order spectrum is significantly dimmer (lower intensity) than the first-order spectrum.",
+    "markScheme": "lines further apart in second order\n\nlines fainter in second order",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -717,7 +717,7 @@
     "topic": "Superposition",
     "sourceNumber": "11",
     "question": "Suggest one reason why the fringe pattern produced by light passing through a diffraction grating is brighter than that produced from the same source with a double slit.",
-    "markScheme": "More slits for light to pass through such that bright fringe comprise light from more sources superposing in phase to give a higher peak intensity.",
+    "markScheme": "More slits for light to pass through",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -726,8 +726,8 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "12",
-    "question": "State the conditions required for the formation of a standing wave/stationary wave.",
-    "markScheme": "two waves travelling in opposite directions (along the same straight line) superposing\n\nwaves are same type and have same speed, frequency and wavelength (and approximately equal amplitudes for complete cancellation at nodes)\n\nNote: coherence is NOT accepted here. (coherence is a source relationship for 2D interference e.g. double slit type of interference. Standing waves meet with different phase differences depending on the point at which they meet e.g. meet in antiphase at node, in phase at antinode)",
+    "question": "State the conditions required for the formation of a stationary wave.",
+    "markScheme": "two waves travelling in opposite directions meet\n\nwaves are same type and have same speed, frequency and wavelength\n\nNote: since question is asking about conditions of stationary instead of how stationary wave is formed, stating “meet” is sufficient in this case (instead of “superpose”)",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -736,8 +736,8 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "13",
-    "question": "Use the principle of superposition to explain the formation of a standing / stationary wave.",
-    "markScheme": "Two progressive waves of the same type, speed, and frequency travel in opposite directions along the same straight line\n\nAs the waves overlap, they superpose such that the resultant displacement at any point is the vector sum of their individual displacements\n\nAt points where they arrive constantly in phase, they constructively superpose to form antinodes (points of maximum amplitude). At points where they arrive constantly in anti-phase, they cancel out to form nodes (points of zero amplitude)",
+    "question": "Use the principle of superposition to explain the formation of an observable stationary wave.",
+    "markScheme": "two waves travelling (along the same line) in opposite directions meet and superpose \n\nsame speed frequency, wavelength, (do not use coherent) similar amplitude \n\nresultant displacement is the sum of displacements of each wave \n\nproduces nodes and antinodes\n\nNote: Must have the word “superpose”",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -746,8 +746,8 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "14",
-    "question": "Explain how the standing / stationary wave is formed on a string attached to a wall.",
-    "markScheme": "Progressive transverse wave moves along string and reflects at fixed point/end/wall/boundary (producing a reflected progressive wave travelling in opposite direction)\n\nthe incident and reflected waves have the same speed, frequency and wavelength\n\nThey superpose such that at points where they arrive constantly in phase, they constructively superpose to form antinodes and at points where they arrive in anti-phase, they destructively interfere to form nodes.",
+    "question": "Explain how the stationary wave is formed on a string attached to a wall.",
+    "markScheme": "wave moves along string and reflects at fixed point/end/wall/boundary\n\nthe incident and reflected waves meet and superpose\n\nwaves have same frequency, wavelength and speed (and similar amplitude) (do not use coherent)\n\nNote: Must have the word “superpose”",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -756,8 +756,8 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "15",
-    "question": "An incident sinusoidal sound wave of a single frequency travels up a tube.\n\nExplain how the standing / stationary wave is formed from the incident sound wave.",
-    "markScheme": "The incident progressive sound wave travels up the tube and reflects off the end of the tube (either the open or closed boundary), producing a reflected progressive wave travelling in the opposite direction\n\nThe incident and reflected sound waves have the same speed, frequency, and wavelength (as they originate from the same source and travel through the same medium inside the tube)\n\nThe waves overlap and superpose inside the tube. Points of constant in-phase superposition form antinodes (maximum amplitude), and points of constant anti-phase superposition form nodes (zero amplitude)",
+    "question": "An incident sinusoidal sound wave of a single frequency travels up a tube.\n\nExplain how the stationary wave is formed from the incident sound wave.",
+    "markScheme": "incident wave reflects at end/top of tube\n\nincident wave and reflected wave meet and superpose\n\nwaves have same frequency, wavelength and speed  (do not use coherent)\n\nNote: Must have the word “superpose”",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -766,8 +766,8 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "16",
-    "question": "A microwave detector is placed between a source of microwaves S and a metal reflector R.\n\nDescribe how standing /stationary waves are formed between R and S.",
-    "markScheme": "microwave from source S reflects at reflector R\n\nThe incident and reflected waves travel in opposite directions with the same speed, frequency, and wavelength (as they originate from the same source)\n\nThe two waves meet and superpose. At points where they arrive constantly in phase, they constructively superpose to form antinodes (maximum intensity). At points where they arrive constant in antiphase, they destructively superpose to form nodes.",
+    "question": "A microwave detector is placed between a source of microwaves S and a metal reflector R. \n\nDescribe how stationary waves are formed between R and S.",
+    "markScheme": "microwave from soure S reflects at reflector R\n\nreflected and (further) incident waves meet and superpose\n\nwaves have same frequency, wavelength and speed (do not use coherent)\n\nNote: Must have the word “superpose”",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -776,8 +776,8 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "17",
-    "question": "State the features of a standing /stationary wave that distinguish it from a progressive wave.",
-    "markScheme": "no net energy transfer (progressive transfer energy in direction of wave propagation)\n\namplitude varies along its length (progressive: all particles oscillate with same amplitude)\n\nnodes and antinodes (progressive don’t have)\n\nneighbouring points within inter-nodal loop vibrate in phase (progressive wave particles have varying phases)",
+    "question": "State the features of a stationary wave that distinguish it from a progressive wave.",
+    "markScheme": "no energy transfer\n\namplitude varies along its length\n\nnodes and antinodes\n\nneighbouring points within inter-nodal loop vibrate in phase",
     "images": [],
     "syllabusVersion": "2026"
   },
@@ -786,28 +786,8 @@
     "topicCode": "H212",
     "topic": "Superposition",
     "sourceNumber": "18",
-    "question": "The wave on the string is a standing/ stationary wave.\n\nExplain, by reference to the formation of a stationary wave, what is meant by the speed of the wave on the string.",
-    "markScheme": "The standing wave is formed by superposition of two progressive waves (incident and reflected) travelling in opposite directions along the string.\n\nWhile the standing wave profile does not advance (no energy transfer), speed refers to the speed of incident and reflected progressive waves",
-    "images": [],
-    "syllabusVersion": "2026"
-  },
-  {
-    "id": "H212-019",
-    "topicCode": "H212",
-    "topic": "Superposition",
-    "sourceNumber": "19",
-    "question": "A standing sound wave is formed in a tube that is closed at one end. State and explain whether this closed boundary represents a displacement node or displacement antinode.",
-    "markScheme": "The rigid closed end of the tube restricts the longitudinal movement of air particles. Thus, air particles at the boundary have zero displacement (amplitude), forming a displacement node.",
-    "images": [],
-    "syllabusVersion": "2026"
-  },
-  {
-    "id": "H212-020",
-    "topicCode": "H212",
-    "topic": "Superposition",
-    "sourceNumber": "20",
-    "question": "A standing sound wave is formed in a tube that is closed at one end. State and explain whether this closed boundary represents a pressure node or pressure antinode.",
-    "markScheme": "Because the particles on either side of the closed end are constantly rushing toward or away from the rigid wall, the fluctuations in air pressure are at a maximum, forming a pressure antinode",
+    "question": "The wave on the string is a stationary wave.\n\nExplain, by reference to the formation of a stationary wave, what is meant by the speed of the wave on the string.",
+    "markScheme": "wave is reflected at end\n\nincident and reflected waves travelling in opposite directions meet and superpose\n\nspeed is the speed of incident and reflected waves\n\nNote: Must have the word “superpose”",
     "images": [],
     "syllabusVersion": "2026"
   },
