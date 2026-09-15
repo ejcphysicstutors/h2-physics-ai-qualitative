@@ -6,7 +6,8 @@
     "sourceNumber": "1",
     "question": "State what is meant by a scalar quantity and by a vector quantity.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H201-002",
@@ -15,7 +16,8 @@
     "sourceNumber": "2",
     "question": "State how random errors may be reduced.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H201-003",
@@ -24,7 +26,8 @@
     "sourceNumber": "3",
     "question": "Explain why the precision in the value of the resistivity is improved by using a micrometer screw gauge rather than a metre rule to measure the diameter of the wire.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H201-004",
@@ -33,7 +36,8 @@
     "sourceNumber": "4",
     "question": "Explain the difference between accuracy and precision.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H201-005",
@@ -42,7 +46,8 @@
     "sourceNumber": "5",
     "question": "Describe the effects, one in each case, of systematic errors and random errors when using a micrometer screw gauge to take readings for the diameter of a wire.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H202-001",
@@ -51,7 +56,8 @@
     "sourceNumber": "1",
     "question": "State the conditions necessary in order to use the equations of motion such as\nv = u + at",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H203-001",
@@ -60,7 +66,8 @@
     "sourceNumber": "1",
     "question": "A beach ball is released from a balcony at the top of a tall building. The ball falls vertically from rest and reaches a constant (terminal) velocity.\n\nState and explain the variation, if any, in the magnitude of the acceleration of the ball in during the time interval when the ball is moving downwards before it reaches constant (terminal) velocity.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H203-002",
@@ -69,7 +76,8 @@
     "sourceNumber": "2",
     "question": "Use Newton’s second and third law to explain why, during the collision, the change in momentum of block A is equal and opposite to the change in momentum of block B.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H203-003",
@@ -78,7 +86,8 @@
     "sourceNumber": "3",
     "question": "Explain how the collision is inelastic and still obeys the law of conservation of energy.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H203-004",
@@ -87,7 +96,8 @@
     "sourceNumber": "4",
     "question": "State and explain whether linear momentum is conserved during the collision of the ball with the floor.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H204-001",
@@ -96,7 +106,8 @@
     "sourceNumber": "1",
     "question": "State the two conditions for a system to be in equilibrium.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H204-002",
@@ -105,7 +116,8 @@
     "sourceNumber": "2",
     "question": "Explain the origin of the upthrust in water.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H205-001",
@@ -114,7 +126,8 @@
     "sourceNumber": "1",
     "question": "An object falls vertically from rest through air. State and explain the energy conversions that occur as the object falls.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H206-001",
@@ -123,7 +136,8 @@
     "sourceNumber": "1",
     "question": "Explain why centripetal force does not change the speed of the object moving in a circular motion",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H206-002",
@@ -132,7 +146,8 @@
     "sourceNumber": "2",
     "question": "Explain why an object moving in a uniform circular motion accelerates even though its speed remains the same.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H206-003",
@@ -143,7 +158,8 @@
     "images": [
       "/question-images/H206-003-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H207-001",
@@ -152,7 +168,8 @@
     "sourceNumber": "1",
     "question": "Explain why, although the planets and the Sun are not point masses, Newton’s Law of Gravitation also applies to planets orbiting the Sun.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H207-002",
@@ -161,7 +178,8 @@
     "sourceNumber": "2",
     "question": "By reference to the pattern of the lines of gravitational force near to the surface of the Earth, explain why the acceleration of free fall near to the Earth’s surface is approximately constant.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H207-003",
@@ -170,7 +188,8 @@
     "sourceNumber": "3",
     "question": "Explain why the gravitational potential near an isolated mass is always negative.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H207-004",
@@ -179,7 +198,8 @@
     "sourceNumber": "4",
     "question": "Explain why, for changes in vertical position of a point mass near the Earth’s surface, the gravitational field strength may be considered to be constant.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H207-005",
@@ -188,7 +208,8 @@
     "sourceNumber": "5",
     "question": "Explain why, at the surface of a planet, gravitational field strength is numerically equal to the acceleration of free fall.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H207-006",
@@ -197,7 +218,8 @@
     "sourceNumber": "6",
     "question": "A spherical planet may be assumed to be an isolated point mass with its mass concentrated at its centre. A small mass m is moving near to, and normal to, the surface of the planet. The mass moves away from the planet through a short distance h.\n\nState and explain why the change in gravitational potential energy ∆EP of the mass is given by the expression\n\n∆EP = mgh\n\nwhere g is the acceleration of free fall.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H207-007",
@@ -206,7 +228,8 @@
     "sourceNumber": "7",
     "question": "Suggest why, for small changes in height near the Earth’s surface, gravitational potential is approximately constant.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H207-008",
@@ -215,7 +238,8 @@
     "sourceNumber": "8",
     "question": "Explain how a satellite may be in a circular orbit around a planet.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H207-009",
@@ -224,7 +248,8 @@
     "sourceNumber": "9",
     "question": "Explain what is meant by a geostationary satellite.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H207-010",
@@ -233,7 +258,8 @@
     "sourceNumber": "10",
     "question": "State four features of the orbit of a geostationary satellite.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H207-011",
@@ -242,7 +268,8 @@
     "sourceNumber": "11",
     "question": "Suggest one advantage and one disadvantage of the use of geostationary satellites compared with polar-orbiting satellites for communication between points on the Earth’s surface.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H207-012",
@@ -251,7 +278,8 @@
     "sourceNumber": "12",
     "question": "The astronaut reports that he is ‘weightless’, despite being in the Earth’s gravitational field.\n\nSuggest what is meant by the astronaut reporting that he is ‘weightless’.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H207-013",
@@ -260,7 +288,8 @@
     "sourceNumber": "13",
     "question": "Explain why the normal reaction on the mass will have different values at the equator and at the poles.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H207-014",
@@ -269,7 +298,8 @@
     "sourceNumber": "14",
     "question": "Suggest one advantage of launching satellites from the Equator in the direction of rotation of the Earth.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H208-001",
@@ -278,7 +308,8 @@
     "sourceNumber": "1",
     "question": "Distinguish between melting and evaporation.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H208-002",
@@ -287,7 +318,8 @@
     "sourceNumber": "2",
     "question": "An ideal gas is assumed to consist of atoms or molecules that behave as hard, identical spheres that are in continuous motion and undergo elastic collisions.\n\nState four further assumptions of the kinetic theory of gases.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H208-003",
@@ -296,7 +328,8 @@
     "sourceNumber": "3",
     "question": "Describe the motion of molecules in a gas, according to the kinetic theory of gases.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H208-004",
@@ -305,7 +338,8 @@
     "sourceNumber": "4",
     "question": "Use one of the assumptions of the kinetic theory of gases to explain why the potential energy of the molecules of an ideal gas is zero.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H208-005",
@@ -314,7 +348,8 @@
     "sourceNumber": "5",
     "question": "Explain why, for an ideal gas, the change in internal energy is directly proportional to the change in thermodynamic temperature of the gas.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H208-006",
@@ -323,7 +358,8 @@
     "sourceNumber": "6",
     "question": "Explain why the change in kinetic energy of the molecules of ideal gas is equal to the change in internal energy.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H208-007",
@@ -332,7 +368,8 @@
     "sourceNumber": "7",
     "question": "During melting, a solid becomes liquid with little or no change in volume.\n\nUse kinetic theory to explain why, during the melting process, thermal energy is required although there is no change in temperature.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H208-008",
@@ -341,7 +378,8 @@
     "sourceNumber": "8",
     "question": "During an isovolumetric process, internal energy of an ideal gas decreases.\n\nBy considering molecular energy, state and explain qualitatively the change, if any, in the temperature of the gas.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H208-009",
@@ -350,7 +388,8 @@
     "sourceNumber": "9",
     "question": "Explain qualitatively how molecular movement causes the pressure exerted by a gas.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H208-010",
@@ -359,7 +398,8 @@
     "sourceNumber": "10",
     "question": "With reference to molecular kinetic and potential energies, describe and explain how the internal energy of the system changes when a gas is heated at constant volume so that its temperature increases.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H208-011",
@@ -368,7 +408,8 @@
     "sourceNumber": "11",
     "question": "The pressure of an ideal gas is decreased at constant temperature.\n\nExplain what change, if any, occurs in the internal energy of the gas.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H209-001",
@@ -377,7 +418,8 @@
     "sourceNumber": "1",
     "question": "State and explain the total change in internal energy of the gas for one complete cycle.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H209-002",
@@ -386,7 +428,8 @@
     "sourceNumber": "2",
     "question": "Explain, by reference to work done and heating, whether the internal energy of the gas changes when the gas in a toy balloon when the balloon bursts suddenly.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H209-003",
@@ -395,7 +438,8 @@
     "sourceNumber": "3",
     "question": "Explain, by reference to work done and heating, whether the internal energy of the ice changes when ice melting at constant temperature and at atmospheric pressure to form water that is more dense than the ice.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H209-004",
@@ -404,7 +448,8 @@
     "sourceNumber": "4",
     "question": "When a liquid is boiling, thermal energy must be supplied in order to maintain a constant temperature.\n\nState two processes for which thermal energy is required during boiling.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H209-005",
@@ -413,7 +458,8 @@
     "sourceNumber": "5",
     "question": "State and explain qualitatively the change, if any, in the internal energy of a cylinder containing gas at constant volume is in sunlight so that its temperature rises from 25 °C to 35 °C.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H209-006",
@@ -422,7 +468,8 @@
     "sourceNumber": "6",
     "question": "Use the first law of thermodynamics to explain why the specific latent heat of vaporisation is greater than the specific latent heat of fusion for a particular substance.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H209-007",
@@ -431,7 +478,8 @@
     "sourceNumber": "7",
     "question": "Some water in a saucepan is boiling.\nExplain why\nexternal work is done by the boiling water,\nthere is a change in the internal energy as water changes to steam.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H209-008",
@@ -440,7 +488,8 @@
     "sourceNumber": "8",
     "question": "A student states, quite wrongly, that temperature measures the amount of thermal energy (heat) in a body.\n\nState and explain three observations that show why this statement is incorrect.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H209-009",
@@ -449,7 +498,8 @@
     "sourceNumber": "9",
     "question": "Suggest why the rate of rise of temperature of an object that is being heated decreases to zero.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H210-001",
@@ -458,7 +508,8 @@
     "sourceNumber": "1",
     "question": "State two conditions necessary for a mass to be undergoing simple harmonic motion.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H210-002",
@@ -467,7 +518,8 @@
     "sourceNumber": "2",
     "question": "The acceleration a of the tube is given by the expression\na = – (Aρg/M) x\nwhere x is the vertical displacement of the tube from its equilibrium position.\n\nUse the expression to explain why the tube undergoes simple harmonic oscillations in the liquid.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H210-003",
@@ -476,7 +528,8 @@
     "sourceNumber": "3",
     "question": "Explain how the acceleration-height graph of a vertical mass-spring system shows that it is undergoing simple harmonic motion.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H210-004",
@@ -485,7 +538,8 @@
     "sourceNumber": "4",
     "question": "Explain how the acceleration-displacement from equilibrium graph of a mass-spring system shows that it is undergoing simple harmonic motion.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H210-005",
@@ -494,7 +548,8 @@
     "sourceNumber": "5",
     "question": "Explain what is meant by the natural frequency of vibration of a system.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H210-006",
@@ -503,7 +558,8 @@
     "sourceNumber": "6",
     "question": "For an oscillating body, state what is meant by what is meant by forced frequency.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H210-007",
@@ -512,7 +568,8 @@
     "sourceNumber": "7",
     "question": "Distinguish between free oscillations and forced oscillations.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H210-008",
@@ -521,7 +578,8 @@
     "sourceNumber": "8",
     "question": "For an oscillating body, state what is meant by resonance.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H210-009",
@@ -530,7 +588,8 @@
     "sourceNumber": "9",
     "question": "State and explain one situation where resonance is useful.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H210-010",
@@ -539,7 +598,8 @@
     "sourceNumber": "10",
     "question": "State and briefly explain one other situation in which resonance should be avoided.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H211-001",
@@ -548,7 +608,8 @@
     "sourceNumber": "1",
     "question": "State why a sound wave cannot be polarised.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H212-001",
@@ -557,7 +618,8 @@
     "sourceNumber": "1",
     "question": "Explain what is meant by coherent waves.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H212-002",
@@ -566,7 +628,8 @@
     "sourceNumber": "2",
     "question": "Explain how the interference fringes are formed.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H212-003",
@@ -575,7 +638,8 @@
     "sourceNumber": "3",
     "question": "State the conditions required for maxima to be formed in an interference pattern produced by two sources of microwaves.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H212-004",
@@ -584,7 +648,8 @@
     "sourceNumber": "4",
     "question": "Describe and explain the high intensity regions due to two source interference.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H212-005",
@@ -593,7 +658,8 @@
     "sourceNumber": "5",
     "question": "The intensity of the light incident on the double slit is now increased without altering its frequency. \n\nCompare the appearance of the fringes after this change with their appearance before this change.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H212-006",
@@ -602,7 +668,8 @@
     "sourceNumber": "6",
     "question": "The intensity of the light passing through the two slits was initially the same. The intensity of the light through one of the slits is now reduced. Compare the appearance of the fringes before and after the change of intensity.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H212-007",
@@ -611,7 +678,8 @@
     "sourceNumber": "7",
     "question": "Explain why the pattern of fringes on the screen is seen over a limited area of the screen.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H212-008",
@@ -620,7 +688,8 @@
     "sourceNumber": "8",
     "question": "Monochromatic light is incident on a diffraction grating. \n\nDescribe the diffraction of the light waves as they pass through the grating.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H212-009",
@@ -629,7 +698,8 @@
     "sourceNumber": "9",
     "question": "Light of a single wavelength is incident on a diffraction grating. \n\nExplain the part played by interference in the production of the first order maximum by the diffraction grating.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H212-010",
@@ -638,7 +708,8 @@
     "sourceNumber": "10",
     "question": "State two differences between the first order spectrum and the second order spectrum.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H212-011",
@@ -647,7 +718,8 @@
     "sourceNumber": "11",
     "question": "Suggest one reason why the fringe pattern produced by light passing through a diffraction grating is brighter than that produced from the same source with a double slit.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H212-012",
@@ -656,7 +728,8 @@
     "sourceNumber": "12",
     "question": "State the conditions required for the formation of a stationary wave.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H212-013",
@@ -665,7 +738,8 @@
     "sourceNumber": "13",
     "question": "Use the principle of superposition to explain the formation of an observable stationary wave.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H212-014",
@@ -674,7 +748,8 @@
     "sourceNumber": "14",
     "question": "Explain how the stationary wave is formed on a string attached to a wall.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H212-015",
@@ -683,7 +758,8 @@
     "sourceNumber": "15",
     "question": "An incident sinusoidal sound wave of a single frequency travels up a tube.\n\nExplain how the stationary wave is formed from the incident sound wave.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H212-016",
@@ -692,7 +768,8 @@
     "sourceNumber": "16",
     "question": "A microwave detector is placed between a source of microwaves S and a metal reflector R. \n\nDescribe how stationary waves are formed between R and S.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H212-017",
@@ -701,7 +778,8 @@
     "sourceNumber": "17",
     "question": "State the features of a stationary wave that distinguish it from a progressive wave.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H212-018",
@@ -710,7 +788,8 @@
     "sourceNumber": "18",
     "question": "The wave on the string is a stationary wave.\n\nExplain, by reference to the formation of a stationary wave, what is meant by the speed of the wave on the string.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H213-001",
@@ -719,7 +798,8 @@
     "sourceNumber": "1",
     "question": "For any point outside a spherical conductor, the charge on the sphere may be considered to act as a point charge at its centre.\n\nBy reference to electric field lines, explain this.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H213-002",
@@ -728,7 +808,8 @@
     "sourceNumber": "2",
     "question": "Suggest why it may be assumed that the proton and the nucleus behave as point\ncharges when using Coulomb’s law.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H213-003",
@@ -737,7 +818,8 @@
     "sourceNumber": "3",
     "question": "Suggest why the electric field strength is zero inside metals.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H213-004",
@@ -746,7 +828,8 @@
     "sourceNumber": "4",
     "question": "Explain whether a plastic sphere can be at equipotential throughout the sphere.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H213-005",
@@ -757,7 +840,8 @@
     "images": [
       "/question-images/H213-005-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H213-006",
@@ -766,7 +850,8 @@
     "sourceNumber": "6",
     "question": "The gradient at a point on the electric potential energy-distance graph is G.\n\nShow that the electric field strength E at this point due to the charged point mass is given by the expression\n\nEq = G\n\nwhere q is the charge at this point.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H213-007",
@@ -775,7 +860,8 @@
     "sourceNumber": "7",
     "question": "State one similarity and one difference between the electric field lines and the gravitational field lines around an isolated positively charged metal sphere.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H213-008",
@@ -786,7 +872,8 @@
     "images": [
       "/question-images/H213-008-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H213-009",
@@ -795,7 +882,8 @@
     "sourceNumber": "9",
     "question": "The definitions of electric potential and of gravitational potential at a point have some similarity.\n\nState one similarity between these two definitions.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H213-010",
@@ -804,7 +892,8 @@
     "sourceNumber": "10",
     "question": "Explain why values of gravitational potential are always negative whereas values of electric potential may be positive or negative.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H213-011",
@@ -813,7 +902,8 @@
     "sourceNumber": "11",
     "question": "Describe the pattern of the field lines (lines of force) between the plates.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H213-012",
@@ -822,7 +912,8 @@
     "sourceNumber": "12",
     "question": "State what is meant by a field line (line of force) in an electric field.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H213-013",
@@ -831,7 +922,8 @@
     "sourceNumber": "13",
     "question": "By reference to an atom in the air, suggest the mechanism by which the electric field causes the air to become conducting.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H213-014",
@@ -840,7 +932,8 @@
     "sourceNumber": "14",
     "question": "Explain a situation when a small test charge is moved from a point to another in a field, the net work done is zero.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H213-015",
@@ -849,7 +942,8 @@
     "sourceNumber": "15",
     "question": "State the relationship between electric potential and electric field strength at a point.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H213-016",
@@ -858,7 +952,8 @@
     "sourceNumber": "16",
     "question": "Explain why calculations involving motion of atomic particles in a uniform field between parallel plates do not need to include the gravitational effects on the electron.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H213-017",
@@ -867,7 +962,8 @@
     "sourceNumber": "17",
     "question": "By considering energy changes of a charged particle, explain why the speed at which it reaches the collecting plate from the emitting plate is independent of the separation of parallel plates.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H213-018",
@@ -878,7 +974,8 @@
     "images": [
       "/question-images/H213-018-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H214-001",
@@ -887,7 +984,8 @@
     "sourceNumber": "1",
     "question": "Using energy transformations, describe the electromotive force (e.m.f.) of a battery and the potential difference (p.d.) across a resistor.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H214-002",
@@ -896,7 +994,8 @@
     "sourceNumber": "2",
     "question": "Explain why, for constant current in the wire, the potential difference between any two points on the wire is proportional to the distance between the points.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H214-003",
@@ -907,7 +1006,8 @@
     "images": [
       "/question-images/H214-003-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H214-004",
@@ -918,7 +1018,8 @@
     "images": [
       "/question-images/H214-004-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H214-005",
@@ -927,7 +1028,8 @@
     "sourceNumber": "5",
     "question": "For a cell, explain what is meant by internal resistance.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H214-006",
@@ -938,7 +1040,8 @@
     "images": [
       "/question-images/H214-006-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H214-007",
@@ -949,7 +1052,8 @@
     "images": [
       "/question-images/H214-007-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H214-008",
@@ -958,7 +1062,8 @@
     "sourceNumber": "8",
     "question": "By considering energy, explain why the potential difference across the battery’s terminals is less than the e.m.f. of the battery.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H215-001",
@@ -969,7 +1074,8 @@
     "images": [
       "/question-images/H215-001-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H215-002",
@@ -980,7 +1086,8 @@
     "images": [
       "/question-images/H215-002-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H215-003",
@@ -991,7 +1098,8 @@
     "images": [
       "/question-images/H215-003-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H215-004",
@@ -1003,7 +1111,8 @@
       "/question-images/H215-004-1.png",
       "/question-images/H215-004-2.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H216-001",
@@ -1012,7 +1121,8 @@
     "sourceNumber": "1",
     "question": "State the condition for a charged particle to experience a force in a magnetic field.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H216-002",
@@ -1023,7 +1133,8 @@
     "images": [
       "/question-images/H216-002-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H216-003",
@@ -1034,7 +1145,8 @@
     "images": [
       "/question-images/H216-003-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H216-004",
@@ -1045,7 +1157,8 @@
     "images": [
       "/question-images/H216-004-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H216-005",
@@ -1056,7 +1169,8 @@
     "images": [
       "/question-images/H216-005-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H216-006",
@@ -1065,7 +1179,8 @@
     "sourceNumber": "6",
     "question": "Suggest, with a reason, why the path of a charged particle in a magnetic field is a spiral, rather than the arc of a circle.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H216-007",
@@ -1076,7 +1191,8 @@
     "images": [
       "/question-images/H216-007-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H216-008",
@@ -1087,7 +1203,8 @@
     "images": [
       "/question-images/H216-008-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H216-009",
@@ -1096,7 +1213,8 @@
     "sourceNumber": "9",
     "question": "A uniform electric field is applied in the same region as the magnetic field so that the proton passes undeviated through the fields.\n\nState and explain the deviation, if any, of\nan -particle with same initial velocity.\nan electron with twice the initial velocity.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H216-010",
@@ -1105,7 +1223,8 @@
     "sourceNumber": "10",
     "question": "Currents in two parallel wires are not equal.\n\nExplain whether the force per unit length on the two wires will be the same, or different.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H216-011",
@@ -1116,7 +1235,8 @@
     "images": [
       "/question-images/H216-011-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H216-012",
@@ -1125,7 +1245,8 @@
     "sourceNumber": "12",
     "question": "The two wires are parallel and carrying currents in the same direction.\n\nExplain why a magnetic force is exerted on each wire.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H216-013",
@@ -1134,7 +1255,8 @@
     "sourceNumber": "13",
     "question": "Two parallel wires are carrying sinusoidal alternating currents of equal peak values. The currents are in phase.\n\nDescribe the variation, if any, of the force experienced by one of the wires.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H217-001",
@@ -1145,7 +1267,8 @@
     "images": [
       "/question-images/H217-001-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H217-002",
@@ -1156,7 +1279,8 @@
     "images": [
       "/question-images/H217-002-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H217-003",
@@ -1167,7 +1291,8 @@
     "images": [
       "/question-images/H217-003-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H217-004",
@@ -1178,7 +1303,8 @@
     "images": [
       "/question-images/H217-004-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H217-005",
@@ -1189,7 +1315,8 @@
     "images": [
       "/question-images/H217-005-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H217-006",
@@ -1200,7 +1327,8 @@
     "images": [
       "/question-images/H217-006-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H217-007",
@@ -1211,7 +1339,8 @@
     "images": [
       "/question-images/H217-007-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H217-008",
@@ -1222,7 +1351,8 @@
     "images": [
       "/question-images/H217-008-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H217-009",
@@ -1233,7 +1363,8 @@
     "images": [
       "/question-images/H217-009-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H217-010",
@@ -1244,7 +1375,8 @@
     "images": [
       "/question-images/H217-010-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H217-011",
@@ -1255,7 +1387,8 @@
     "images": [
       "/question-images/H217-011-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H217-012",
@@ -1266,7 +1399,8 @@
     "images": [
       "/question-images/H217-012-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H217-013",
@@ -1277,7 +1411,8 @@
     "images": [
       "/question-images/H217-013-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H217-014",
@@ -1288,7 +1423,8 @@
     "images": [
       "/question-images/H217-014-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H217-015",
@@ -1299,7 +1435,8 @@
     "images": [
       "/question-images/H217-015-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H217-016",
@@ -1310,7 +1447,8 @@
     "images": [
       "/question-images/H217-016-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H217-017",
@@ -1321,7 +1459,8 @@
     "images": [
       "/question-images/H217-017-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H217-018",
@@ -1332,7 +1471,8 @@
     "images": [
       "/question-images/H217-018-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H217-019",
@@ -1341,7 +1481,8 @@
     "sourceNumber": "19",
     "question": "An alternating current is passed through an air-cored solenoid.\nAn iron core is inserted into the solenoid and then held stationary within the solenoid. The current in the solenoid is now smaller.\n\nExplain why the root-mean-square (r.m.s.) value of the current in the solenoid is reduced as a result of inserting the core.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H218-001",
@@ -1350,7 +1491,8 @@
     "sourceNumber": "1",
     "question": "Explain by reference to heating effect, what is meant by the root-mean-square (r.m.s.) value of an alternating current.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H218-002",
@@ -1359,7 +1501,8 @@
     "sourceNumber": "2",
     "question": "Explain why an alternating current gives rise to a heating effect in a resistor",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H218-003",
@@ -1368,7 +1511,8 @@
     "sourceNumber": "3",
     "question": "Explain why the core of a transformer is made of iron",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H218-004",
@@ -1377,7 +1521,8 @@
     "sourceNumber": "4",
     "question": "Suggest why the core of a transformer is a continuous loop.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H218-005",
@@ -1386,7 +1531,8 @@
     "sourceNumber": "5",
     "question": "Suggest why thermal energy is generated in the core of a transformer.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H218-006",
@@ -1395,7 +1541,8 @@
     "sourceNumber": "6",
     "question": "Suggest why the core of a transformer is laminated.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H218-007",
@@ -1404,7 +1551,8 @@
     "sourceNumber": "7",
     "question": "Explain why, for a transformer, the supply to the primary coil must be alternating current, not direct current.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H218-008",
@@ -1413,7 +1561,8 @@
     "sourceNumber": "8",
     "question": "Explain why, for constant input power, the output current must decrease if the output voltage increases for a transformer.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H218-009",
@@ -1422,7 +1571,8 @@
     "sourceNumber": "9",
     "question": "Transmission of electrical energy is frequently achieved using alternating high voltages.\n\nSuggest why\n(i) high voltages are used,\n(ii) the voltage is alternating.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H218-010",
@@ -1431,7 +1581,8 @@
     "sourceNumber": "10",
     "question": "State two advantages of the use of alternating voltages for the transmission and use of electrical energy.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H218-011",
@@ -1440,7 +1591,8 @@
     "sourceNumber": "11",
     "question": "State one disadvantage of the use of alternating rather than direct current in the home.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H218-012",
@@ -1449,7 +1601,8 @@
     "sourceNumber": "12",
     "question": "An e.m.f. is induced in the secondary coil of the transformer.\n\nExplain how a current in the primary coil gives rise to this induced e.m.f.\n\nOR\n\nBy reference to the action of a transformer, explain why the input to the transformer is an alternating voltage, rather than a constant voltage.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H218-013",
@@ -1458,7 +1611,8 @@
     "sourceNumber": "13",
     "question": "Explain why an electromotive force (e.m.f.) is not induced at the output of a transformer when a constant direct voltage is at the input.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H218-014",
@@ -1469,7 +1623,8 @@
     "images": [
       "/question-images/H218-014-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H218-015",
@@ -1478,7 +1633,8 @@
     "sourceNumber": "15",
     "question": "Explain why the alternating current in the primary coil of a transformer is not in phase with the alternating e.m.f. induced in the secondary coil.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H218-016",
@@ -1487,7 +1643,8 @@
     "sourceNumber": "16",
     "question": "Use Lenz’s law to explain why the input potential difference and the output e.m.f. of a transformer are not in phase.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H219-001",
@@ -1496,7 +1653,8 @@
     "sourceNumber": "1",
     "question": "A polished calcium plate in a vacuum is investigated by illuminating the surface with light.\nIt is found that no photoelectric current is produced when the frequency of the light is less than 6.93 × 1014 Hz.\nExplain how the photon model of electromagnetic radiation accounts for this phenomenon.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H219-002",
@@ -1505,7 +1663,8 @@
     "sourceNumber": "2",
     "question": "State a piece of evidence provided by the photoelectric effect for a particulate nature of electromagnetic radiation.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H219-003",
@@ -1514,7 +1673,8 @@
     "sourceNumber": "3",
     "question": "It is found that, on exposure of a metal surface to light, either electrons are emitted immediately or they are not emitted at all.\nSuggest why this observation does not support a wave theory of light.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H219-004",
@@ -1523,7 +1683,8 @@
     "sourceNumber": "4",
     "question": "Explain why, for the photoelectric effect, the existence of a threshold frequency and a very short emission time provide evidence for the particulate nature of electromagnetic radiation, as opposed to a wave theory.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H219-005",
@@ -1532,7 +1693,8 @@
     "sourceNumber": "5*",
     "question": "Electrons are emitted from a metal surface when light of a particular wavelength is incident on the surface.\n\nExplain why the emitted electrons have a range of values of kinetic energy below a maximum value.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H219-006",
@@ -1541,7 +1703,8 @@
     "sourceNumber": "6*",
     "question": "Light of a particular wavelength is incident on a metal surface and gives rise to a photoelectric current.\nThe wavelength is reduced. The intensity of the light is kept constant.\nState and explain the effect, if any, on the photoelectric current.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H219-007",
@@ -1550,7 +1713,8 @@
     "sourceNumber": "7*",
     "question": "The intensity of the incident radiation is maintained constant and the wavelength is now reduced.\nState and explain the effect of this change on\nthe maximum kinetic energy of the photoelectrons,\nthe maximum photoelectric current I .",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H219-008",
@@ -1559,7 +1723,8 @@
     "sourceNumber": "8*",
     "question": "Electromagnetic radiation of a single constant frequency is incident on a metal surface. This\ncauses an electron to be emitted.\nExplain why the maximum kinetic energy of the electron is independent of the intensity of the incident radiation.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H219-009",
@@ -1568,7 +1733,8 @@
     "sourceNumber": "9",
     "question": "The beam of red light is now replaced with a beam of blue light of the same intensity.\nSuggest and explain whether the pressure exerted on the mirror by the beam of blue light is less than, the same as, or greater than the pressure exerted by the beam of red light.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H219-010",
@@ -1577,7 +1743,8 @@
     "sourceNumber": "10",
     "question": "Describe the appearance of a visible line emission spectrum, as seen using a diffraction grating.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H219-011",
@@ -1586,7 +1753,8 @@
     "sourceNumber": "11",
     "question": "An emission spectrum is seen as a series of differently coloured lines on a black background.\n\nSuggest how this observation provides evidence for discrete electron energy levels in atoms.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H219-012",
@@ -1595,7 +1763,8 @@
     "sourceNumber": "12",
     "question": "A beam of light consists of a continuous range of wavelengths from 420 nm to 740 nm. The spectrum of the light emerging from the cloud of cool gas is viewed using a diffraction grating.\n\nExplain why this spectrum contains a number of dark lines.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H219-013",
@@ -1604,7 +1773,8 @@
     "sourceNumber": "13",
     "question": "State what is meant by the de Broglie wavelength.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H219-014",
@@ -1613,7 +1783,8 @@
     "sourceNumber": "14",
     "question": "Suggest whether electron diffraction could be observed using a beam of electrons of wavelength 10–10 m are incident on a thin copper crystal.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H219-015",
@@ -1622,7 +1793,8 @@
     "sourceNumber": "15",
     "question": "Electrons, travelling at speed v in a vacuum, are incident on a very thin carbon film.\nThe emergent electrons are incident on a fluorescent screen.\nA series of concentric rings is observed on the screen.\n\nSuggest why the observed rings provide evidence for the wave nature of particles.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H219-016",
@@ -1631,7 +1803,8 @@
     "sourceNumber": "16",
     "question": "Describe an experiment to demonstrate the wave nature of electrons.\n\nYou may draw a diagram if you wish.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 5
   },
   {
     "id": "H219-017",
@@ -1642,7 +1815,8 @@
     "images": [
       "/question-images/H219-017-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H219-018",
@@ -1651,7 +1825,8 @@
     "sourceNumber": "18",
     "question": "State an effect, one in each case, that provides evidence for\nthe wave nature of a particle,\nthe particulate nature of electromagnetic radiation.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H220-001",
@@ -1660,7 +1835,8 @@
     "sourceNumber": "1",
     "question": "The results of the α-particle scattering experiment provide evidence for the structure of the atom.\n\nresult 1: The vast majority of α-particles pass straight through the metal foil or are deviated by small angles.\n\nresult 2: A very small minority of α -particles are scattered through angles greater than 90°.\n\nState what may be inferred from\n(i) result 1,\n(ii) result 2.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H220-002",
@@ -1669,7 +1845,8 @@
     "sourceNumber": "2",
     "question": "In an α-particle scattering experiment, the beam of α-particles is incident on a very thin gold foil.\n\nSuggest why the gold foil must be very thin.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H220-003",
@@ -1678,7 +1855,8 @@
     "sourceNumber": "3",
     "question": "α-particles originated from the decay of a radioactive nuclide.\n\nSuggest two reasons why β-particles from a radioactive source would be inappropriate for Rutherford’s scattering experiment.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H220-004",
@@ -1687,7 +1865,8 @@
     "sourceNumber": "4",
     "question": "Explain why experiments involving α-particles are done in vacuum.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H220-005",
@@ -1696,7 +1875,8 @@
     "sourceNumber": "5",
     "question": "Explain the process by which α-particles lose energy when they pass through air.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H220-006",
@@ -1705,7 +1885,8 @@
     "sourceNumber": "6",
     "question": "Distinguish, for an atom, between a nucleus and a nucleon.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H220-007",
@@ -1714,7 +1895,8 @@
     "sourceNumber": "7",
     "question": "State what is meant by the binding energy of a nucleus.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H220-008",
@@ -1723,7 +1905,8 @@
     "sourceNumber": "8",
     "question": "Explain why Nuclear force must have a short range.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H220-009",
@@ -1732,7 +1915,8 @@
     "sourceNumber": "9",
     "question": "State what is meant by nuclear fusion and nuclear fission.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H220-010",
@@ -1741,7 +1925,8 @@
     "sourceNumber": "10",
     "question": "The total mass of the daughter nucleus and the α-particle is less than that of parent nucleus in α-decay.\n\nExplain this difference in mass.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H220-011",
@@ -1750,7 +1935,8 @@
     "sourceNumber": "11",
     "question": "Explain, using the law of mass-energy conservation, how energy is released in a nuclear reaction.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H220-012",
@@ -1761,7 +1947,8 @@
     "images": [
       "/question-images/H220-012-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H220-013",
@@ -1772,7 +1959,8 @@
     "images": [
       "/question-images/H220-013-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 4
   },
   {
     "id": "H220-014",
@@ -1781,7 +1969,8 @@
     "sourceNumber": "14",
     "question": "With reference to the curve of the variation with nucleon number A of the binding energy per nucleon BE of nuclei, explain how fission is energetically possible.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H220-015",
@@ -1793,7 +1982,8 @@
       "/question-images/H220-015-1.png",
       "/question-images/H220-015-2.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H220-016",
@@ -1804,7 +1994,8 @@
     "images": [
       "/question-images/H220-016-1.png"
     ],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H220-017",
@@ -1813,7 +2004,8 @@
     "sourceNumber": "17",
     "question": "The nuclear fission reaction produces neutrons. In the power station, the neutrons may be absorbed by rods made of boron-10.\n\nSuggest why, when neutrons are absorbed in the boron rods, the rods become hot as a result of this nuclear reaction.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H220-018",
@@ -1822,7 +2014,8 @@
     "sourceNumber": "18",
     "question": "State the quantities, other than momentum, that are conserved in a nuclear reaction.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H220-019",
@@ -1831,7 +2024,8 @@
     "sourceNumber": "19",
     "question": "An isotope of an element is radioactive.\n\nExplain what is meant by radioactive decay.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H220-020",
@@ -1840,7 +2034,8 @@
     "sourceNumber": "20",
     "question": "Explain the meaning of spontaneous radioactive decay.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H220-021",
@@ -1849,7 +2044,8 @@
     "sourceNumber": "21",
     "question": "State the experimental observations that show radioactive decay is\n(i) spontaneous,\n(ii) random.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H220-022",
@@ -1858,7 +2054,8 @@
     "sourceNumber": "22",
     "question": "Explain why the initial velocities of the daughter nucleus and the α-particle must be in opposite directions in α-decay.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H220-023",
@@ -1867,7 +2064,8 @@
     "sourceNumber": "23",
     "question": "Close examination of the α-decay of a nucleus indicates that the daughter nucleus and the α-particle are not ejected exactly in opposite directions.\n\nSuggest an explanation for this observation.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   },
   {
     "id": "H220-024",
@@ -1876,7 +2074,8 @@
     "sourceNumber": "24",
     "question": "Use the conservation of mass-energy to explain the release of energy in a nuclear reaction.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H220-025",
@@ -1885,7 +2084,8 @@
     "sourceNumber": "25",
     "question": "State two possible reasons why the sum of the kinetic energy of the β-particle and the energy of the γ radiation is less than the total energy released during the decay of a nucleus.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H220-026",
@@ -1894,7 +2094,8 @@
     "sourceNumber": "26",
     "question": "Suggest why the β– particles are emitted with a range of kinetic energies.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 2
   },
   {
     "id": "H220-027",
@@ -1903,7 +2104,8 @@
     "sourceNumber": "27",
     "question": "The emitted β -particles have a range of energies up to a maximum value.\n\nUse conservation laws to explain why this range of energies leads to the suggestion that another particle is emitted by the decaying strontium-90 nucleus together with the β-particle .",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H220-028",
@@ -1912,7 +2114,8 @@
     "sourceNumber": "28",
     "question": "The isotopes Radium-224 and Radium-226 both undergo spontaneous α-particle decay. The energy of the α-particles emitted from Radium-224 is larger than that of Radium-226.\n\nSuggest, with a reason, which of the two isotopes has the larger decay constant.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H220-029",
@@ -1921,7 +2124,8 @@
     "sourceNumber": "29",
     "question": "A radiation detector is placed close to a radioactive source. The detector does not surround the source.\nRadiation is emitted in all directions and, as a result, the activity of the source and the\nmeasured count rate are different.\n\nSuggest two other reasons why the activity and the measured count rate may be different.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 3
   },
   {
     "id": "H220-030",
@@ -1930,6 +2134,7 @@
     "sourceNumber": "30",
     "question": "A radioactive element has a half-life of approximately 4 hours.\n\nSuggest why measurement of the mass and activity of a sample of this element is not appropriate for the determination of its half-life.",
     "images": [],
-    "syllabusVersion": "2026"
+    "syllabusVersion": "2026",
+    "marks": 1
   }
 ]
