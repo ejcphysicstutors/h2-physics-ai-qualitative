@@ -403,6 +403,10 @@ export default function App() {
                       Source Q{q.sourceNumber}
                     </span>
 
+                    <span className="mark-allocation" title="Writing-length guide">
+                      [{q.marks}m]
+                    </span>
+
                     <span className={`status ${current.status}`}>
                       {current.status || 'Not assessed'}
                     </span>
