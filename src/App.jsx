@@ -19,6 +19,21 @@ function shortId(user) {
   return user?.id ? `Student ${user.id.slice(0, 8)}` : 'Guest preview';
 }
 
+
+function formatMarkScheme(markScheme) {
+  if (!markScheme) return [];
+
+  return markScheme
+    .split(/\n\s*\n/)
+    .map(block => block.replace(/\s*\n\s*/g, ' ').replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .map((text, index) => ({
+      id: `${index}-${text.slice(0, 24)}`,
+      text,
+      note: /^note:/i.test(text)
+    }));
+}
+
 export default function App() {
   const [user, setUser] = useState(null);
   const [loadingAuth, setLoadingAuth] = useState(supabaseConfigured);
@@ -454,7 +469,20 @@ export default function App() {
                   {current.revealed && current.markScheme && (
                     <div className="mark-scheme">
                       <h3>Checkpoint answer</h3>
-                      <div>{current.markScheme}</div>
+                      <div className="mark-points">
+                        {formatMarkScheme(current.markScheme).map(point =>
+                          point.note ? (
+                            <div key={point.id} className="mark-note">
+                              {point.text}
+                            </div>
+                          ) : (
+                            <div key={point.id} className="mark-point">
+                              <span className="mark-bullet" aria-hidden="true">•</span>
+                              <span>{point.text}</span>
+                            </div>
+                          )
+                        )}
+                      </div>
                     </div>
                   )}
 
