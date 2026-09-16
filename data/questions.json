@@ -1207,7 +1207,8 @@
       "/question-images/H215-003-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 5
+    "marks": 5,
+    "diagramContext": "Verified diagram facts: the 8.0 kOhm resistor is between the 12 V supply top node and X. The 12 kOhm resistor is between X and Y. With switch S closed, the LDR is also connected directly between X and Y, so the LDR is in parallel with the 12 kOhm resistor. The ammeter is in series with the whole circuit and measures the total current. Current can split at X between the 12 kOhm branch and the LDR branch and recombines at Y; current is not used up by either branch."
   },
   {
     "id": "H215-004",
