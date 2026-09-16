@@ -336,6 +336,14 @@ export default function App() {
             you across devices.
           </p>
 
+          <div className="privacy-note">
+            <strong>Privacy:</strong> Your answer is sent to an AI service to
+            generate feedback. Your written answers and AI conversations are
+            not stored in the tutor&apos;s analytics. We retain your progress,
+            question outcomes and anonymised learning indicators to support
+            your learning and improve the resource.
+          </div>
+
           <div className="login-actions">
             <button className="btn primary" onClick={login}>
               Continue with Google
