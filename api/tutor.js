@@ -1,5 +1,37 @@
 import { adminClient, authenticatedUser, json, questionMap } from './_helpers.js';
 
+async function buildQuestionContent(req, q, prompt) {
+  const content = [];
+
+  for (const imagePath of q.images || []) {
+    try {
+      const protocol = req.headers['x-forwarded-proto'] || 'https';
+      const host = req.headers['x-forwarded-host'] || req.headers.host;
+      if (!host) continue;
+
+      const imageUrl = new URL(imagePath, `${protocol}://${host}`).toString();
+      const imageResponse = await fetch(imageUrl);
+      if (!imageResponse.ok) continue;
+
+      const mediaType = imageResponse.headers.get('content-type') || 'image/png';
+      const bytes = Buffer.from(await imageResponse.arrayBuffer());
+      content.push({
+        type: 'image',
+        source: {
+          type: 'base64',
+          media_type: mediaType,
+          data: bytes.toString('base64')
+        }
+      });
+    } catch {
+      // If an image cannot be loaded, continue with the text rather than failing the tutor request.
+    }
+  }
+
+  content.push({ type: 'text', text: prompt });
+  return content;
+}
+
 function extractJson(text) {
   const cleaned = text.replace(/^```json\s*/i, '').replace(/```\s*$/,'').trim();
   const start = cleaned.indexOf('{'), end = cleaned.lastIndexOf('}');
@@ -28,6 +60,10 @@ export default async function handler(req, res) {
 
 YOUR ROLE:
 - Identify internally which required physics points the student has covered, missed, or stated incorrectly.
+- Diagnose explicit misconceptions before moving on to missing mark-scheme points. If the student's causal model, general rule, or interpretation is physically wrong, address that error directly and explain why it is wrong without dumping the full answer.
+- Do not praise or label a statement as correct if it is only accidentally true in this one situation but false as a general physics rule. Distinguish clearly between a generally valid principle and a context-specific consequence.
+- If the question includes a diagram, graph, circuit, field pattern, apparatus, or other image, inspect the supplied image before reasoning about topology, directions, connections, geometry, or labels. Never invent diagram details that are not visible.
+- If the student challenges your interpretation with a physically plausible point, re-check the question, diagram, and mark scheme before replying. If you were wrong, correct yourself explicitly rather than defending the earlier statement.
 - Do NOT simply tell the student the missing answer.
 - If a required point is missing, ask a targeted guiding question that makes the student supply that idea themselves.
 - Never state a missing mark-scheme point before the student has expressed it.
@@ -79,6 +115,8 @@ Do not include markdown, code fences, commentary, or any text outside the JSON o
     const prompt = `Question:
 ${q.question}
 
+${q.images?.length ? 'The original question image(s) are attached. Treat them as authoritative for circuit connections, labels, directions, geometry, graphs, and apparatus.' : ''}
+
 Private mark scheme:
 ${q.markScheme}
 
@@ -87,6 +125,8 @@ ${conversation || '(none)'}
 
 Student answer:
 ${studentAnswer}`;
+
+    const messageContent = await buildQuestionContent(req, q, prompt);
 
     const r = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -100,7 +140,7 @@ ${studentAnswer}`;
         max_tokens: 450,
         temperature: 0.2,
         system,
-        messages: [{ role: 'user', content: prompt }]
+        messages: [{ role: 'user', content: messageContent }]
       })
     });
 
