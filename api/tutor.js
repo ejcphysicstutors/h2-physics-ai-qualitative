@@ -41,9 +41,13 @@ const TUTOR_TOOL = {
     properties: {
       assessment: { type: 'string', enum: ['correct', 'partial', 'incorrect'] },
       feedback: { type: 'string' },
-      missed_points: { type: 'array', items: { type: 'string' } }
+      missed_points: { type: 'array', items: { type: 'string' } },
+      diagram_grounding: {
+        type: 'string',
+        enum: ['not_applicable', 'verified', 'uncertain']
+      }
     },
-    required: ['assessment', 'feedback', 'missed_points']
+    required: ['assessment', 'feedback', 'missed_points', 'diagram_grounding']
   }
 };
 
@@ -77,7 +81,8 @@ function validTutorResult(parsed) {
     ['correct', 'partial', 'incorrect'].includes(parsed.assessment) &&
     typeof parsed.feedback === 'string' &&
     parsed.feedback.trim() &&
-    Array.isArray(parsed.missed_points)
+    Array.isArray(parsed.missed_points) &&
+    ['not_applicable', 'verified', 'uncertain'].includes(parsed.diagram_grounding)
   );
 }
 
@@ -167,6 +172,9 @@ YOUR ROLE:
 - A correction of a misconception is allowed to state the minimum physics needed to explain why the misconception is wrong; this does not count as improperly revealing a missing mark-scheme point.
 - Do not praise or label a statement as correct if it is only accidentally true in this one situation but false as a general physics rule. Distinguish clearly between a generally valid principle and a context-specific consequence.
 - If the question includes a diagram, graph, circuit, field pattern, apparatus, or other image, inspect the supplied image before reasoning about topology, directions, connections, geometry, or labels. Never invent diagram details that are not visible.
+- DIAGRAM FAIL-SAFE: if a concrete diagram feature is needed for your feedback and you cannot verify it confidently from the supplied image or VERIFIED DIAGRAM CONTEXT, do not guess. Set diagram_grounding to "uncertain" and avoid making any claim about that feature.
+- If the question has an image but your feedback does not rely on any concrete visual detail, use diagram_grounding "not_applicable".
+- If your feedback relies on a concrete visual detail that you have confidently verified from the image or VERIFIED DIAGRAM CONTEXT, use diagram_grounding "verified".
 - Some questions include VERIFIED DIAGRAM CONTEXT. Treat that context as authoritative. Never contradict it. If your visual interpretation appears to conflict with the verified diagram context, follow the verified diagram context.
 - Some questions include PRIVATE TUTOR CONCEPT CONTEXT. Treat it as authoritative conceptual guidance for misconception handling. Do not quote it verbatim or present it as a mark scheme. Use it to prevent oversimplified or incorrect teaching explanations.
 - If the student challenges your interpretation with a physically plausible point, re-check the question, diagram, and mark scheme before replying. If you were wrong, correct yourself explicitly rather than defending the earlier statement.
@@ -203,6 +211,7 @@ ASSESSMENT RULES:
 - If the answer does not demonstrate the required physics or is substantially incorrect, assessment should normally be "incorrect".
 - EXAM-OUTCOME RULE FOR 1-MARK QUESTIONS: a 1-mark question has no partial-credit outcome. If the student has not yet fully satisfied the required marking point, assessment MUST be "incorrect", even if the feedback acknowledges that the student is partly on the right track. Use "correct" only when the single mark is fully earned.
 - missed_points is for teacher analytics only.
+- diagram_grounding is an internal safety signal only. Never mention this label to the student.
 - missed_points should contain short concept labels describing important ideas the student has not yet demonstrated.
 - Never copy, list, reveal, or paraphrase missed_points in the student-facing feedback.
 - The feedback must remain Socratic even though you know the missed_points internally.
@@ -241,9 +250,22 @@ ${studentAnswer}`;
     // Keep the student-facing feedback nuanced, but make the stored/displayed
     // assessment reflect the actual exam outcome. A 1-mark item cannot have
     // a partial-credit result.
-    const examAssessment = q.marks === 1 && parsed.assessment === 'partial'
-      ? 'incorrect'
-      : parsed.assessment;
+    const diagramUncertain = Boolean(
+      q.images?.length && parsed.diagram_grounding === 'uncertain'
+    );
+
+    // If a required visual detail is uncertain, fail safely: do not record an
+    // exam judgement and do not allow the model to invent a circuit/graph/diagram
+    // feature. Ask the student for the specific visual detail instead.
+    const safeFeedback = diagramUncertain
+      ? 'I don\'t want to guess a detail from the diagram. Please tell me the relevant connection, direction, label, or graph feature you are using, and I\'ll help you reason from it.'
+      : parsed.feedback;
+
+    const examAssessment = diagramUncertain
+      ? null
+      : (q.marks === 1 && parsed.assessment === 'partial'
+          ? 'incorrect'
+          : parsed.assessment);
 
     const inputTokens = totalInputTokens;
     const outputTokens = totalOutputTokens;
@@ -271,13 +293,14 @@ ${studentAnswer}`;
       output_tokens: outputTokens,
       estimated_cost_usd: cost,
       metadata: {
-        missed_points: parsed.missed_points || []
+        missed_points: diagramUncertain ? [] : (parsed.missed_points || []),
+        diagram_grounding: parsed.diagram_grounding
       }
     });
 
     return json(res, 200, {
       assessment: examAssessment,
-      feedback: parsed.feedback,
+      feedback: safeFeedback,
       missedPoints: parsed.missed_points || [],
       usage: {
         inputTokens,
