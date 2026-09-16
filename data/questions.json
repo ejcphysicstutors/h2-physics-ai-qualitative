@@ -175,7 +175,8 @@
       "/question-images/H206-003-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 2
+    "marks": 2,
+    "diagramContext": "Verified diagram facts: point Y is at the top of the vertical circular loop. The centre of the circular path lies vertically below Y. The car is travelling on the inside of the loop. If it remains in contact at Y, the contact/normal force exerted by the track on the car is toward the centre of the loop, i.e. downward at Y. The car's weight is also downward at Y."
   },
   {
     "id": "H207-001",
@@ -926,7 +927,8 @@
       "/question-images/H213-005-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: the graph plots electric potential energy U_P against separation r. U_P is negative over the plotted range and becomes more negative as r decreases; it approaches zero from below as r increases."
   },
   {
     "id": "H213-006",
@@ -961,7 +963,8 @@
       "/question-images/H213-008-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 5
+    "marks": 5,
+    "diagramContext": "Verified diagram facts: isolated insulating spheres X and Y lie on the same horizontal line, with point P on the line between them. P is closer to X than to Y in the sketch. No charge signs are shown on the diagram."
   },
   {
     "id": "H213-009",
@@ -1073,7 +1076,8 @@
       "/question-images/H213-018-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 2
+    "marks": 2,
+    "diagramContext": "Verified diagram facts: the upper parallel metal plate is at positive potential +V and the lower plate is grounded. The particle travels generally from left to right between the plates and its path curves downward toward the lower plate. The plates are horizontal, so the electric field between them is vertical."
   },
   {
     "id": "H214-001",
@@ -1108,7 +1112,8 @@
       "/question-images/H214-003-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: Fig. 6.1 provides I on the vertical axis and V on the horizontal axis, both passing through the origin, for the student to sketch the filament-lamp I-V characteristic."
   },
   {
     "id": "H214-004",
@@ -1121,7 +1126,8 @@
       "/question-images/H214-004-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: the left circuit shows two identical lamps connected in series across a 12 V supply. The right circuit shows two identical lamps connected in parallel across a 12 V supply."
   },
   {
     "id": "H214-005",
@@ -1145,7 +1151,8 @@
       "/question-images/H214-006-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 2
+    "marks": 2,
+    "diagramContext": "Verified diagram facts: a source of e.m.f. E with internal resistance r is connected in series with an external variable resistor R. Current I flows around the single loop. V is the terminal p.d. measured across the external resistor R."
   },
   {
     "id": "H214-007",
@@ -1158,7 +1165,8 @@
       "/question-images/H214-007-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: a source of e.m.f. E with internal resistance r is connected in series with a variable external resistor R in a single loop. Current I is the circuit current and V is the terminal p.d. across R."
   },
   {
     "id": "H214-008",
@@ -1182,7 +1190,8 @@
       "/question-images/H215-001-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 2
+    "marks": 2,
+    "diagramContext": "Verified diagram facts: the circuit is a single series loop containing a 50 Hz 6.0 V r.m.s. a.c. source, a diode and resistor R. Points A and B lie on either side of R, so the p.d. across R is the p.d. across AB. The diode can block current during the reverse-biased half-cycle."
   },
   {
     "id": "H215-002",
@@ -1195,7 +1204,8 @@
       "/question-images/H215-002-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: X, Y and Z are three components connected in series with a 12 V supply. Z is the temperature-dependent component shown with the thermistor-style symbol. There are no parallel branches."
   },
   {
     "id": "H215-003",
@@ -1223,7 +1233,8 @@
       "/question-images/H215-004-2.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 2
+    "marks": 2,
+    "diagramContext": "Verified diagram facts: Fig. 5.1 is a single series circuit containing the 12 V source, 6.0 ohm resistor, ammeter and variable resistor R. Fig. 5.3 connects the variable resistor as a potential divider across the 12 V supply, with the 6.0 ohm load connected between the slider and one end of the variable resistor. This arrangement can reduce the load p.d./current to zero, unlike the simple series arrangement."
   },
   {
     "id": "H216-001",
@@ -1247,7 +1258,8 @@
       "/question-images/H216-002-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 2
+    "marks": 2,
+    "diagramContext": "Verified diagram facts: a horizontal copper wire passes through the gap between the N pole below/left and S pole above/right of a magnet arrangement. The conventional current in the wire is shown from left to right. The question asks for the force on the magnets, not the force on the wire."
   },
   {
     "id": "H216-003",
@@ -1260,7 +1272,8 @@
       "/question-images/H216-003-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 5
+    "marks": 5,
+    "diagramContext": "Verified diagram facts: a rigid copper wire AB passes through the gap of a horseshoe magnet that sits on a balance pan. The N pole is on the left and the S pole is on the right. A is the upper-left end of the wire segment and B the lower-right end. When current is switched on, the balance reading decreases, so the magnet experiences an upward force and, by Newton's third law, the wire experiences a downward force."
   },
   {
     "id": "H216-004",
@@ -1273,7 +1286,8 @@
       "/question-images/H216-004-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 2
+    "marks": 2,
+    "diagramContext": "Verified diagram facts: a positively charged particle enters the shaded region of uniform magnetic field moving upward. Inside the field its path is a circular arc and it leaves moving downward; the magnetic force is perpendicular to the instantaneous velocity throughout the motion."
   },
   {
     "id": "H216-005",
@@ -1286,7 +1300,8 @@
       "/question-images/H216-005-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 4
+    "marks": 4,
+    "diagramContext": "Verified diagram facts: an electron enters a shaded region of uniform magnetic field moving from left to right. The magnetic field is into the plane of the paper. The electron path curves downward while in the field."
   },
   {
     "id": "H216-006",
@@ -1310,7 +1325,8 @@
       "/question-images/H216-007-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 4
+    "marks": 4,
+    "diagramContext": "Verified diagram facts: a positively charged particle travels horizontally from left to right into a region of uniform magnetic field directed out of the plane of the paper. The diagram is used in a velocity-selector context where an electric field can be added perpendicular to both the particle velocity and magnetic field."
   },
   {
     "id": "H216-008",
@@ -1323,7 +1339,8 @@
       "/question-images/H216-008-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 2
+    "marks": 2,
+    "diagramContext": "Verified diagram facts: a positively charged particle moves horizontally from left to right between two horizontal plates. The uniform electric field E is shown vertically downward. For the particle to pass undeviated, the magnetic force must oppose the electric force, i.e. act upward."
   },
   {
     "id": "H216-009",
@@ -1358,7 +1375,8 @@
       "/question-images/H216-011-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 4
+    "marks": 4,
+    "diagramContext": "Verified diagram facts: the conductor is formed into adjacent/coaxial circular loops of a coil, separated vertically by a small distance (0.75 cm). The loops carry the same current as parts of the same coil and the question concerns why their separation decreases when current is switched on."
   },
   {
     "id": "H216-012",
@@ -1393,7 +1411,8 @@
       "/question-images/H217-001-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: a coil is wound on a soft-iron core and connected in series with a d.c. supply, ammeter and switch. Closing the switch causes the current and magnetic flux in the core to grow from zero toward steady values."
   },
   {
     "id": "H217-002",
@@ -1406,7 +1425,8 @@
       "/question-images/H217-002-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 2
+    "marks": 2,
+    "diagramContext": "Verified diagram facts: coil C is a smaller coil positioned coaxially inside the longer solenoid. The solenoid is connected to a supply; changing/alternating current in the solenoid produces changing magnetic flux linking coil C."
   },
   {
     "id": "H217-003",
@@ -1420,7 +1440,8 @@
     ],
     "syllabusVersion": "2026",
     "marks": 3,
-    "tutorContext": "Concept guardrail for tutoring: Lenz's law is not a general rule that the induced magnetic field always opposes the original magnetic field. The induced effect opposes the change in magnetic flux that produces it. In this specific switch-on situation the solenoid field/flux is increasing, so the induced field is opposite to the solenoid field as a consequence of opposing that increase. If a student says only that the induced field 'opposes the original field', treat this as overgeneralised/incomplete and refine the principle rather than affirming it as generally correct."
+    "tutorContext": "Concept guardrail for tutoring: Lenz's law is not a general rule that the induced magnetic field always opposes the original magnetic field. The induced effect opposes the change in magnetic flux that produces it. In this specific switch-on situation the solenoid field/flux is increasing, so the induced field is opposite to the solenoid field as a consequence of opposing that increase. If a student says only that the induced field 'opposes the original field', treat this as overgeneralised/incomplete and refine the principle rather than affirming it as generally correct.",
+    "diagramContext": "Verified diagram facts: the small coil is positioned above and coaxial with the vertical solenoid. When the switch is closed, the solenoid current and its magnetic field/flux increase. For the shown connection, the solenoid field through the small coil is downward along the common axis, so an induced field that opposes this increase is upward."
   },
   {
     "id": "H217-004",
@@ -1433,7 +1454,8 @@
       "/question-images/H217-004-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 5
+    "marks": 5,
+    "diagramContext": "Verified diagram facts: an aluminium ring surrounds a vertical ferrous core above a coil wound around the lower part of the core. The coil is connected to a d.c. supply and switch. The ring can move freely up and down along the core."
   },
   {
     "id": "H217-005",
@@ -1446,7 +1468,8 @@
       "/question-images/H217-005-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: a solenoid is connected to a d.c. source. An iron core is outside the solenoid and is moved leftward into the solenoid along its axis, increasing the magnetic flux linked with the solenoid turns."
   },
   {
     "id": "H217-006",
@@ -1459,7 +1482,8 @@
       "/question-images/H217-006-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 4
+    "marks": 4,
+    "diagramContext": "Verified diagram facts: an insulated-wire coil is wound around a solid copper core and connected to an alternating-current source. The a.c. produces changing magnetic flux within the conducting copper core."
   },
   {
     "id": "H217-007",
@@ -1472,7 +1496,8 @@
       "/question-images/H217-007-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 4
+    "marks": 4,
+    "diagramContext": "Verified diagram facts: a bar magnet is suspended vertically from a spring so that its lower end moves within a coil. The coil is connected to a resistor. When the switch/circuit is closed, motion of the magnet changes flux linkage through the coil and current can flow through the resistor."
   },
   {
     "id": "H217-008",
@@ -1485,7 +1510,8 @@
       "/question-images/H217-008-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 4
+    "marks": 4,
+    "diagramContext": "Verified diagram facts: a bar magnet hangs vertically from a spring and oscillates inside a cup. The original cup is cardboard; the question replaces it with a conducting aluminium-foil cup, in which changing magnetic flux can induce currents."
   },
   {
     "id": "H217-009",
@@ -1498,7 +1524,8 @@
       "/question-images/H217-009-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: a bar magnet is suspended vertically from a helical spring with its lower end inside a coil. A voltmeter is connected across the coil. Vertical oscillation of the magnet changes the flux linkage of the coil; the direction of motion reverses every half-cycle."
   },
   {
     "id": "H217-010",
@@ -1511,7 +1538,8 @@
       "/question-images/H217-010-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 4
+    "marks": 4,
+    "diagramContext": "Verified diagram facts: magnet A falls through a plastic tube and magnet B falls through an aluminium tube of otherwise similar geometry. The magnets do not touch the tube walls. Only the aluminium tube is conducting and can support induced eddy currents."
   },
   {
     "id": "H217-011",
@@ -1524,7 +1552,8 @@
       "/question-images/H217-011-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 4
+    "marks": 4,
+    "diagramContext": "Verified diagram facts: a solenoid/coil is connected to a resistor. A bar magnet with its N pole leading is moved leftward into the right-hand end of the coil. Its motion changes the magnetic flux linkage of the coil and an induced current can flow through the resistor."
   },
   {
     "id": "H217-012",
@@ -1537,7 +1566,8 @@
       "/question-images/H217-012-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: a straight wire is clamped horizontally and passes through the gap between the N and S pole pieces of a magnet. Mechanical motion of the wire relative to the magnetic field causes it to cut magnetic flux; reversing the direction of motion reverses the induced e.m.f."
   },
   {
     "id": "H217-013",
@@ -1550,7 +1580,8 @@
       "/question-images/H217-013-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 5
+    "marks": 5,
+    "diagramContext": "Verified diagram facts: part of a conducting metal disc moves through the localized magnetic field in the gap of an electromagnet. The disc oscillates/rotates so different parts cut magnetic flux and eddy currents can be induced in the disc."
   },
   {
     "id": "H217-014",
@@ -1563,7 +1594,8 @@
       "/question-images/H217-014-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: a smaller solenoid lies coaxially inside the left end of a larger solenoid. The larger solenoid is connected to a d.c. supply. The terminals of the smaller solenoid are connected together, so an induced current can flow when the smaller solenoid is moved relative to the larger one."
   },
   {
     "id": "H217-015",
@@ -1576,7 +1608,8 @@
       "/question-images/H217-015-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: a conducting wheel/spoke system rotates clockwise in a uniform magnetic field directed into the plane of the page. The spoke of interest runs radially from the axle/end A to the rim at X on the right. The question compares the electric potential at A and X."
   },
   {
     "id": "H217-016",
@@ -1589,7 +1622,8 @@
       "/question-images/H217-016-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: a conducting aluminium disc rotates about its horizontal axle. A uniform magnetic field of flux density 0.17 T passes horizontally through the disc, perpendicular to the plane of the disc, in the direction shown by the arrows. The magnetic braking force/torque opposes the disc's rotation."
   },
   {
     "id": "H217-017",
@@ -1602,7 +1636,8 @@
       "/question-images/H217-017-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 4
+    "marks": 4,
+    "diagramContext": "Verified diagram facts: a bar magnet is held just above a stationary horizontal aluminium disc and is rotated about a vertical axis. The rotating magnetic field pattern produces changing flux through regions of the conducting disc and can induce eddy currents and a torque on the disc."
   },
   {
     "id": "H217-018",
@@ -1615,7 +1650,8 @@
       "/question-images/H217-018-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 5
+    "marks": 5,
+    "diagramContext": "Verified diagram facts: the metal spring itself is part of an electrical circuit connected to a d.c. source via a flexible lead, with a small mass on its lower end. As the mass oscillates vertically, the separation/geometry of neighbouring turns of the conducting spring changes, changing the magnetic flux linkage associated with current in the spring."
   },
   {
     "id": "H217-019",
@@ -1782,7 +1818,8 @@
       "/question-images/H218-014-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: a transformer has a primary coil of 2700 turns and a secondary coil of 450 turns wound on the same closed soft-iron core. The primary is connected to an a.c. source and the secondary to a load resistor, so changing core flux links both coils."
   },
   {
     "id": "H218-015",
@@ -1993,7 +2030,8 @@
       "/question-images/H219-017-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified diagram facts: electrons accelerated through a potential difference pass through a thin graphite crystal and form a circular diffraction pattern on a fluorescent screen. Increasing the accelerating p.d. increases electron momentum and decreases de Broglie wavelength, giving smaller diffraction angles/ring radii for the same crystal spacing."
   },
   {
     "id": "H219-018",
@@ -2138,7 +2176,8 @@
       "/question-images/H220-012-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 1
+    "marks": 1,
+    "diagramContext": "Verified image content: the nuclear reaction shown is 235U + 1n -> 95Mo + 139La + 2(1n) + 7 beta-minus particles + energy (with the proton/nucleon numbers shown in the image). The question asks why the fission is energetically possible by reference to binding energy."
   },
   {
     "id": "H220-013",
@@ -2151,7 +2190,8 @@
       "/question-images/H220-013-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 4
+    "marks": 4,
+    "diagramContext": "Verified image content: the decay shown is 90Sr -> 90Y + beta-minus + 0.55 MeV, with proton number changing from 38 to 39. Energy is released in the decay."
   },
   {
     "id": "H220-014",
@@ -2176,7 +2216,8 @@
       "/question-images/H220-015-2.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 2
+    "marks": 2,
+    "diagramContext": "Verified image content: the reaction shown is deuterium + deuterium -> helium-3 + neutron. A separate graph shows binding energy per nucleon B_E versus nucleon number A, rising steeply at low A toward a maximum and then slowly decreasing at high A."
   },
   {
     "id": "H220-016",
@@ -2189,7 +2230,8 @@
       "/question-images/H220-016-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "diagramContext": "Verified image content: the reaction shown is 56Fe + 1n -> 20F + 37Cl. The question refers to the standard binding-energy-per-nucleon variation with nucleon number, whose maximum is around the iron region (A about 56)."
   },
   {
     "id": "H220-017",
