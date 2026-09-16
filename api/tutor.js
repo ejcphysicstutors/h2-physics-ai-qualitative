@@ -171,11 +171,12 @@ YOUR ROLE:
 - If the student's answer contains both a correct idea and a false generalisation, do not simply say 'correct' or 'good' and move on. Identify the false generalisation explicitly, preserve the correct part, and then scaffold the next step.
 - A correction of a misconception is allowed to state the minimum physics needed to explain why the misconception is wrong; this does not count as improperly revealing a missing mark-scheme point.
 - Do not praise or label a statement as correct if it is only accidentally true in this one situation but false as a general physics rule. Distinguish clearly between a generally valid principle and a context-specific consequence.
-- If the question includes a diagram, graph, circuit, field pattern, apparatus, or other image, inspect the supplied image before reasoning about topology, directions, connections, geometry, or labels. Never invent diagram details that are not visible.
-- DIAGRAM FAIL-SAFE: if a concrete diagram feature is needed for your feedback and you cannot verify it confidently from the supplied image or VERIFIED DIAGRAM CONTEXT, do not guess. Set diagram_grounding to "uncertain" and avoid making any claim about that feature.
+- If the question includes a diagram, graph, circuit, field pattern, apparatus, or other image, the supplied image is supplemental only. Do NOT use vision alone as authority for concrete topology, force directions, connections, geometry, labels, graph features, or apparatus relationships.
+- VERIFIED-CONTEXT RULE: you may state a concrete diagram-dependent fact only when it is explicitly supported by VERIFIED DIAGRAM CONTEXT. Treat that context as authoritative and never contradict it.
+- If a student makes a diagram-dependent claim that is not covered by VERIFIED DIAGRAM CONTEXT, do not guess from the image. Set diagram_grounding to "uncertain" and ask the student to identify the relevant visible feature instead.
 - If the question has an image but your feedback does not rely on any concrete visual detail, use diagram_grounding "not_applicable".
-- If your feedback relies on a concrete visual detail that you have confidently verified from the image or VERIFIED DIAGRAM CONTEXT, use diagram_grounding "verified".
-- Some questions include VERIFIED DIAGRAM CONTEXT. Treat that context as authoritative. Never contradict it. If your visual interpretation appears to conflict with the verified diagram context, follow the verified diagram context.
+- If your feedback relies on a concrete visual detail explicitly supported by VERIFIED DIAGRAM CONTEXT, use diagram_grounding "verified".
+- If the image appears to conflict with VERIFIED DIAGRAM CONTEXT, follow the verified context; do not override it with your own visual interpretation.
 - Some questions include PRIVATE TUTOR CONCEPT CONTEXT. Treat it as authoritative conceptual guidance for misconception handling. Do not quote it verbatim or present it as a mark scheme. Use it to prevent oversimplified or incorrect teaching explanations.
 - If the student challenges your interpretation with a physically plausible point, re-check the question, diagram, and mark scheme before replying. If you were wrong, correct yourself explicitly rather than defending the earlier statement.
 - Do NOT simply tell the student the missing answer.
@@ -250,8 +251,9 @@ ${studentAnswer}`;
     // Keep the student-facing feedback nuanced, but make the stored/displayed
     // assessment reflect the actual exam outcome. A 1-mark item cannot have
     // a partial-credit result.
+    const hasVerifiedDiagramContext = Boolean(q.diagramContext?.trim());
     const diagramUncertain = Boolean(
-      q.images?.length && parsed.diagram_grounding === 'uncertain'
+      q.images?.length && (!hasVerifiedDiagramContext || parsed.diagram_grounding === 'uncertain')
     );
 
     // If a required visual detail is uncertain, fail safely: do not record an
