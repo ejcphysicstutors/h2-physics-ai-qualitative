@@ -164,24 +164,49 @@ For this current 9478 spreadsheet graph-method query, prioritise the present spr
       }
     }
 
-    // Deterministic current-method guardrail for spreadsheet graph questions. The model
-    // may otherwise soften the verified workflow into "e.g. spreadsheet" or reintroduce
-    // manual gradient/intercept procedures. Keep this narrow and query-specific.
+    // Hard current-method template for spreadsheet graph questions. This is intentionally
+    // deterministic: earlier prompt-only guardrails still allowed the model to reintroduce
+    // legacy hand-graph methods and historical commentary. Keep this narrow and query-specific.
     if (currentSpreadsheetGraphQuery) {
-      result.sections = (result.sections || []).filter((section:any) => {
-        if (section.claim_class === "Teacher inference" || section.claim_class === "Not established") return true;
-        const records = (section.supporting_ids || []).map((id:string) => eligible.get(id)).filter(Boolean) as Candidate[];
-        return records.length > 0 && records.every(record => record.layer === "governing" || record.layer === "specimen");
+      const currentSections:any[] = [];
+
+      const teachingParts:string[] = [];
+      if (asksLinearFit) teachingParts.push("For a linear relationship, use the spreadsheet to add a linear trendline and display its fitted equation. Obtain the gradient and y-intercept directly from the coefficients of that equation. Do not calculate the fitted-line gradient from two plotted points, use a large gradient triangle, or read the y-intercept manually from the graph.");
+      if (asksLocalGradient) teachingParts.push("For the gradient at a point on a curve, determine the local gradient numerically using a small interval near the point.");
+      teachingParts.push("Report derived values to an appropriate precision. Three significant figures is a suitable classroom convention unless the task or data precision indicates otherwise; it is not a universal Cambridge requirement.");
+      currentSections.push({
+        key:"teaching-interpretation",
+        heading:"Teaching interpretation",
+        text:`Physics interpretation — not directly stated by Cambridge.\n\n${teachingParts.join(" ")}`,
+        claim_class:"Teacher inference",
+        supporting_ids:[]
       });
 
-      const teaching = (result.sections || []).find((section:any) => section.claim_class === "Teacher inference");
-      if (teaching) {
-        const parts:string[] = [];
-        if (asksLinearFit) parts.push("For a linear relationship, use the spreadsheet to add a linear trendline and display its fitted equation. Obtain the gradient and y-intercept directly from the coefficients of that equation; do not calculate the fitted-line gradient from two plotted points or read the intercept manually from the graph.");
-        if (asksLocalGradient) parts.push("For the gradient at a point on a curve, determine the local gradient numerically using a small interval near the point.");
-        parts.push("Report derived values to an appropriate precision. Three significant figures is a suitable classroom convention unless the task or data precision indicates otherwise; it is not a universal Cambridge requirement.");
-        teaching.text = `Physics interpretation — not directly stated by Cambridge.\n\n${parts.join(" ")}`;
-      }
+      if (asksLinearFit && eligible.has("GOV-SS10")) currentSections.push({
+        key:"current-linear-fit",
+        heading:"Current 9478 spreadsheet method — linear fit",
+        text:"The current 9478 syllabus requires candidates to select appropriate data points, use built-in spreadsheet functions to add a linear trendline, and display the trendline equation.",
+        claim_class:"Directly stated in governing evidence",
+        supporting_ids:["GOV-SS10"]
+      });
+
+      if (asksLocalGradient && eligible.has("GOV-SS13")) currentSections.push({
+        key:"current-local-gradient",
+        heading:"Current 9478 spreadsheet method — gradient at a point",
+        text:"The current 9478 syllabus requires candidates to determine the gradient at a point on a curve numerically using a small interval near the point.",
+        claim_class:"Directly stated in governing evidence",
+        supporting_ids:["GOV-SS13"]
+      });
+
+      currentSections.push({
+        key:"boundary",
+        heading:"What this means for current Paper 4 practice",
+        text:"For current 9478 spreadsheet work, the default teaching workflow is therefore trendline equation for a linear fit, and a numerical small-interval method for a local gradient. Historical hand-drawn gradient triangles, manual intercept read-offs, and tangent construction are not presented as coequal current methods here.",
+        claim_class:"Interpretation from cited evidence",
+        supporting_ids:[...(asksLinearFit && eligible.has("GOV-SS10") ? ["GOV-SS10"] : []), ...(asksLocalGradient && eligible.has("GOV-SS13") ? ["GOV-SS13"] : [])]
+      });
+
+      result.sections = currentSections;
     }
     result.sections = (result.sections || []).filter((s:any) => {
       s.supporting_ids = (s.supporting_ids || []).filter((id:string)=>supportable.has(id));
