@@ -39,6 +39,10 @@ check('source model supports specimen and moderator documents',sourceMap.include
 check('narrow readings/repeats query gets query-specific concise profile',askRoute.includes('narrowRepeatCountQuery') && askRoute.includes('This compression applies only to this narrow readings/repeats query profile'));
 check('other Ask queries retain normal synthesis depth',askRoute.includes('const responseProfile = narrowRepeatCountQuery ?') && askRoute.includes(': "";'));
 check('narrow readings/repeats profile forbids fixed repeat-count heuristics',askRoute.includes('do not describe \"repeat three times\" or any other fixed repeat count as a workable classroom heuristic'));
+check('current spreadsheet graph query has a targeted current-method profile',askRoute.includes('currentSpreadsheetGraphQuery') && askRoute.includes('obtain the gradient and y-intercept directly from the coefficients of that equation'));
+check('current spreadsheet graph profile suppresses historical/manual evidence by default',askRoute.includes('candidates = candidates.filter(candidate => candidate.layer === \"governing\" || candidate.layer === \"specimen\")') && askRoute.includes('Historical/manual queries are deliberately excluded'));
+check('current spreadsheet graph profile rejects manual gradient/intercept workflow',askRoute.includes('Do not instruct candidates to calculate the linear-fit gradient using two points or a large gradient triangle') && askRoute.includes('do not instruct them to read the y-intercept manually from the graph'));
+check('3 sf is framed as teaching convention rather than universal Cambridge rule',askRoute.includes('A 3 s.f. reporting rule may be described only as a safe classroom convention, not as a universal Cambridge requirement'));
 check('copied citations use evidence-authority roles, not generic retrieval relevance',pageUi.includes('Direct current exemplification') && pageUi.includes('Governing requirement') && !/\$\{layers\[item\.layer\].*\$\{item\.relevance\}/.test(pageUi));
 
 if(failures){console.error(`\n${failures} P4 integration acceptance check(s) failed.`);process.exit(1)}
