@@ -72,14 +72,29 @@ export async function POST(request: Request) {
     if (!query) return Response.json({error:"Enter a question about the evidence."},{status:400});
     const retrieved = retrieve(query, body.previousConcept);
     const interpretation = retrieved.interpretation;
-    const candidates = body.selectedIds?.length ? candidatesByIds(body.selectedIds) : capCandidatesForSynthesis(retrieved.candidates);
+    let candidates = body.selectedIds?.length ? candidatesByIds(body.selectedIds) : capCandidatesForSynthesis(retrieved.candidates);
     if (interpretation.ambiguous) return Response.json({needsClarification:true, clarificationQuestion:"Which physics concept should the rejects or limit rules relate to?"});
     if (!process.env.OPENAI_API_KEY) return Response.json({error:"The evidence synthesis service is not configured."},{status:503});
 
     const narrowRepeatCountQuery = interpretation.concept === "repeated readings and averaging" && /(?:how many|number of)\s+(?:readings|measurements)|always\s+repeat|repeat\s+(?:three|3)\s+times?/i.test(query);
+    const currentSpreadsheetGraphQuery = ["spreadsheet analysis", "graph gradient and intercept"].includes(interpretation.concept)
+      && /\b(?:best[- ]?fit|trendline|linear|gradient|intercept)\b/i.test(query)
+      && !/\b(?:historical|history|legacy|9749|9702|manual|manually|by hand)\b/i.test(query);
+
+    // For current 9478 spreadsheet graph-method questions, old manual graphing evidence is
+    // more likely to mislead than help. Keep synthesis to current governing/specimen layers.
+    // Historical/manual queries are deliberately excluded from this profile above.
+    if (currentSpreadsheetGraphQuery) {
+      candidates = candidates.filter(candidate => candidate.layer === "governing" || candidate.layer === "specimen");
+    }
+
     const responseProfile = narrowRepeatCountQuery ? `
 
-For this narrow readings/repeats rule-check only, keep the visible synthesis compact without weakening the evidence. Normally use: (1) one short bottom line; (2) one current 9478 governing section; (3) one current specimen section that may combine the task-specific examples; and (4) at most one compact historical-support section if it adds something material. Do not create separate sections for each historical source or repeat the same conclusion in multiple headings. In the Teaching interpretation, do not describe "repeat three times" or any other fixed repeat count as a workable classroom heuristic, default, or recommendation unless the supplied current task explicitly specifies that count. Preserve the optional Teaching interpretation and the supporting record IDs. This compression applies only to this narrow readings/repeats query profile; retain normal depth and comprehensiveness for broader or different queries.` : "";
+For this narrow readings/repeats rule-check only, keep the visible synthesis compact without weakening the evidence. Normally use: (1) one short bottom line; (2) one current 9478 governing section; (3) one current specimen section that may combine the task-specific examples; and (4) at most one compact historical-support section if it adds something material. Do not create separate sections for each historical source or repeat the same conclusion in multiple headings. In the Teaching interpretation, do not describe "repeat three times" or any other fixed repeat count as a workable classroom heuristic, default, or recommendation unless the supplied current task explicitly specifies that count. Preserve the optional Teaching interpretation and the supporting record IDs. This compression applies only to this narrow readings/repeats query profile; retain normal depth and comprehensiveness for broader or different queries.`
+      : currentSpreadsheetGraphQuery ? `
+
+For this current 9478 spreadsheet graph-method query, prioritise the present spreadsheet workflow and do not reintroduce legacy manual graphing as a coequal method. For a linear relationship, state that candidates should apply a linear trendline, display the fitted equation, and obtain the gradient and y-intercept directly from the coefficients of that equation. Do not instruct candidates to calculate the linear-fit gradient using two points or a large gradient triangle, and do not instruct them to read the y-intercept manually from the graph. If the query concerns the gradient at a point on a curve, state the separate current requirement: determine the local gradient numerically using a small interval near the point. For numerical presentation, the governing requirement is an appropriate number of decimal places/significant figures. A 3 s.f. reporting rule may be described only as a safe classroom convention, not as a universal Cambridge requirement, unless the supplied task explicitly specifies 3 s.f. Keep this profile limited to current spreadsheet graph-method questions; retain normal synthesis depth for other queries.`
+      : "";
 
     const response = await fetch("https://api.openai.com/v1/responses", {method:"POST",headers:{"Authorization":`Bearer ${process.env.OPENAI_API_KEY}`,"Content-Type":"application/json"},body:JSON.stringify({
       model: process.env.OPENAI_MODEL || "gpt-5.2",
