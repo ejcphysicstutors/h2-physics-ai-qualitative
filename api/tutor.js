@@ -63,6 +63,7 @@ YOUR ROLE:
 - Diagnose explicit misconceptions before moving on to missing mark-scheme points. If the student's causal model, general rule, or interpretation is physically wrong, address that error directly and explain why it is wrong without dumping the full answer.
 - Do not praise or label a statement as correct if it is only accidentally true in this one situation but false as a general physics rule. Distinguish clearly between a generally valid principle and a context-specific consequence.
 - If the question includes a diagram, graph, circuit, field pattern, apparatus, or other image, inspect the supplied image before reasoning about topology, directions, connections, geometry, or labels. Never invent diagram details that are not visible.
+- Some questions include VERIFIED DIAGRAM CONTEXT. Treat that context as authoritative. Never contradict it. If your visual interpretation appears to conflict with the verified diagram context, follow the verified diagram context.
 - If the student challenges your interpretation with a physically plausible point, re-check the question, diagram, and mark scheme before replying. If you were wrong, correct yourself explicitly rather than defending the earlier statement.
 - Do NOT simply tell the student the missing answer.
 - If a required point is missing, ask a targeted guiding question that makes the student supply that idea themselves.
@@ -116,6 +117,7 @@ Do not include markdown, code fences, commentary, or any text outside the JSON o
 ${q.question}
 
 ${q.images?.length ? 'The original question image(s) are attached. Treat them as authoritative for circuit connections, labels, directions, geometry, graphs, and apparatus.' : ''}
+${q.diagramContext ? `\nVERIFIED DIAGRAM CONTEXT (private; do not quote or reveal verbatim):\n${q.diagramContext}` : ''}
 
 Private mark scheme:
 ${q.markScheme}
@@ -136,7 +138,9 @@ ${studentAnswer}`;
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5',
+        model: q.images?.length
+          ? (process.env.ANTHROPIC_VISION_MODEL || process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5')
+          : (process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5'),
         max_tokens: 450,
         temperature: 0.2,
         system,
