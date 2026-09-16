@@ -16,7 +16,7 @@ export default function TeacherDashboard({ onBack }) {
   async function load(nextRange = range){
     setBusy(true); setErr('');
     try{
-      const r=await fetch('/api/teacher-data',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password,range:nextRange})});
+      const r=await fetch('/api/teacher-data',{method:'POST',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({password,range:nextRange})});
       const d=await r.json();
       if(!r.ok) throw new Error(d.error||'Unable to load');
       sessionStorage.setItem('teacherPassword',password);
@@ -32,7 +32,7 @@ export default function TeacherDashboard({ onBack }) {
       {!data && <div className="login-card"><h2>Physics department access</h2><input className="password" type="password" value={password} onChange={e=>setPassword(e.target.value)} onKeyDown={e=>e.key==='Enter'&&load()} placeholder="Dashboard password"/><button className="btn primary" onClick={()=>load()} disabled={busy}>{busy?'Loading…':'Open dashboard'}</button>{err&&<p className="error">{err}</p>}</div>}
 
       {data && <>
-        <div className="dashboard-toolbar"><div><h2>Usage overview</h2><p className="muted">Pseudonymous usage data only; student names and email addresses are not displayed.</p></div><select aria-label="Analytics time range" value={range} onChange={e=>setRange(e.target.value)}>{rangeOptions.map(x=><option value={x.value} key={x.value}>{x.label}</option>)}</select></div>
+        <div className="dashboard-toolbar"><div><h2>Usage overview</h2><p className="muted">Pseudonymous usage data only; student names and email addresses are not displayed.{data.date_window ? ` Dates use Singapore time (${data.date_window.start} to ${data.date_window.end}).` : ' Dates use Singapore time.'}</p></div><select aria-label="Analytics time range" value={range} onChange={e=>setRange(e.target.value)}>{rangeOptions.map(x=><option value={x.value} key={x.value}>{x.label}</option>)}</select></div>
         {err&&<p className="error">{err}</p>}
         <div className="kpi-grid">
           <Kpi value={data.kpis.students} label="Students" />
@@ -77,5 +77,5 @@ function Kpi({ value, label }) { return <div className="kpi"><strong>{value}</st
 function UsageBars({ rows }) {
   if (!rows.length) return <div className="empty-panel">No usage events in this time range yet.</div>;
   const max = Math.max(...rows.map(x => x.ai_turns + x.reveals), 1);
-  return <div className="usage-chart">{rows.map(x => <div className="usage-day" key={x.date} title={`${x.date}: ${x.ai_turns} AI turns, ${x.reveals} reveals`}><div className="bar-stack"><div className="bar ai" style={{height:`${Math.max(3, x.ai_turns/max*100)}%`}}></div><div className="bar reveals" style={{height:`${x.reveals ? Math.max(3, x.reveals/max*100) : 0}%`}}></div></div><span>{x.label}</span></div>)}</div>;
+  return <div className="usage-chart">{rows.map(x => <div className="usage-day" key={x.date} title={`${x.date}: ${x.ai_turns} AI turns, ${x.reveals} reveals`}><div className="bar-stack"><div className="bar ai" style={{height:`${x.ai_turns ? Math.max(3, x.ai_turns/max*100) : 0}%`}}></div><div className="bar reveals" style={{height:`${x.reveals ? Math.max(3, x.reveals/max*100) : 0}%`}}></div></div><span>{x.label}</span></div>)}</div>;
 }
