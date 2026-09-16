@@ -286,7 +286,7 @@ ${studentAnswer}`;
 
     const supabase = adminClient();
 
-    await supabase.from('events').insert({
+    const { error: eventError } = await supabase.from('events').insert({
       user_id: user.id,
       question_id: q.id,
       event_type: 'ai_feedback',
@@ -299,11 +299,25 @@ ${studentAnswer}`;
         diagram_grounding: parsed.diagram_grounding
       }
     });
+    if (eventError) console.error('[analytics] ai_feedback insert failed', eventError);
+
+    let progressError = null;
+    if (examAssessment) {
+      const result = await supabase.from('progress').upsert({
+        user_id: user.id,
+        question_id: q.id,
+        status: examAssessment,
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'user_id,question_id' });
+      progressError = result.error;
+      if (progressError) console.error('[analytics] progress upsert failed', progressError);
+    }
 
     return json(res, 200, {
       assessment: examAssessment,
       feedback: safeFeedback,
       missedPoints: parsed.missed_points || [],
+      analyticsRecorded: !eventError && !progressError,
       usage: {
         inputTokens,
         outputTokens,

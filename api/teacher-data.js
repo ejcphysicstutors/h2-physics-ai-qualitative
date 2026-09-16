@@ -1,12 +1,42 @@
 import { adminClient, json, questionMap } from './_helpers.js';
 
-function dateCutoff(range) {
+const SG_TIME_ZONE = 'Asia/Singapore';
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function singaporeDateKey(value = new Date()) {
+  const date = value instanceof Date ? value : new Date(value);
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: SG_TIME_ZONE,
+    year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(date);
+  const get = type => parts.find(p => p.type === type)?.value;
+  return `${get('year')}-${get('month')}-${get('day')}`;
+}
+
+function sgMidnightUtc(dateKey) {
+  return new Date(`${dateKey}T00:00:00+08:00`);
+}
+
+function addDaysToKey(dateKey, days) {
+  const d = sgMidnightUtc(dateKey);
+  return singaporeDateKey(new Date(d.getTime() + days * DAY_MS));
+}
+
+function rangeWindow(range) {
   if (range === 'all') return null;
   const days = Number(range) || 30;
-  const d = new Date();
-  d.setUTCDate(d.getUTCDate() - days + 1);
-  d.setUTCHours(0,0,0,0);
-  return d.toISOString();
+  const endKey = singaporeDateKey();
+  const startKey = addDaysToKey(endKey, -(days - 1));
+  const start = sgMidnightUtc(startKey).toISOString();
+  const endExclusive = new Date(sgMidnightUtc(endKey).getTime() + DAY_MS).toISOString();
+  const keys = Array.from({ length: days }, (_, i) => addDaysToKey(startKey, i));
+  return { days, startKey, endKey, start, endExclusive, keys };
+}
+
+function formatSgDay(dateKey) {
+  return new Intl.DateTimeFormat('en-SG', {
+    day: 'numeric', month: 'short', timeZone: SG_TIME_ZONE
+  }).format(sgMidnightUtc(dateKey));
 }
 
 function emptyQ(questionId) {
@@ -27,13 +57,13 @@ export default async function handler(req,res){
   if(!process.env.TEACHER_DASHBOARD_PASSWORD || req.body?.password!==process.env.TEACHER_DASHBOARD_PASSWORD) return json(res,401,{error:'Incorrect dashboard password'});
 
   const range = ['7','30','all'].includes(req.body?.range) ? req.body.range : '30';
-  const cutoff = dateCutoff(range);
+  const window = rangeWindow(range);
   const supabase=adminClient();
   let progressQuery = supabase.from('progress').select('user_id,question_id,status,mark_scheme_revealed,updated_at');
   let eventsQuery = supabase.from('events').select('user_id,question_id,event_type,status,input_tokens,output_tokens,estimated_cost_usd,metadata,created_at');
-  if (cutoff) {
-    progressQuery = progressQuery.gte('updated_at', cutoff);
-    eventsQuery = eventsQuery.gte('created_at', cutoff);
+  if (window) {
+    progressQuery = progressQuery.gte('updated_at', window.start).lt('updated_at', window.endExclusive);
+    eventsQuery = eventsQuery.gte('created_at', window.start).lt('created_at', window.endExclusive);
   }
   const [{data:progress,error:pe},{data:events,error:ee}] = await Promise.all([progressQuery, eventsQuery]);
   if(pe||ee) return json(res,500,{error:(pe||ee).message});
@@ -47,14 +77,14 @@ export default async function handler(req,res){
     const x=byQ[p.question_id] ||= emptyQ(p.question_id);
     x.attempts++;
     if(p.status && x[p.status] !== undefined) x[p.status]++;
-    if(p.mark_scheme_revealed)x.reveals++;
   }
 
   let aiTurns=0, reveals=0, cost=0, input=0, output=0;
   const missed = new Map();
   const daily = new Map();
+  const revealPairs = new Set();
   for(const e of events||[]){
-    const date = String(e.created_at || '').slice(0,10);
+    const date = e.created_at ? singaporeDateKey(e.created_at) : '';
     if (date) {
       const day = daily.get(date) || { date, ai_turns:0, reveals:0, users:new Set() };
       day.users.add(e.user_id);
@@ -62,7 +92,10 @@ export default async function handler(req,res){
       if(e.event_type==='mark_scheme_revealed') day.reveals++;
       daily.set(date,day);
     }
-    if(e.event_type==='mark_scheme_revealed') reveals++;
+    if(e.event_type==='mark_scheme_revealed') {
+      reveals++;
+      if (e.user_id && e.question_id) revealPairs.add(`${e.user_id}::${e.question_id}`);
+    }
     if(e.event_type==='ai_feedback'){
       aiTurns++;
       input+=e.input_tokens||0;
@@ -76,6 +109,13 @@ export default async function handler(req,res){
         if (key) missed.set(key, (missed.get(key)||0)+1);
       }
     }
+  }
+
+  for (const pair of revealPairs) {
+    const splitAt = pair.indexOf('::');
+    const questionId = pair.slice(splitAt + 2);
+    const x = byQ[questionId] ||= emptyQ(questionId);
+    x.reveals++;
   }
 
   const rows=Object.values(byQ).map(x=>{
@@ -94,12 +134,21 @@ export default async function handler(req,res){
   }
   const topics=Object.values(topicMap).map(t=>({...t,correct_pct:pct(t.correct,t.attempts),partial_pct:pct(t.partial,t.attempts),incorrect_pct:pct(t.incorrect,t.attempts),reveal_rate:pct(t.reveals,t.attempts),avg_ai_turns:t.attempts?Number((t.ai_turns/t.attempts).toFixed(1)):0})).sort((a,b)=>a.topic_code.localeCompare(b.topic_code));
 
-  const usageByDay=[...daily.values()].sort((a,b)=>a.date.localeCompare(b.date)).slice(-30).map(d=>({date:d.date,label:new Date(`${d.date}T00:00:00Z`).toLocaleDateString('en-SG',{day:'numeric',month:'short',timeZone:'UTC'}),ai_turns:d.ai_turns,reveals:d.reveals,active_students:d.users.size}));
+  const usageKeys = window
+    ? window.keys
+    : [...daily.keys()].sort().slice(-30);
+  const usageByDay = usageKeys.map(date => {
+    const d = daily.get(date) || { date, ai_turns:0, reveals:0, users:new Set() };
+    return { date, label:formatSgDay(date), ai_turns:d.ai_turns, reveals:d.reveals, active_students:d.users.size };
+  });
   const missedConcepts=[...missed.entries()].map(([concept,count])=>({concept,count})).sort((a,b)=>b.count-a.count||a.concept.localeCompare(b.concept)).slice(0,15);
   const costDisplay = cost < 0.01 ? `$${cost.toFixed(4)}` : `$${cost.toFixed(2)}`;
 
+  res.setHeader('Cache-Control', 'no-store');
   return json(res,200,{
     range,
+    time_zone: SG_TIME_ZONE,
+    date_window: window ? { start: window.startKey, end: window.endKey } : null,
     kpis:{students:users.size,questions_with_progress:(progress||[]).length,ai_tutor_turns:aiTurns,mark_scheme_reveals:reveals,input_tokens:input,output_tokens:output,estimated_ai_cost_usd:costDisplay},
     questions:rows.slice(0,50),
     topics,
