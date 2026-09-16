@@ -198,6 +198,7 @@ ASSESSMENT RULES:
 - If the student's answer fully covers the required physics, assessment must be "correct".
 - If the answer contains some correct required physics but is incomplete, assessment should normally be "partial".
 - If the answer does not demonstrate the required physics or is substantially incorrect, assessment should normally be "incorrect".
+- EXAM-OUTCOME RULE FOR 1-MARK QUESTIONS: a 1-mark question has no partial-credit outcome. If the student has not yet fully satisfied the required marking point, assessment MUST be "incorrect", even if the feedback acknowledges that the student is partly on the right track. Use "correct" only when the single mark is fully earned.
 - missed_points is for teacher analytics only.
 - missed_points should contain short concept labels describing important ideas the student has not yet demonstrated.
 - Never copy, list, reveal, or paraphrase missed_points in the student-facing feedback.
@@ -233,6 +234,13 @@ ${studentAnswer}`;
       messageContent
     });
 
+    // Keep the student-facing feedback nuanced, but make the stored/displayed
+    // assessment reflect the actual exam outcome. A 1-mark item cannot have
+    // a partial-credit result.
+    const examAssessment = q.marks === 1 && parsed.assessment === 'partial'
+      ? 'incorrect'
+      : parsed.assessment;
+
     const inputTokens = totalInputTokens;
     const outputTokens = totalOutputTokens;
 
@@ -254,7 +262,7 @@ ${studentAnswer}`;
       user_id: user.id,
       question_id: q.id,
       event_type: 'ai_feedback',
-      status: parsed.assessment,
+      status: examAssessment,
       input_tokens: inputTokens,
       output_tokens: outputTokens,
       estimated_cost_usd: cost,
@@ -264,7 +272,7 @@ ${studentAnswer}`;
     });
 
     return json(res, 200, {
-      assessment: parsed.assessment,
+      assessment: examAssessment,
       feedback: parsed.feedback,
       missedPoints: parsed.missed_points || [],
       usage: {
