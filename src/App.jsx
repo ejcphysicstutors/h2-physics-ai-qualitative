@@ -167,16 +167,6 @@ export default function App() {
     await supabase.auth.signOut();
   }
 
-  async function logEvent(eventType, extra = {}) {
-    if (!supabase || !user) return;
-
-    await supabase.from('events').insert({
-      user_id: user.id,
-      question_id: q.id,
-      event_type: eventType,
-      metadata: extra
-    });
-  }
 
   async function submitAnswer() {
     const answer = current.answer.trim();
@@ -218,14 +208,6 @@ export default function App() {
         answer: ''
       });
 
-      await supabase.from('progress').upsert({
-        user_id: user.id,
-        question_id: q.id,
-        status: data.assessment,
-        updated_at: new Date().toISOString()
-      }, {
-        onConflict: 'user_id,question_id'
-      });
 
     } catch (e) {
       patch({ busy: false });
@@ -265,16 +247,6 @@ export default function App() {
       markScheme: data.markScheme
     });
 
-    await supabase.from('progress').upsert({
-      user_id: user.id,
-      question_id: q.id,
-      mark_scheme_revealed: true,
-      updated_at: new Date().toISOString()
-    }, {
-      onConflict: 'user_id,question_id'
-    });
-
-    await logEvent('mark_scheme_revealed');
   }
 
   if (route === 'teacher') {
