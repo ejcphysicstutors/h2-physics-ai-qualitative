@@ -692,7 +692,8 @@
     "markScheme": "waves from the double slit are coherent \n\nwaves from each slit meet + superpose\n\n(assume sources in phase) maximum / bright fringe where path difference is nλ \n\nwaves reach with a phase difference of n360o / 2π n rad\n\nminimum / dark fringe where path \ndifference is (n + ½)λ\n\nwaves reach with a phase difference of \n(2n + 1) 180o / (2n + 1)π rad\n\nNote: Avoid using the phrase “interfere”",
     "images": [],
     "syllabusVersion": "2026",
-    "marks": 4
+    "marks": 4,
+    "tutorContext": "Concept guardrail for tutoring: destructive interference at a dark fringe does not destroy energy. If a student says the waves 'disappear' or that there is 'no energy left' / energy is destroyed, explicitly correct that misconception before asking for missing path-difference or phase conditions. The interference pattern redistributes energy: minima occur at destructive-interference locations while energy appears elsewhere in the pattern. Do not imply that energy is annihilated."
   },
   {
     "id": "H212-003",
@@ -1418,7 +1419,8 @@
       "/question-images/H217-003-1.png"
     ],
     "syllabusVersion": "2026",
-    "marks": 3
+    "marks": 3,
+    "tutorContext": "Concept guardrail for tutoring: Lenz's law is not a general rule that the induced magnetic field always opposes the original magnetic field. The induced effect opposes the change in magnetic flux that produces it. In this specific switch-on situation the solenoid field/flux is increasing, so the induced field is opposite to the solenoid field as a consequence of opposing that increase. If a student says only that the induced field 'opposes the original field', treat this as overgeneralised/incomplete and refine the principle rather than affirming it as generally correct."
   },
   {
     "id": "H217-004",
