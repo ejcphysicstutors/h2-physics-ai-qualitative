@@ -47,6 +47,10 @@ check('hard graph template cannot surface historical support sections',askRoute.
 check('current spreadsheet graph detection also recognises explicit method wording',askRoute.includes('explicitCurrentGraphMethodQuery') && askRoute.includes('gradient at (?:a )?point|local gradient'));
 check('current spreadsheet graph hard template replaces generated support sections',askRoute.includes('result.sections = currentSections') && askRoute.includes('Historical hand-drawn gradient triangles, manual intercept read-offs, and tangent construction are not presented as coequal current methods here.'));
 check('3 sf is framed as teaching convention rather than universal Cambridge rule',askRoute.includes('A 3 s.f. reporting rule may be described only as a safe classroom convention, not as a universal Cambridge requirement'));
+
+check('current spreadsheet graph query bypasses model synthesis for deterministic final assembly',askRoute.includes('Deterministic final-answer path for the narrow current 9478 spreadsheet graph-method') && askRoute.includes('return Response.json({') && askRoute.includes('relatedEvidence:[]'));
+check('deterministic graph answer includes y-intercept, local gradient and precision convention',askRoute.includes('Obtain the gradient and y-intercept directly from the coefficients of that equation.') && askRoute.includes('determine the local gradient numerically using a small interval near the point.') && askRoute.includes('three significant figures is a suitable classroom convention'));
+check('deterministic graph answer cites only current governing records',askRoute.includes('"GOV-SS10"') && askRoute.includes('"GOV-SS13"') && askRoute.includes('"GOV-PDO3"') && askRoute.includes('Direct current 9478 governing evidence for this spreadsheet method.'));
 check('copied citations use evidence-authority roles, not generic retrieval relevance',pageUi.includes('Direct current exemplification') && pageUi.includes('Governing requirement') && !/\$\{layers\[item\.layer\].*\$\{item\.relevance\}/.test(pageUi));
 
 if(failures){console.error(`\n${failures} P4 integration acceptance check(s) failed.`);process.exit(1)}
