@@ -32,12 +32,114 @@ async function buildQuestionContent(req, q, prompt) {
   return content;
 }
 
-function extractJson(text) {
-  const cleaned = text.replace(/^```json\s*/i, '').replace(/```\s*$/,'').trim();
-  const start = cleaned.indexOf('{'), end = cleaned.lastIndexOf('}');
-  if (start < 0 || end < start) throw new Error('Tutor returned an unexpected format');
-  return JSON.parse(cleaned.slice(start, end + 1));
+const TUTOR_TOOL = {
+  name: 'submit_tutor_assessment',
+  description: 'Return the student-facing Socratic feedback and internal assessment for the current H2 Physics response.',
+  input_schema: {
+    type: 'object',
+    additionalProperties: false,
+    properties: {
+      assessment: { type: 'string', enum: ['correct', 'partial', 'incorrect'] },
+      feedback: { type: 'string' },
+      missed_points: { type: 'array', items: { type: 'string' } }
+    },
+    required: ['assessment', 'feedback', 'missed_points']
+  }
+};
+
+function parseTutorResult(raw) {
+  const toolUse = raw?.content?.find?.(
+    block => block?.type === 'tool_use' && block?.name === TUTOR_TOOL.name
+  );
+  if (toolUse?.input) return toolUse.input;
+
+  // Backward-compatible fallback if a model/provider returns text despite forced tool use.
+  const text = (raw?.content || [])
+    .filter(block => block?.type === 'text')
+    .map(block => block.text || '')
+    .join('\n')
+    .trim();
+
+  if (!text) throw new Error('structured_output_missing');
+  const cleaned = text
+    .replace(/^```json\s*/i, '')
+    .replace(/```\s*$/i, '')
+    .trim();
+  const jsonStart = cleaned.indexOf('{');
+  const jsonEnd = cleaned.lastIndexOf('}');
+  if (jsonStart < 0 || jsonEnd < jsonStart) throw new Error('structured_output_missing');
+  return JSON.parse(cleaned.slice(jsonStart, jsonEnd + 1));
 }
+
+function validTutorResult(parsed) {
+  return Boolean(
+    parsed &&
+    ['correct', 'partial', 'incorrect'].includes(parsed.assessment) &&
+    typeof parsed.feedback === 'string' &&
+    parsed.feedback.trim() &&
+    Array.isArray(parsed.missed_points)
+  );
+}
+
+async function requestTutorAssessment({ q, system, messageContent }) {
+  let lastError;
+  let totalInputTokens = 0;
+  let totalOutputTokens = 0;
+
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const messages = [{ role: 'user', content: messageContent }];
+    if (attempt > 0) {
+      messages.push({
+        role: 'user',
+        content: 'Your previous response could not be read. Use submit_tutor_assessment now and return exactly one valid structured assessment.'
+      });
+    }
+
+    const r = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-api-key': process.env.ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01'
+      },
+      body: JSON.stringify({
+        model: q.images?.length
+          ? (process.env.ANTHROPIC_VISION_MODEL || process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5')
+          : (process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5'),
+        max_tokens: 450,
+        temperature: 0.2,
+        system,
+        tools: [TUTOR_TOOL],
+        tool_choice: { type: 'tool', name: TUTOR_TOOL.name },
+        messages
+      })
+    });
+
+    const raw = await r.json();
+    totalInputTokens += raw?.usage?.input_tokens || 0;
+    totalOutputTokens += raw?.usage?.output_tokens || 0;
+
+    if (!r.ok) {
+      const error = new Error(raw?.error?.message || 'Claude API error');
+      error.status = r.status;
+      throw error;
+    }
+
+    try {
+      const parsed = parseTutorResult(raw);
+      if (!validTutorResult(parsed)) throw new Error('structured_output_invalid');
+      return { parsed, totalInputTokens, totalOutputTokens };
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  const error = new Error('The AI tutor had trouble preparing its feedback. Please try again.');
+  error.status = 503;
+  error.cause = lastError;
+  throw error;
+}
+
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return json(res, 405, { error: 'Method not allowed' });
@@ -102,16 +204,11 @@ ASSESSMENT RULES:
 - The feedback must remain Socratic even though you know the missed_points internally.
 
 OUTPUT FORMAT:
-Return ONLY valid JSON with exactly these keys:
-{
-  "assessment": "correct" | "partial" | "incorrect",
-  "feedback": "student-facing response",
-  "missed_points": ["short internal concept label"]
-}
-
-Even when applying a safety or role-boundary response, you MUST still return valid JSON in this exact structure.
-For safety or off-topic responses, use an empty missed_points array unless a genuine physics assessment is still appropriate.
-Do not include markdown, code fences, commentary, or any text outside the JSON object.`;
+- You MUST use the submit_tutor_assessment tool exactly once.
+- Put assessment, student-facing feedback, and internal missed_points in that tool call.
+- Do not answer with ordinary text outside the tool call.
+- Even when applying a safety or role-boundary response, still use the tool.
+- For safety or off-topic responses, use an empty missed_points array unless a genuine physics assessment is still appropriate.`;
 
     const prompt = `Question:
 ${q.question}
@@ -130,40 +227,14 @@ ${studentAnswer}`;
 
     const messageContent = await buildQuestionContent(req, q, prompt);
 
-    const r = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: q.images?.length
-          ? (process.env.ANTHROPIC_VISION_MODEL || process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5')
-          : (process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5'),
-        max_tokens: 450,
-        temperature: 0.2,
-        system,
-        messages: [{ role: 'user', content: messageContent }]
-      })
+    const { parsed, totalInputTokens, totalOutputTokens } = await requestTutorAssessment({
+      q,
+      system,
+      messageContent
     });
 
-    const raw = await r.json();
-
-    if (!r.ok) {
-      return json(res, r.status, {
-        error: raw?.error?.message || 'Claude API error'
-      });
-    }
-
-    const parsed = extractJson(raw.content?.[0]?.text || '');
-
-    if (!['correct', 'partial', 'incorrect'].includes(parsed.assessment)) {
-      parsed.assessment = 'partial';
-    }
-
-    const inputTokens = raw.usage?.input_tokens || 0;
-    const outputTokens = raw.usage?.output_tokens || 0;
+    const inputTokens = totalInputTokens;
+    const outputTokens = totalOutputTokens;
 
     const inRate = Number(
       process.env.ANTHROPIC_INPUT_USD_PER_MILLION || 1
@@ -204,6 +275,6 @@ ${studentAnswer}`;
     });
 
   } catch (e) {
-    return json(res, 401, { error: e.message });
+    return json(res, e.status || 500, { error: e.message || 'Tutor request failed' });
   }
 }
