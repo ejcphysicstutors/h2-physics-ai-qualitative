@@ -85,6 +85,81 @@ export async function POST(request: Request) {
     const asksLinearFit = /\b(?:best[- ]?fit|trendline|linear|y[- ]?intercept|intercept)\b/i.test(query);
     const asksLocalGradient = /\b(?:gradient at (?:a )?point|local gradient)\b/i.test(query);
 
+    // Deterministic final-answer path for the narrow current 9478 spreadsheet graph-method
+    // query family. Do not delegate this wording to the synthesis model: previous prompt-only
+    // guardrails still allowed manual graphing language and historical ER commentary to leak
+    // back into the rendered answer. Keep this path narrow so broader queries remain fully
+    // synthesised. Selected-record workflows are left on the normal path.
+    if (currentSpreadsheetGraphQuery && !body.selectedIds?.length) {
+      const wantedIds = [
+        ...(asksLinearFit ? ["GOV-SS10"] : []),
+        ...(asksLocalGradient ? ["GOV-SS13"] : []),
+        "GOV-PDO3",
+      ];
+      const currentRecords = candidatesByIds(wantedIds);
+      const byId = new Map(currentRecords.map(record => [record.id, record]));
+      const sections:any[] = [];
+
+      const teachingParts:string[] = [];
+      if (asksLinearFit) teachingParts.push("For a linear relationship, use the spreadsheet to add a linear trendline and display its fitted equation. Obtain the gradient and y-intercept directly from the coefficients of that equation.");
+      if (asksLocalGradient) teachingParts.push("For the gradient at a point on a curve, determine the local gradient numerically using a small interval near the point.");
+      teachingParts.push("Report derived values to an appropriate precision; three significant figures is a suitable classroom convention unless the task or data precision indicates otherwise. This is not a universal Cambridge requirement.");
+      sections.push({
+        key:"teaching-interpretation",
+        heading:"Teaching interpretation",
+        text:`Physics interpretation — not directly stated by Cambridge.\n\n${teachingParts.join(" ")}`,
+        claim_class:"Teacher inference",
+        supporting_ids:[],
+      });
+
+      if (asksLinearFit && byId.has("GOV-SS10")) sections.push({
+        key:"current-linear-fit",
+        heading:"Current 9478 spreadsheet method — linear fit",
+        text:"The current 9478 syllabus requires candidates to select appropriate data points, use built-in spreadsheet functions to add a linear trendline, and display the trendline equation.",
+        claim_class:"Directly stated in governing evidence",
+        supporting_ids:["GOV-SS10"],
+      });
+
+      if (asksLocalGradient && byId.has("GOV-SS13")) sections.push({
+        key:"current-local-gradient",
+        heading:"Current 9478 spreadsheet method — gradient at a point",
+        text:"The current 9478 syllabus requires candidates to determine the gradient at a point on a curve numerically using a small interval near the point.",
+        claim_class:"Directly stated in governing evidence",
+        supporting_ids:["GOV-SS13"],
+      });
+
+      if (byId.has("GOV-PDO3")) sections.push({
+        key:"current-precision",
+        heading:"Numerical presentation",
+        text:"The current 9478 syllabus requires quantitative data to be presented to an appropriate number of decimal places or significant figures. It does not establish a universal three-significant-figure rule for every derived quantity.",
+        claim_class:"Directly stated in governing evidence",
+        supporting_ids:["GOV-PDO3"],
+      });
+
+      const usedIds = sections.flatMap(section => section.supporting_ids as string[]);
+      const supportingEvidence = usedIds
+        .map(id => byId.get(id))
+        .filter(Boolean)
+        .map(record => publicRecord(record!, "Directly relevant", "Direct current 9478 governing evidence for this spreadsheet method."));
+
+      return Response.json({
+        interpretation,
+        clarification_question:null,
+        judgement:"Directly supported",
+        recurrence:"Single-context evidence",
+        sections,
+        supportingEvidence,
+        relatedEvidence:[],
+        evidenceSummary:{
+          directCount:supportingEvidence.length,
+          analogousCount:0,
+          backgroundCount:0,
+          totalRelevant:supportingEvidence.length,
+          verified9478ItemCount:supportingEvidence.length,
+        },
+      },{headers:{"Cache-Control":"no-store","Content-Security-Policy":"default-src 'none'"}});
+    }
+
     // For current 9478 spreadsheet graph-method questions, old manual graphing evidence is
     // more likely to mislead than help. Keep synthesis to current governing/specimen layers.
     // Historical/manual queries are deliberately excluded from this profile above.
