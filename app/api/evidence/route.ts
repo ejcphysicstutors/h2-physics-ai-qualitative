@@ -77,9 +77,13 @@ export async function POST(request: Request) {
     if (!process.env.OPENAI_API_KEY) return Response.json({error:"The evidence synthesis service is not configured."},{status:503});
 
     const narrowRepeatCountQuery = interpretation.concept === "repeated readings and averaging" && /(?:how many|number of)\s+(?:readings|measurements)|always\s+repeat|repeat\s+(?:three|3)\s+times?/i.test(query);
-    const currentSpreadsheetGraphQuery = ["spreadsheet analysis", "graph gradient and intercept"].includes(interpretation.concept)
+    const explicitCurrentGraphMethodQuery = /\b(?:best[- ]?fit|trendline|y[- ]?intercept|gradient at (?:a )?point|local gradient)\b/i.test(query);
+    const currentSpreadsheetGraphQuery = (["spreadsheet analysis", "graph gradient and intercept"].includes(interpretation.concept)
       && /\b(?:best[- ]?fit|trendline|linear|gradient|intercept)\b/i.test(query)
+      || explicitCurrentGraphMethodQuery)
       && !/\b(?:historical|history|legacy|9749|9702|manual|manually|by hand)\b/i.test(query);
+    const asksLinearFit = /\b(?:best[- ]?fit|trendline|linear|y[- ]?intercept|intercept)\b/i.test(query);
+    const asksLocalGradient = /\b(?:gradient at (?:a )?point|local gradient)\b/i.test(query);
 
     // For current 9478 spreadsheet graph-method questions, old manual graphing evidence is
     // more likely to mislead than help. Keep synthesis to current governing/specimen layers.
@@ -157,6 +161,26 @@ For this current 9478 spreadsheet graph-method query, prioritise the present spr
         const prefix = "Physics interpretation — not directly stated by Cambridge.";
         const text = String(section.text || "").trim();
         if (!text.startsWith(prefix)) section.text = `${prefix}\n\n${text}`.trim();
+      }
+    }
+
+    // Deterministic current-method guardrail for spreadsheet graph questions. The model
+    // may otherwise soften the verified workflow into "e.g. spreadsheet" or reintroduce
+    // manual gradient/intercept procedures. Keep this narrow and query-specific.
+    if (currentSpreadsheetGraphQuery) {
+      result.sections = (result.sections || []).filter((section:any) => {
+        if (section.claim_class === "Teacher inference" || section.claim_class === "Not established") return true;
+        const records = (section.supporting_ids || []).map((id:string) => eligible.get(id)).filter(Boolean) as Candidate[];
+        return records.length > 0 && records.every(record => record.layer === "governing" || record.layer === "specimen");
+      });
+
+      const teaching = (result.sections || []).find((section:any) => section.claim_class === "Teacher inference");
+      if (teaching) {
+        const parts:string[] = [];
+        if (asksLinearFit) parts.push("For a linear relationship, use the spreadsheet to add a linear trendline and display its fitted equation. Obtain the gradient and y-intercept directly from the coefficients of that equation; do not calculate the fitted-line gradient from two plotted points or read the intercept manually from the graph.");
+        if (asksLocalGradient) parts.push("For the gradient at a point on a curve, determine the local gradient numerically using a small interval near the point.");
+        parts.push("Report derived values to an appropriate precision. Three significant figures is a suitable classroom convention unless the task or data precision indicates otherwise; it is not a universal Cambridge requirement.");
+        teaching.text = `Physics interpretation — not directly stated by Cambridge.\n\n${parts.join(" ")}`;
       }
     }
     result.sections = (result.sections || []).filter((s:any) => {
