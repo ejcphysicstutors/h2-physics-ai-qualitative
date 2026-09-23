@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 const rangeOptions = [
   { value: '7', label: 'Last 7 days' },
@@ -7,75 +7,309 @@ const rangeOptions = [
 ];
 
 export default function TeacherDashboard({ onBack }) {
-  const [password,setPassword]=useState(sessionStorage.getItem('teacherPassword')||'');
-  const [range,setRange]=useState('30');
-  const [data,setData]=useState(null);
-  const [err,setErr]=useState('');
-  const [busy,setBusy]=useState(false);
+  const [password, setPassword] = useState(sessionStorage.getItem('teacherPassword') || '');
+  const [range, setRange] = useState('30');
+  const [data, setData] = useState(null);
+  const [err, setErr] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [topicSort, setTopicSort] = useState('attention');
 
-  async function load(nextRange = range){
-    setBusy(true); setErr('');
-    try{
-      const r=await fetch('/api/teacher-data',{method:'POST',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({password,range:nextRange})});
-      const d=await r.json();
-      if(!r.ok) throw new Error(d.error||'Unable to load');
-      sessionStorage.setItem('teacherPassword',password);
+  async function load(nextRange = range) {
+    setBusy(true);
+    setErr('');
+    try {
+      const r = await fetch('/api/teacher-data', {
+        method: 'POST',
+        cache: 'no-store',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password, range: nextRange })
+      });
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.error || 'Unable to load');
+      sessionStorage.setItem('teacherPassword', password);
       setData(d);
-    }catch(e){setErr(e.message)}finally{setBusy(false)}
+    } catch (e) {
+      setErr(e.message);
+    } finally {
+      setBusy(false);
+    }
   }
 
-  useEffect(() => { if (data) load(range); }, [range]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (data) load(range);
+  }, [range]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const sortedTopics = useMemo(() => {
+    if (!data?.topics) return [];
+    const rows = [...data.topics];
+    if (topicSort === 'attention') {
+      return rows.sort((a, b) =>
+        (a.correct_pct - b.correct_pct) ||
+        (b.incorrect_pct - a.incorrect_pct) ||
+        (b.attempts - a.attempts)
+      );
+    }
+    if (topicSort === 'attempts') return rows.sort((a, b) => b.attempts - a.attempts);
+    return rows.sort((a, b) => a.topic_code.localeCompare(b.topic_code));
+  }, [data, topicSort]);
 
   return <div className="dashboard">
-    <header className="site-header dashboard-header"><div><h1>Teacher analytics</h1><div className="subtitle">H2 Physics AI Tutor</div></div><button className="btn" onClick={onBack}>Student view</button></header>
+    <header className="site-header dashboard-header">
+      <div>
+        <h1>Teacher analytics</h1>
+        <div className="subtitle">H2 Physics AI Tutor</div>
+      </div>
+      <button className="btn" onClick={onBack}>Student view</button>
+    </header>
+
     <main className="dashboard-main">
-      {!data && <div className="login-card"><h2>Physics department access</h2><input className="password" type="password" value={password} onChange={e=>setPassword(e.target.value)} onKeyDown={e=>e.key==='Enter'&&load()} placeholder="Dashboard password"/><button className="btn primary" onClick={()=>load()} disabled={busy}>{busy?'Loading…':'Open dashboard'}</button>{err&&<p className="error">{err}</p>}</div>}
+      {!data && <div className="login-card">
+        <h2>Physics department access</h2>
+        <input
+          className="password"
+          type="password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && load()}
+          placeholder="Dashboard password"
+        />
+        <button className="btn primary" onClick={() => load()} disabled={busy}>
+          {busy ? 'Loading…' : 'Open dashboard'}
+        </button>
+        {err && <p className="error">{err}</p>}
+      </div>}
 
       {data && <>
-        <div className="dashboard-toolbar"><div><h2>Usage overview</h2><p className="muted">Pseudonymous usage data only; student names and email addresses are not displayed.{data.date_window ? ` Dates use Singapore time (${data.date_window.start} to ${data.date_window.end}).` : ' Dates use Singapore time.'}</p></div><select aria-label="Analytics time range" value={range} onChange={e=>setRange(e.target.value)}>{rangeOptions.map(x=><option value={x.value} key={x.value}>{x.label}</option>)}</select></div>
-        {err&&<p className="error">{err}</p>}
-        <div className="kpi-grid">
-          <Kpi value={data.kpis.students} label="Students" />
-          <Kpi value={data.kpis.questions_with_progress} label="Question progress records" />
-          <Kpi value={data.kpis.ai_tutor_turns} label="AI tutor turns" />
-          <Kpi value={data.kpis.mark_scheme_reveals} label="Answer reveals" />
-          <Kpi value={Number(data.kpis.input_tokens).toLocaleString()} label="Input tokens" />
-          <Kpi value={Number(data.kpis.output_tokens).toLocaleString()} label="Output tokens" />
-          <Kpi value={data.kpis.estimated_ai_cost_usd} label="Estimated AI cost (USD)" />
+        <div className="dashboard-toolbar">
+          <div>
+            <div className="dashboard-kicker">Cohort activity</div>
+            <h2>Usage overview</h2>
+            <p className="muted">
+              Pseudonymous usage data only. Dates use Singapore time
+              {data.date_window ? ` (${data.date_window.start} to ${data.date_window.end}).` : '.'}
+            </p>
+          </div>
+          <label className="range-control">
+            <span>Time range</span>
+            <select aria-label="Analytics time range" value={range} onChange={e => setRange(e.target.value)}>
+              {rangeOptions.map(x => <option value={x.value} key={x.value}>{x.label}</option>)}
+            </select>
+          </label>
         </div>
 
-        <section className="analytics-section">
-          <div className="section-heading"><div><h2>Usage over time</h2><p className="muted">AI tutor interactions and answer reveals by day.</p></div></div>
-          <UsageBars rows={data.usage_by_day || []}/>
+        {err && <p className="error">{err}</p>}
+
+        <div className="kpi-grid teacher-kpis">
+          <Kpi value={data.kpis.students} label="Active students" detail="pseudonymous users" />
+          <Kpi value={Number(data.kpis.questions_with_progress).toLocaleString()} label="Questions attempted" detail={`${data.kpis.avg_questions_per_student} per student`} />
+          <Kpi value={`${data.kpis.correct_rate}%`} label="Correct" detail={`${Number(data.kpis.correct_count).toLocaleString()} attempts`} />
+          <Kpi value={Number(data.kpis.ai_tutor_turns).toLocaleString()} label="Tutor feedback turns" detail={`${data.kpis.avg_ai_turns_per_attempt} per attempt`} />
+          <Kpi value={Number(data.kpis.mark_scheme_reveals).toLocaleString()} label="Answers revealed" detail="unique student-question reveals" />
+        </div>
+
+        <div className="system-usage-strip" aria-label="System usage">
+          <span className="system-usage-label">System usage</span>
+          <span>Input tokens <strong>{Number(data.kpis.input_tokens).toLocaleString()}</strong></span>
+          <span>Output tokens <strong>{Number(data.kpis.output_tokens).toLocaleString()}</strong></span>
+          <span>Estimated AI cost <strong>{data.kpis.estimated_ai_cost_usd}</strong></span>
+        </div>
+
+        <section className="analytics-section analytics-section-first">
+          <div className="section-heading">
+            <div>
+              <h2>Usage over time</h2>
+              <p className="muted">When students are asking for tutor feedback and revealing answers.</p>
+            </div>
+            <div className="chart-legend" aria-label="Chart legend">
+              <span><i className="legend-swatch ai"></i> Tutor feedback</span>
+              <span><i className="legend-swatch reveals"></i> Answer reveals</span>
+            </div>
+          </div>
+          <UsageBars rows={data.usage_by_day || []} range={range} />
         </section>
 
         <section className="analytics-section">
-          <div className="section-heading"><div><h2>Performance by topic</h2><p className="muted">A quick view of where students are seeking the most help.</p></div></div>
-          <div className="table-wrap"><table className="analytics-table"><thead><tr><th>Topic</th><th>Students attempted</th><th>Correct</th><th>Partial</th><th>Incorrect</th><th>Reveal rate</th><th>AI turns / student</th></tr></thead><tbody>{data.topics.map(x=><tr key={x.topic_code}><td><strong>{x.topic_code}</strong><span className="cell-subtitle">{x.topic}</span></td><td>{x.attempts}</td><td>{x.correct_pct}%</td><td>{x.partial_pct}%</td><td>{x.incorrect_pct}%</td><td>{x.reveal_rate}%</td><td>{x.avg_ai_turns}</td></tr>)}</tbody></table></div>
+          <div className="section-heading section-heading-with-control">
+            <div>
+              <h2>Performance by topic</h2>
+              <p className="muted">Use this to spot topics that may need review, then check the question-level evidence below.</p>
+            </div>
+            <label className="mini-select-control">
+              <span>Sort</span>
+              <select value={topicSort} onChange={e => setTopicSort(e.target.value)}>
+                <option value="attention">Needs attention</option>
+                <option value="attempts">Most attempted</option>
+                <option value="topic">Topic order</option>
+              </select>
+            </label>
+          </div>
+
+          <div className="table-wrap">
+            <table className="analytics-table topic-table">
+              <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>Students</th>
+                  <th>Attempts</th>
+                  <th>Outcome</th>
+                  <th>Answer reveal</th>
+                  <th>Tutor help</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedTopics.map(x => <tr key={x.topic_code}>
+                  <td>
+                    <strong>{x.topic_code}</strong>
+                    <span className="cell-subtitle">{x.topic}</span>
+                  </td>
+                  <td>{x.students}</td>
+                  <td>{x.attempts}</td>
+                  <td>
+                    <OutcomeBar correct={x.correct_pct} partial={x.partial_pct} incorrect={x.incorrect_pct} />
+                  </td>
+                  <td>{x.reveal_rate}%</td>
+                  <td>{x.avg_ai_turns} turns / attempt</td>
+                </tr>)}
+              </tbody>
+            </table>
+          </div>
+          <p className="analytics-footnote">Outcome percentages are based on the latest recorded status for each student-question attempt in the selected time range.</p>
         </section>
 
         <section className="analytics-section">
-          <div className="section-heading"><div><h2>Most difficult questions</h2><p className="muted">Difficulty combines incomplete/incorrect outcomes, answer reveals and the amount of AI help required.</p></div></div>
-          <div className="question-grid">{data.questions.slice(0,20).map(x=><article className="difficulty-card" key={x.question_id}>
-            <div className="difficulty-card-top"><div><strong>{x.question_id}</strong><span>{x.topic_code} {x.topic}</span></div><span className="difficulty-score">{x.difficulty_score}</span></div>
-            <p className="question-preview">{x.question}</p>
-            <div className="mini-metrics"><span><b>{x.attempts}</b> attempted</span><span><b>{x.correct_pct}%</b> correct</span><span><b>{x.reveal_rate}%</b> revealed</span><span><b>{x.avg_ai_turns}</b> AI turns/student</span></div>
-          </article>)}</div>
+          <div className="section-heading">
+            <div>
+              <h2>Questions needing attention</h2>
+              <p className="muted">Questions rise here when students are incorrect or partial, reveal the answer, or need more tutor help.</p>
+            </div>
+          </div>
+          <div className="question-grid">
+            {data.questions.slice(0, 12).map((x, i) => <article className="difficulty-card" key={x.question_id}>
+              <div className="difficulty-card-top">
+                <div>
+                  <span className="question-rank">#{i + 1}</span>
+                  <strong>{x.question_id}</strong>
+                  <span>{x.topic_code} {x.topic}</span>
+                </div>
+                {x.attempts < 3 && <span className="sample-warning">Early signal</span>}
+              </div>
+              <p className="question-preview">{x.question}</p>
+              <div className="mini-metrics">
+                <span><b>{x.attempts}</b> attempts</span>
+                <span><b>{x.correct_pct}%</b> correct</span>
+                <span><b>{x.reveal_rate}%</b> revealed</span>
+                <span><b>{x.avg_ai_turns}</b> tutor turns / attempt</span>
+              </div>
+              <a className="question-open-link" href={`/question/${encodeURIComponent(x.question_id)}`} target="_blank" rel="noreferrer">Open question ↗</a>
+            </article>)}
+          </div>
         </section>
 
         <section className="analytics-section">
-          <div className="section-heading"><div><h2>Frequently missed concepts</h2><p className="muted">Concept labels come from Claude's structured assessment; use these as signals for lesson review rather than formal grading.</p></div></div>
-          <div className="concept-list">{data.missed_concepts.length ? data.missed_concepts.map((x,i)=><div className="concept-row" key={x.concept}><span className="concept-rank">{i+1}</span><span>{x.concept}</span><strong>{x.count}</strong></div>) : <p className="muted">No missed-concept data in this time range yet.</p>}</div>
+          <div className="section-heading">
+            <div>
+              <h2>Frequently missed concepts</h2>
+              <p className="muted">Signals extracted from tutor assessments. Use these for lesson review, not formal grading.</p>
+            </div>
+          </div>
+          <div className="concept-list">
+            {data.missed_concepts.length
+              ? data.missed_concepts.map((x, i) => <div className="concept-row" key={x.concept}>
+                  <span className="concept-rank">{i + 1}</span>
+                  <span>{x.concept}</span>
+                  <strong>{x.count}</strong>
+                </div>)
+              : <p className="muted concept-empty">No missed-concept data in this time range yet.</p>}
+          </div>
         </section>
       </>}
     </main>
   </div>;
 }
 
-function Kpi({ value, label }) { return <div className="kpi"><strong>{value}</strong><span>{label}</span></div>; }
+function Kpi({ value, label, detail }) {
+  return <div className="kpi">
+    <strong>{value}</strong>
+    <span>{label}</span>
+    {detail && <small>{detail}</small>}
+  </div>;
+}
 
-function UsageBars({ rows }) {
-  if (!rows.length) return <div className="empty-panel">No usage events in this time range yet.</div>;
-  const max = Math.max(...rows.map(x => x.ai_turns + x.reveals), 1);
-  return <div className="usage-chart">{rows.map(x => <div className="usage-day" key={x.date} title={`${x.date}: ${x.ai_turns} AI turns, ${x.reveals} reveals`}><div className="bar-stack"><div className="bar ai" style={{height:`${x.ai_turns ? Math.max(3, x.ai_turns/max*100) : 0}%`}}></div><div className="bar reveals" style={{height:`${x.reveals ? Math.max(3, x.reveals/max*100) : 0}%`}}></div></div><span>{x.label}</span></div>)}</div>;
+function OutcomeBar({ correct, partial, incorrect }) {
+  return <div className="outcome-cell" title={`${correct}% correct, ${partial}% partial, ${incorrect}% incorrect`}>
+    <div className="outcome-bar" aria-hidden="true">
+      <span className="outcome-correct" style={{ width: `${correct}%` }}></span>
+      <span className="outcome-partial" style={{ width: `${partial}%` }}></span>
+      <span className="outcome-incorrect" style={{ width: `${incorrect}%` }}></span>
+    </div>
+    <div className="outcome-labels">
+      <span>{correct}% correct</span>
+      <span>{partial}% partial</span>
+      <span>{incorrect}% incorrect</span>
+    </div>
+  </div>;
+}
+
+function UsageBars({ rows, range }) {
+  const series = useMemo(() => prepareUsageSeries(rows, range), [rows, range]);
+  if (!series.length || !series.some(x => x.ai_turns || x.reveals)) {
+    return <div className="empty-panel">No usage events in this time range yet.</div>;
+  }
+
+  const max = Math.max(...series.flatMap(x => [x.ai_turns, x.reveals]), 1);
+  const totalAi = series.reduce((sum, x) => sum + x.ai_turns, 0);
+  const totalReveals = series.reduce((sum, x) => sum + x.reveals, 0);
+  const labelEvery = series.length <= 8 ? 1 : series.length <= 16 ? 2 : Math.ceil(series.length / 7);
+
+  return <div className="usage-chart-card">
+    <div className="usage-chart-summary">
+      <span><strong>{totalAi.toLocaleString()}</strong> tutor feedback turns</span>
+      <span><strong>{totalReveals.toLocaleString()}</strong> answer reveal events</span>
+    </div>
+    <div className="usage-chart" style={{ '--usage-columns': series.length }}>
+      {series.map((x, i) => <div className="usage-day" key={x.key} title={`${x.label}: ${x.ai_turns} tutor turns, ${x.reveals} answer reveals`}>
+        <div className="bar-stack">
+          <div className="bar ai" style={{ height: `${x.ai_turns ? Math.max(4, x.ai_turns / max * 100) : 0}%` }}></div>
+          <div className="bar reveals" style={{ height: `${x.reveals ? Math.max(4, x.reveals / max * 100) : 0}%` }}></div>
+        </div>
+        <span className={`usage-label ${(i % labelEvery === 0 || i === series.length - 1) ? '' : 'hidden-label'}`}>{x.label}</span>
+      </div>)}
+    </div>
+  </div>;
+}
+
+function prepareUsageSeries(rows, range) {
+  if (range !== 'all' || rows.length <= 14) {
+    return rows.map(x => ({ ...x, key: x.date }));
+  }
+
+  if (rows.length <= 90) {
+    const groups = [];
+    for (let i = 0; i < rows.length; i += 7) {
+      const chunk = rows.slice(i, i + 7);
+      if (!chunk.length) continue;
+      groups.push({
+        key: `${chunk[0].date}-${chunk[chunk.length - 1].date}`,
+        label: chunk.length === 1 ? chunk[0].label : `${chunk[0].label}–${chunk[chunk.length - 1].label}`,
+        ai_turns: chunk.reduce((sum, x) => sum + x.ai_turns, 0),
+        reveals: chunk.reduce((sum, x) => sum + x.reveals, 0)
+      });
+    }
+    return groups;
+  }
+
+  const months = new Map();
+  for (const row of rows) {
+    const monthKey = row.date.slice(0, 7);
+    const current = months.get(monthKey) || { key: monthKey, label: monthLabel(row.date), ai_turns: 0, reveals: 0 };
+    current.ai_turns += row.ai_turns;
+    current.reveals += row.reveals;
+    months.set(monthKey, current);
+  }
+  return [...months.values()];
+}
+
+function monthLabel(dateKey) {
+  const d = new Date(`${dateKey}T00:00:00+08:00`);
+  return new Intl.DateTimeFormat('en-SG', { month: 'short', year: '2-digit', timeZone: 'Asia/Singapore' }).format(d);
 }

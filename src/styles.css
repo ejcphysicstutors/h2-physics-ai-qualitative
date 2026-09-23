@@ -690,3 +690,96 @@ button,select,textarea,input{font-family:inherit}
     font-size:.71rem;
   }
 }
+
+/* Teacher analytics refresh - clearer metrics and action-focused layout */
+.dashboard-main{max-width:1240px;margin:1.6rem auto;padding:0 1.25rem 4rem}
+.dashboard-toolbar{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;margin-bottom:1.1rem}
+.dashboard-toolbar h2{margin:.12rem 0 .28rem;font-size:1.7rem;font-weight:650}
+.dashboard-kicker{font-size:.67rem;text-transform:uppercase;letter-spacing:.09em;color:var(--accent);font-weight:700}
+.range-control,.mini-select-control{display:flex;flex-direction:column;gap:.3rem;color:var(--light);font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;font-weight:650}
+.range-control select,.mini-select-control select{min-width:150px;border:1px solid var(--border);border-radius:9px;background:white;padding:.62rem .75rem;color:var(--text);font-size:.9rem;text-transform:none;letter-spacing:0;font-weight:400}
+
+.teacher-kpis{grid-template-columns:repeat(5,minmax(0,1fr));gap:.8rem;margin-bottom:.8rem}
+.teacher-kpis .kpi{min-height:128px;padding:1rem 1rem .9rem;display:flex;flex-direction:column;justify-content:flex-start}
+.teacher-kpis .kpi strong{font-family:Georgia,"Times New Roman",serif;font-size:1.75rem;font-weight:700;line-height:1.1;margin-bottom:.45rem}
+.teacher-kpis .kpi>span{font-size:.78rem;color:var(--mid);line-height:1.3}
+.teacher-kpis .kpi small{margin-top:auto;padding-top:.7rem;color:var(--light);font-size:.68rem;line-height:1.3}
+.system-usage-strip{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;padding:.62rem .8rem;border:1px solid var(--border);border-radius:9px;background:rgba(255,255,255,.55);color:var(--mid);font-size:.72rem}
+.system-usage-strip strong{color:var(--text);font-weight:600}
+.system-usage-label{text-transform:uppercase;letter-spacing:.06em;color:var(--light);font-size:.63rem;font-weight:650}
+
+.analytics-section{margin:2.1rem 0}
+.analytics-section-first{margin-top:1.65rem}
+.section-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:.8rem}
+.section-heading h2{margin:0 0 .22rem;font-size:1.45rem;font-weight:650}
+.section-heading-with-control{align-items:flex-end}
+.chart-legend{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;color:var(--mid);font-size:.72rem}
+.chart-legend span{display:inline-flex;align-items:center;gap:.35rem}
+.legend-swatch{width:10px;height:10px;border-radius:3px;display:inline-block}
+.legend-swatch.ai{background:var(--accent)}
+.legend-swatch.reveals{background:#b99a45}
+
+.usage-chart-card{background:white;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:.9rem 1rem .7rem;overflow:hidden}
+.usage-chart-summary{display:flex;gap:1.25rem;flex-wrap:wrap;color:var(--mid);font-size:.74rem;margin-bottom:.7rem}
+.usage-chart-summary strong{color:var(--text);font-weight:650}
+.usage-chart{height:220px;border:0;border-radius:0;padding:.4rem 0 0;box-shadow:none;overflow:visible;display:grid;grid-template-columns:repeat(var(--usage-columns),minmax(0,1fr));align-items:end;gap:.28rem;background:repeating-linear-gradient(to top,transparent 0,transparent 49px,#efede7 50px)}
+.usage-day{height:100%;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:.38rem}
+.bar-stack{height:168px;width:100%;max-width:34px;display:flex;align-items:flex-end;justify-content:center;gap:3px}
+.bar{width:min(42%,14px);border-radius:4px 4px 0 0;min-height:0}
+.usage-label{font-size:.62rem;color:var(--light);white-space:nowrap;transform:none;margin:0;height:18px;line-height:18px}
+.hidden-label{visibility:hidden}
+
+.topic-table th:nth-child(1),.topic-table td:nth-child(1){min-width:190px}
+.topic-table th:nth-child(4),.topic-table td:nth-child(4){min-width:260px;text-align:left}
+.outcome-cell{min-width:240px}
+.outcome-bar{height:7px;border-radius:999px;background:#efede7;overflow:hidden;display:flex}
+.outcome-bar span{display:block;height:100%}
+.outcome-correct{background:var(--accent)}
+.outcome-partial{background:#c39b3b}
+.outcome-incorrect{background:#b86b4a}
+.outcome-labels{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:.35rem;color:var(--light);font-size:.67rem}
+.analytics-footnote{margin:.5rem .1rem 0;color:var(--light);font-size:.69rem;line-height:1.4}
+
+.question-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem}
+.difficulty-card{position:relative;padding:1rem 1rem .9rem;border-radius:11px}
+.difficulty-card-top{align-items:flex-start}
+.difficulty-card-top>div{display:grid;grid-template-columns:auto 1fr;column-gap:.45rem;align-items:baseline}
+.difficulty-card-top>div strong{font-size:.92rem}
+.difficulty-card-top>div>span:last-child{grid-column:2;color:var(--light);font-size:.72rem;margin-top:.12rem}
+.question-rank{grid-row:1/3;display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:var(--surface2);color:var(--mid)!important;font-size:.65rem!important;font-weight:700}
+.sample-warning{padding:.22rem .45rem;border-radius:999px;background:#fff7df;color:#765a08!important;border:1px solid #eadba8;font-size:.64rem!important;white-space:nowrap}
+.question-preview{font-family:Georgia,"Times New Roman",serif;color:var(--text);font-size:.9rem;line-height:1.5;margin:.75rem 0}
+.mini-metrics{gap:.38rem .75rem;font-size:.7rem}
+.question-open-link{display:inline-block;margin-top:.75rem;color:var(--accent);font-size:.72rem;text-decoration:none;font-weight:600}
+.question-open-link:hover{text-decoration:underline}
+.concept-empty{padding:.8rem 1rem;margin:0}
+
+@media(max-width:1050px){
+  .teacher-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+@media(max-width:760px){
+  .dashboard-main{margin:1rem auto;padding:0 .7rem 3rem}
+  .dashboard-toolbar{align-items:stretch;flex-direction:column;gap:.8rem}
+  .range-control select,.mini-select-control select{width:100%}
+  .teacher-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}
+  .teacher-kpis .kpi{min-height:112px;padding:.8rem}
+  .teacher-kpis .kpi strong{font-size:1.45rem}
+  .system-usage-strip{gap:.55rem 1rem}
+  .section-heading{align-items:flex-start;flex-direction:column}
+  .chart-legend{gap:.75rem}
+  .usage-chart-card{padding:.75rem .65rem .6rem}
+  .usage-chart{height:190px;gap:.12rem}
+  .bar-stack{height:142px;gap:2px;max-width:26px}
+  .usage-label{font-size:.56rem}
+  .question-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:460px){
+  .teacher-kpis{grid-template-columns:1fr 1fr}
+  .teacher-kpis .kpi{min-height:104px}
+  .teacher-kpis .kpi small{font-size:.64rem}
+  .usage-chart-summary{gap:.5rem 1rem}
+  .usage-chart{height:175px}
+  .bar-stack{height:130px}
+}
