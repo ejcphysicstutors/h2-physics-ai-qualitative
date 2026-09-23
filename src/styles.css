@@ -75,3 +75,69 @@
   .nav-row .btn:first-child{grid-column:1;grid-row:2}
   .nav-row .btn:last-child{grid-column:2;grid-row:2}
 }
+
+/* Student practice polish - pass 2 */
+.site-header{padding:.72rem max(1.25rem,calc((100vw - 920px)/2 + 1.25rem));min-height:64px}
+.site-header h1{font-size:1.62rem}
+.subtitle{font-size:.66rem;margin-top:.18rem;opacity:.68}
+.account-area{gap:.55rem;font-size:.76rem}
+.student-id,.account-status{opacity:.7}
+.link-btn{text-decoration:none;border-radius:6px;padding:.32rem .42rem;opacity:.88}
+.link-btn:hover{background:rgba(255,255,255,.1);opacity:1}
+.teacher-link{opacity:.72}
+
+.controls-bar{padding-top:.5rem;padding-bottom:.5rem}
+.controls-bar label{font-size:.67rem}
+.controls-bar select{height:42px;border-radius:9px}
+.shuffle-btn{height:42px;background:white}
+.progress-label{font-variant-numeric:tabular-nums;font-size:.76rem}
+
+.q-card-header{padding:.72rem 1.35rem;justify-content:space-between;gap:1rem}
+.topic-badge{font-size:.66rem;line-height:1.2}
+.question-meta{display:flex;align-items:center;gap:.5rem;margin-left:auto}
+.mark-allocation,.status{font-size:.69rem;padding:.22rem .52rem}
+.mark-allocation{margin-left:0}
+
+.q-body{padding:1.5rem 1.7rem 1.2rem}
+.q-text{font-size:1.24rem;line-height:1.68;font-weight:520;max-width:780px;margin-bottom:.85rem}
+.answer-composer{margin-top:1.05rem;padding-top:1rem}
+.answer-label{font-size:.72rem;letter-spacing:.08em}
+.answer-composer textarea{min-height:108px;padding:.82rem .9rem;box-shadow:inset 0 1px 2px rgba(36,31,24,.025)}
+.answer-composer textarea::placeholder{color:#aaa49b}
+
+.action-row{align-items:center;gap:.72rem;padding:.9rem 1.7rem 1.2rem}
+.action-row .btn.primary{min-width:185px;padding:.67rem 1.08rem;box-shadow:0 3px 10px rgba(42,92,69,.12)}
+.action-row .btn.primary:not(:disabled){background:var(--accent);border-color:var(--accent)}
+.action-row .btn.primary:disabled{background:#dfe6e1;border-color:#dfe6e1;color:#778079;box-shadow:none;opacity:1}
+.mark-scheme-btn{background:transparent;border-color:transparent;color:var(--mid);padding-left:.35rem;padding-right:.35rem}
+.mark-scheme-btn:hover{background:transparent;border-color:transparent;color:var(--accent);text-decoration:underline}
+
+.conversation-panel{border-color:#dedbd3;box-shadow:0 3px 14px rgba(36,31,24,.025)}
+.conversation-header{padding:.7rem .9rem}
+.turn-badge{opacity:.75}
+.msg.student .msg-bubble{background:#eef5f0}
+.msg.tutor .msg-bubble{border-left-width:4px}
+
+.nav-row{justify-content:space-between;margin-top:.85rem}
+.nav-row .btn{min-width:145px;background:transparent}
+.nav-row .btn.primary{background:var(--accent)}
+.nav-row .btn:disabled{background:transparent}
+
+@media(max-width:760px){
+  .site-header{padding:.62rem .85rem;min-height:54px}
+  .site-header h1{font-size:1.3rem}
+  .account-area{gap:.25rem}
+  .teacher-link{display:none}
+  .controls-bar{padding:.5rem .65rem}
+  .q-card-header{padding:.62rem .72rem}
+  .question-meta{gap:.35rem}
+  .q-body{padding:1rem .88rem .8rem}
+  .q-text{font-size:1.1rem;line-height:1.6;margin-bottom:.7rem}
+  .answer-composer{margin-top:.8rem;padding-top:.8rem}
+  .answer-composer textarea{min-height:104px}
+  .action-row{padding:.65rem .88rem .85rem;display:flex;flex-direction:column;align-items:stretch}
+  .action-row .btn.primary{width:100%}
+  .mark-scheme-btn{width:auto!important;align-self:center;min-height:36px!important}
+  .nav-row{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+  .nav-row .btn{min-width:0;width:100%;font-size:.84rem}
+}
