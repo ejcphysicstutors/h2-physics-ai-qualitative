@@ -548,3 +548,145 @@
   .milestone-button{grid-column:2;grid-row:1/3;align-self:center}
   .progress-dot{display:none}
 }
+
+/* Student practice polish - pass 6: calmer type + aligned content */
+:root{
+  --student-width:920px;
+}
+
+/* Keep the student workspace on one shared grid. */
+.controls-bar{
+  padding-left:1.25rem;
+  padding-right:1.25rem;
+}
+.controls-inner{
+  width:100%;
+  max-width:var(--student-width);
+  margin-left:auto;
+  margin-right:auto;
+}
+.main{
+  width:100%;
+  max-width:var(--student-width);
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:0;
+  padding-right:0;
+}
+
+/* Restore a softer, more book-like student typography. */
+body{
+  font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  font-weight:400;
+  letter-spacing:0;
+}
+button,select,textarea,input{font-family:inherit}
+
+.site-header h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:700;
+  letter-spacing:-.015em;
+}
+
+.topic-control label,
+.question-kicker,
+.answer-label,
+.progress-summary-label,
+.milestone-kicker{
+  font-weight:600;
+}
+.topic-control select{
+  font-weight:600;
+}
+.topic-badge{
+  font-weight:600;
+}
+
+.q-text{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.22rem;
+  font-weight:400;
+  line-height:1.62;
+  letter-spacing:0;
+}
+
+.mark-allocation,
+.status{
+  font-weight:600;
+}
+.action-row .btn.primary{
+  font-weight:600;
+}
+
+/* Progress should read as one calm sentence, not a row of KPIs. */
+.progress-summary{
+  padding:.62rem .08rem .08rem;
+  gap:.5rem 1.25rem;
+  font-size:.77rem;
+  line-height:1.45;
+}
+.progress-summary-item{
+  gap:.3rem;
+  font-weight:400;
+}
+.progress-summary-item strong{
+  color:var(--text);
+  font-weight:600;
+}
+.progress-summary-label{
+  font-size:.64rem;
+  letter-spacing:.065em;
+  margin-right:.12rem;
+}
+.progress-dot{
+  color:#c2bdb5;
+  margin:0 .05rem;
+}
+.milestone-button{
+  font-weight:600;
+  font-size:.74rem;
+  padding:.38rem .62rem;
+}
+.milestone-button strong{
+  font-weight:600;
+}
+
+/* Reduce the visual contrast between unrelated text weights. */
+.resume-kicker,
+.resume-title,
+.resume-action,
+.conversation-header strong,
+.msg-label,
+.mark-group-label,
+.nav-progress{
+  font-weight:600;
+}
+
+@media(max-width:960px){
+  .controls-bar{
+    padding-left:.85rem;
+    padding-right:.85rem;
+  }
+  .main{
+    width:calc(100% - 1.7rem);
+  }
+}
+
+@media(max-width:760px){
+  .controls-bar{
+    padding-left:.65rem;
+    padding-right:.65rem;
+  }
+  .main{
+    width:calc(100% - 1.3rem);
+    padding-left:0;
+    padding-right:0;
+  }
+  .q-text{
+    font-size:1.08rem;
+    line-height:1.58;
+  }
+  .progress-summary{
+    font-size:.71rem;
+  }
+}
