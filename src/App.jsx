@@ -412,35 +412,44 @@ export default function App() {
       {(!supabaseConfigured || user) && (
         <>
           <div className="controls-bar">
-            <label>Topic</label>
+            <div className="controls-inner">
+              <div className="topic-control">
+                <label htmlFor="topic-select">Practice topic</label>
 
-            <select
-              value={topic}
-              onChange={e => chooseTopic(e.target.value)}
-            >
-              <option value="all">All topics</option>
+                <select
+                  id="topic-select"
+                  value={topic}
+                  onChange={e => chooseTopic(e.target.value)}
+                >
+                  <option value="all">All topics</option>
 
-              {topicList.map(([code, label]) => (
-                <option key={code} value={code}>
-                  {label}
-                </option>
-              ))}
-            </select>
+                  {topicList.map(([code, label]) => (
+                    <option key={code} value={code}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-            <button
-              className="btn shuffle-btn"
-              aria-label="Shuffle questions"
-              onClick={() =>
-                goToQuestion(Math.floor(Math.random() * filtered.length))
-              }
-            >
-              <span>↕</span>
-              <span className="shuffle-text"> Shuffle</span>
-            </button>
+              <div className="practice-tools">
+                <button
+                  className="btn shuffle-btn"
+                  aria-label="Shuffle questions"
+                  onClick={() =>
+                    goToQuestion(Math.floor(Math.random() * filtered.length))
+                  }
+                >
+                  <span aria-hidden="true">↕</span>
+                  <span className="shuffle-text"> Shuffle</span>
+                </button>
 
-            <span className="progress-label">
-              {index + 1} / {filtered.length}
-            </span>
+                <span className="progress-label" aria-label={`Question ${index + 1} of ${filtered.length}`}>
+                  <span className="progress-current">{index + 1}</span>
+                  <span className="progress-separator"> / </span>
+                  <span>{filtered.length}</span>
+                </span>
+              </div>
+            </div>
           </div>
 
           <main className="main">
@@ -474,6 +483,7 @@ export default function App() {
 
                   <div className="q-body">
 
+                    <div className="question-kicker">Question</div>
                     <div className="q-text">
                       {q.question}
                     </div>
