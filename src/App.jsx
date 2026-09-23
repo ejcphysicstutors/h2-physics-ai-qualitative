@@ -7,6 +7,23 @@ const topicList = [...new Map(
   questions.map(q => [q.topicCode, `${q.topicCode} ${q.topic}`])
 ).entries()];
 
+const questionPath = id => `/question/${encodeURIComponent(id)}`;
+
+function questionFromPath() {
+  const match = location.pathname.match(/^\/question\/([^/]+)\/?$/);
+  if (!match) return null;
+  const id = decodeURIComponent(match[1]);
+  return questions.find(q => q.id === id) || null;
+}
+
+function lastQuestionId() {
+  try {
+    return localStorage.getItem('h2-physics-last-question');
+  } catch {
+    return null;
+  }
+}
+
 const blank = () => ({
   answer: '',
   status: '',
@@ -76,8 +93,13 @@ function formatMarkScheme(markScheme, questionId) {
 export default function App() {
   const [user, setUser] = useState(null);
   const [loadingAuth, setLoadingAuth] = useState(supabaseConfigured);
-  const [topic, setTopic] = useState('all');
-  const [index, setIndex] = useState(0);
+  const initialQuestion = useMemo(() => questionFromPath(), []);
+  const [topic, setTopic] = useState(initialQuestion?.topicCode || 'all');
+  const [index, setIndex] = useState(() => {
+    if (!initialQuestion) return 0;
+    return questions.filter(q => q.topicCode === initialQuestion.topicCode)
+      .findIndex(q => q.id === initialQuestion.id);
+  });
   const [state, setState] = useState({});
   const [route, setRoute] = useState(
     location.hash === '#teacher' ? 'teacher' : 'student'
@@ -92,6 +114,9 @@ export default function App() {
 
   const q = filtered[index] || filtered[0];
   const current = q ? (state[q.id] || blank()) : blank();
+  const [resumeId] = useState(() => lastQuestionId());
+  const [showResume, setShowResume] = useState(() => !initialQuestion && !!lastQuestionId());
+  const resumeQuestion = questions.find(item => item.id === resumeId) || null;
 
   useEffect(() => {
     const onHash = () =>
@@ -100,6 +125,34 @@ export default function App() {
     addEventListener('hashchange', onHash);
     return () => removeEventListener('hashchange', onHash);
   }, []);
+
+  useEffect(() => {
+    const onPopState = () => {
+      const linked = questionFromPath();
+      if (!linked) return;
+      const nextTopic = linked.topicCode;
+      const topicQuestions = questions.filter(item => item.topicCode === nextTopic);
+      setTopic(nextTopic);
+      setIndex(Math.max(0, topicQuestions.findIndex(item => item.id === linked.id)));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    addEventListener('popstate', onPopState);
+    return () => removeEventListener('popstate', onPopState);
+  }, []);
+
+  useEffect(() => {
+    if (!q || route !== 'student') return;
+
+    try {
+      localStorage.setItem('h2-physics-last-question', q.id);
+    } catch {}
+
+    const target = questionPath(q.id);
+    if (location.pathname !== target) {
+      history.replaceState({ questionId: q.id }, '', `${target}${location.search}${location.hash}`);
+    }
+  }, [q?.id, route]);
 
   useEffect(() => {
     if (!supabase) return;
@@ -152,6 +205,42 @@ export default function App() {
         ...p
       }
     }));
+  }
+
+  function goToQuestion(nextIndex, { replace = false } = {}) {
+    const safeIndex = Math.max(0, Math.min(filtered.length - 1, nextIndex));
+    const nextQuestion = filtered[safeIndex];
+    if (!nextQuestion) return;
+
+    setIndex(safeIndex);
+    setShowResume(false);
+    const method = replace ? 'replaceState' : 'pushState';
+    history[method]({ questionId: nextQuestion.id }, '', questionPath(nextQuestion.id));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function chooseTopic(nextTopic) {
+    setTopic(nextTopic);
+    setShowResume(false);
+    const nextQuestions = nextTopic === 'all'
+      ? questions
+      : questions.filter(item => item.topicCode === nextTopic);
+    const nextQuestion = nextQuestions[0];
+    setIndex(0);
+    if (nextQuestion) {
+      history.pushState({ questionId: nextQuestion.id }, '', questionPath(nextQuestion.id));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  function resumePractice() {
+    if (!resumeQuestion) return;
+    const nextTopic = resumeQuestion.topicCode;
+    const topicQuestions = questions.filter(item => item.topicCode === nextTopic);
+    setTopic(nextTopic);
+    setShowResume(false);
+    setIndex(Math.max(0, topicQuestions.findIndex(item => item.id === resumeQuestion.id)));
+    history.pushState({ questionId: resumeQuestion.id }, '', questionPath(resumeQuestion.id));
   }
 
   async function login() {
@@ -259,10 +348,6 @@ export default function App() {
     );
   }
 
-  const completed = Object.values(state).filter(x => x.status).length;
-  const correct = Object.values(state).filter(x => x.status === 'correct').length;
-  const partial = Object.values(state).filter(x => x.status === 'partial').length;
-  const incorrect = Object.values(state).filter(x => x.status === 'incorrect').length;
   const tutorTurns = current.feedback.filter(m => m.role === 'tutor').length;
 
   return (
@@ -272,7 +357,7 @@ export default function App() {
         <div className="brand">
           <h1>H2 Physics</h1>
           <div className="subtitle">
-            AI Tutor Practice — 2026 Syllabus
+            Practice · Think · Improve
           </div>
         </div>
 
@@ -331,10 +416,7 @@ export default function App() {
 
             <select
               value={topic}
-              onChange={e => {
-                setTopic(e.target.value);
-                setIndex(0);
-              }}
+              onChange={e => chooseTopic(e.target.value)}
             >
               <option value="all">All topics</option>
 
@@ -349,7 +431,7 @@ export default function App() {
               className="btn shuffle-btn"
               aria-label="Shuffle questions"
               onClick={() =>
-                setIndex(Math.floor(Math.random() * filtered.length))
+                goToQuestion(Math.floor(Math.random() * filtered.length))
               }
             >
               <span>↕</span>
@@ -361,15 +443,15 @@ export default function App() {
             </span>
           </div>
 
-          <div className="stats-row">
-            <Stat v={questions.length} l="Questions" />
-            <Stat v={completed} l="Assessed" />
-            <Stat v={correct} l="Correct" />
-            <Stat v={partial} l="Partial" />
-            <Stat v={incorrect} l="Incorrect" />
-          </div>
-
           <main className="main">
+            {showResume && resumeQuestion && resumeQuestion.id !== q?.id && (
+              <button className="resume-card" onClick={resumePractice}>
+                <span className="resume-kicker">Continue where you left off</span>
+                <span className="resume-title">{resumeQuestion.topicCode} {resumeQuestion.topic}</span>
+                <span className="resume-question">{resumeQuestion.question}</span>
+                <span className="resume-action">Continue →</span>
+              </button>
+            )}
             {q && (
               <>
                 <section className="q-card">
@@ -380,15 +462,15 @@ export default function App() {
                     </span>
 
                     <span className="q-num">
-                      Source Q{q.sourceNumber}
+                      Question {index + 1} of {filtered.length}
                     </span>
 
                     <span className="mark-allocation" title="Writing-length guide">
-                      [{q.marks}m]
+                      {q.marks} {q.marks === 1 ? 'mark' : 'marks'}
                     </span>
 
                     <span className={`status ${current.status}`}>
-                      {current.status || 'Not assessed'}
+                      {current.status ? (current.status === 'partial' ? 'Developing' : current.status === 'correct' ? 'Secure' : 'Needs work') : 'Not attempted'}
                     </span>
                   </div>
 
@@ -418,7 +500,7 @@ export default function App() {
                       >
                         <div className="conversation-header">
                           <div>
-                            <strong>AI Tutor conversation</strong>
+                            <strong>Tutor feedback</strong>
                             <span className="turn-badge">
                               {tutorTurns}{' '}
                               {tutorTurns === 1 ? 'turn' : 'turns'}
@@ -430,7 +512,7 @@ export default function App() {
                           {current.feedback.map((m, i) => (
                             <div className={`msg ${m.role}`} key={i}>
                               <div className="msg-label">
-                                {m.role === 'tutor' ? 'AI tutor' : 'You'}
+                                {m.role === 'tutor' ? 'Tutor feedback' : 'Your answer'}
                               </div>
 
                               <div className="msg-bubble">
@@ -445,7 +527,7 @@ export default function App() {
                     <div className="answer-composer">
                       <label className="answer-label">
                         {current.feedback.length
-                          ? 'Your reply'
+                          ? 'Improve your answer'
                           : 'Your answer'}
                       </label>
 
@@ -454,8 +536,8 @@ export default function App() {
                         onChange={e => patch({ answer: e.target.value })}
                         placeholder={
                           current.feedback.length
-                            ? 'Reply to the AI tutor…'
-                            : 'Write your answer here…'
+                            ? 'Revise or extend your answer using the feedback…'
+                            : 'Explain your physics reasoning here…'
                         }
                         disabled={current.busy}
                       />
@@ -476,8 +558,8 @@ export default function App() {
                       {current.busy
                         ? 'Thinking…'
                         : current.feedback.length
-                          ? 'Send reply & reassess'
-                          : 'Get AI feedback & assess'}
+                          ? 'Check revised answer'
+                          : 'Get tutor feedback'}
                     </button>
 
                     <button
@@ -485,7 +567,7 @@ export default function App() {
                       onClick={revealMarkScheme}
                       disabled={!user && supabaseConfigured}
                     >
-                      Show answer / mark scheme
+                      Check answer / mark scheme
                     </button>
                   </div>
 
@@ -526,18 +608,18 @@ export default function App() {
                 <div className="nav-row">
                   <button
                     className="btn"
-                    onClick={() => setIndex(Math.max(0, index - 1))}
+                    onClick={() => goToQuestion(index - 1)}
+                    disabled={index === 0}
                   >
-                    ← Previous
+                    ← Previous question
                   </button>
+
+                  <span className="nav-progress">{index + 1} of {filtered.length}</span>
 
                   <button
                     className="btn primary"
-                    onClick={() =>
-                      setIndex(
-                        Math.min(filtered.length - 1, index + 1)
-                      )
-                    }
+                    onClick={() => goToQuestion(index + 1)}
+                    disabled={index === filtered.length - 1}
                   >
                     Next question →
                   </button>
@@ -552,11 +634,3 @@ export default function App() {
   );
 }
 
-function Stat({ v, l }) {
-  return (
-    <div className="stat">
-      <div className="stat-val">{v}</div>
-      <div className="stat-lbl">{l}</div>
-    </div>
-  );
-}
