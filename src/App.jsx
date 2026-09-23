@@ -363,7 +363,7 @@ export default function App() {
 
         <div className="account-area">
           {loadingAuth ? (
-            <span>Checking sign-in…</span>
+            <span className="account-status">Checking sign-in…</span>
           ) : user ? (
             <>
               <span className="student-id">{shortId(user)}</span>
@@ -373,8 +373,8 @@ export default function App() {
             </>
           ) : null}
 
-          <a className="link-btn teacher-link" href="#teacher">
-            Teacher dashboard
+          <a className="link-btn teacher-link" href="#teacher" aria-label="Open teacher dashboard">
+            Teacher
           </a>
         </div>
       </header>
@@ -461,10 +461,7 @@ export default function App() {
                       {q.topicCode} {q.topic}
                     </span>
 
-                    <span className="q-num">
-                      Question {index + 1} of {filtered.length}
-                    </span>
-
+                    <div className="question-meta">
                     <span className="mark-allocation" title="Writing-length guide">
                       {q.marks} {q.marks === 1 ? 'mark' : 'marks'}
                     </span>
@@ -472,6 +469,7 @@ export default function App() {
                     <span className={`status ${current.status}`}>
                       {current.status ? (current.status === 'partial' ? 'Developing' : current.status === 'correct' ? 'Secure' : 'Needs work') : 'Not attempted'}
                     </span>
+                    </div>
                   </div>
 
                   <div className="q-body">
@@ -532,6 +530,7 @@ export default function App() {
                       </label>
 
                       <textarea
+                        rows={Math.min(7, Math.max(4, q.marks + 2))}
                         value={current.answer}
                         onChange={e => patch({ answer: e.target.value })}
                         placeholder={
@@ -563,7 +562,7 @@ export default function App() {
                     </button>
 
                     <button
-                      className="btn"
+                      className="btn mark-scheme-btn"
                       onClick={revealMarkScheme}
                       disabled={!user && supabaseConfigured}
                     >
@@ -613,8 +612,6 @@ export default function App() {
                   >
                     ← Previous question
                   </button>
-
-                  <span className="nav-progress">{index + 1} of {filtered.length}</span>
 
                   <button
                     className="btn primary"
