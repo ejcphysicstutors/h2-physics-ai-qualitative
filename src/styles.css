@@ -141,3 +141,175 @@
   .nav-row{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
   .nav-row .btn{min-width:0;width:100%;font-size:.84rem}
 }
+
+/* Student practice polish - pass 3: cohesive practice layout */
+.controls-bar{
+  background:rgba(247,245,240,.94);
+  border-bottom:0;
+  padding:.65rem 1.25rem .25rem;
+  box-shadow:none;
+}
+.controls-inner{
+  width:100%;
+  max-width:920px;
+  margin:0 auto;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:.85rem;
+  padding:.68rem .78rem;
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--border);
+  border-radius:12px;
+  box-shadow:0 5px 18px rgba(36,31,24,.035);
+}
+.topic-control{
+  display:flex;
+  flex-direction:column;
+  gap:.28rem;
+  min-width:0;
+  flex:1;
+}
+.topic-control label{
+  font-size:.64rem;
+  text-transform:uppercase;
+  letter-spacing:.085em;
+  color:var(--light);
+  font-weight:800;
+  padding-left:.08rem;
+}
+.topic-control select{
+  width:min(100%,520px);
+  min-width:0;
+  height:40px;
+  padding:.45rem 2rem .45rem .7rem;
+  border:0;
+  border-radius:8px;
+  background:var(--surface2);
+  color:var(--text);
+  font-weight:650;
+}
+.topic-control select:focus{
+  outline:2px solid rgba(42,92,69,.22);
+  outline-offset:1px;
+}
+.practice-tools{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  flex:0 0 auto;
+}
+.shuffle-btn{
+  height:40px;
+  border-color:transparent;
+  background:transparent;
+  color:var(--mid);
+  padding:.48rem .68rem;
+}
+.shuffle-btn:hover{
+  background:var(--surface2);
+  border-color:transparent;
+  color:var(--accent);
+}
+.progress-label{
+  margin-left:0;
+  min-width:70px;
+  height:40px;
+  padding:0 .62rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  background:var(--surface2);
+  color:var(--light);
+  font-size:.72rem;
+}
+.progress-current{
+  color:var(--text);
+  font-weight:850;
+  font-size:.86rem;
+}
+.progress-separator{opacity:.65}
+.main{margin-top:1rem}
+.q-card{overflow:hidden}
+.q-card-header{
+  min-height:50px;
+  background:#fbfaf7;
+  border-bottom-color:#e9e5dd;
+}
+.topic-badge{
+  color:var(--accent);
+  background:transparent;
+  border:0;
+  padding:0;
+  letter-spacing:.025em;
+}
+.question-meta{flex-wrap:wrap;justify-content:flex-end}
+.question-kicker{
+  margin:0 0 .45rem;
+  font-size:.65rem;
+  line-height:1;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-weight:850;
+  color:var(--light);
+}
+.q-text{
+  color:#171510;
+  letter-spacing:-.006em;
+}
+.answer-composer{
+  position:relative;
+}
+.answer-composer textarea{
+  transition:border-color .15s, box-shadow .15s, background .15s;
+}
+.answer-composer textarea:hover:not(:disabled){
+  border-color:#aaa49a;
+}
+.answer-composer textarea:focus{
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(42,92,69,.08);
+}
+.action-row{
+  border-top:1px solid #f0ede6;
+}
+.conversation-header strong{color:var(--accentDark)}
+.nav-row .btn{
+  border-color:transparent;
+  color:var(--mid);
+}
+.nav-row .btn:hover:not(:disabled){
+  background:var(--surface2);
+  border-color:transparent;
+  color:var(--accent);
+}
+.nav-row .btn.primary{
+  color:white;
+  border-color:var(--accent);
+}
+.nav-row .btn.primary:hover:not(:disabled){
+  background:var(--accentDark);
+  color:white;
+}
+
+@media(max-width:760px){
+  .controls-bar{padding:.45rem .65rem .1rem}
+  .controls-inner{padding:.52rem .58rem;gap:.45rem;border-radius:10px;align-items:center}
+  .topic-control{gap:0}
+  .topic-control label{display:none}
+  .topic-control select{height:38px;width:100%;font-size:.88rem;padding-left:.58rem}
+  .practice-tools{gap:.25rem}
+  .shuffle-btn{height:38px;padding:.4rem .5rem}
+  .progress-label{height:38px;min-width:58px;padding:0 .45rem;font-size:.67rem}
+  .progress-current{font-size:.78rem}
+  .main{margin-top:.62rem}
+  .q-card-header{min-height:46px}
+  .question-kicker{font-size:.61rem;margin-bottom:.38rem}
+}
+
+@media(max-width:430px){
+  .shuffle-text{display:none}
+  .progress-label{min-width:52px}
+  .mark-allocation,.status{font-size:.64rem;padding:.2rem .44rem}
+}
