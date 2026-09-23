@@ -313,3 +313,89 @@
   .progress-label{min-width:52px}
   .mark-allocation,.status{font-size:.64rem;padding:.2rem .44rem}
 }
+
+/* Student practice polish - pass 4: final visual refinement */
+.site-header{
+  min-height:60px;
+  padding-top:.64rem;
+  padding-bottom:.64rem;
+}
+.site-header h1{font-size:1.56rem}
+.subtitle{opacity:.6}
+.account-area{font-size:.73rem;gap:.42rem;color:rgba(255,255,255,.7)}
+.student-id{opacity:.58}
+.link-btn{opacity:.72;padding:.26rem .34rem}
+.link-btn:hover{opacity:1}
+.teacher-link{opacity:.6}
+
+.controls-inner{padding:.62rem .74rem}
+.progress-label{
+  min-width:78px;
+  padding:0 .68rem;
+  gap:.18rem;
+  border-radius:999px;
+  color:#746f68;
+}
+.progress-current{font-size:.82rem}
+.progress-separator{opacity:.7;font-size:.7rem}
+
+.q-card-header{
+  min-height:48px;
+  padding:.78rem 1.35rem;
+  border-bottom-color:#efebe4;
+}
+.q-body{padding:1.4rem 1.7rem 1.08rem}
+.question-kicker{margin-bottom:.38rem}
+.q-text{
+  margin-bottom:.5rem;
+  line-height:1.64;
+}
+.question-images{
+  margin:.05rem 0 .48rem;
+  gap:.3rem;
+}
+.question-image{
+  width:auto;
+  max-width:min(100%,700px);
+  max-height:400px;
+}
+.answer-composer{
+  margin-top:.72rem;
+  padding-top:.88rem;
+  border-top-color:#f0ece5;
+}
+.answer-composer textarea{margin-top:.44rem}
+
+.action-row{
+  padding:.82rem 1.7rem 1.08rem;
+  gap:.8rem;
+  border-top-color:#f3f0ea;
+}
+.action-row .btn.primary:not(:disabled){
+  background:var(--accent);
+  border-color:var(--accent);
+  box-shadow:0 4px 12px rgba(42,92,69,.18);
+}
+.action-row .btn.primary:not(:disabled):hover{
+  background:var(--accentDark);
+  border-color:var(--accentDark);
+}
+.mark-scheme-btn{
+  color:#625d56;
+  font-size:.95rem;
+}
+
+@media(max-width:760px){
+  .site-header{min-height:52px;padding:.56rem .8rem}
+  .site-header h1{font-size:1.26rem}
+  .account-area{font-size:.7rem}
+  .controls-inner{padding:.48rem .54rem}
+  .progress-label{min-width:66px;padding:0 .5rem;gap:.12rem}
+  .q-card-header{padding:.66rem .76rem}
+  .q-body{padding:.96rem .9rem .74rem}
+  .q-text{margin-bottom:.4rem;line-height:1.56}
+  .question-images{margin:0 0 .4rem}
+  .question-image{max-height:280px}
+  .answer-composer{margin-top:.62rem;padding-top:.72rem}
+  .action-row{padding:.62rem .9rem .82rem}
+}
