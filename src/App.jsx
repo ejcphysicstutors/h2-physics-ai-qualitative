@@ -2,6 +2,9 @@ import React, { useEffect, useMemo, useState } from 'react';
 import questions from './data/questions.public.json';
 import { supabase, supabaseConfigured, getAccessToken } from './lib/supabase';
 import TeacherDashboard from './components/TeacherDashboard.jsx';
+import badge50 from './assets/badges/ej-physics-50.png';
+import badge75 from './assets/badges/ej-physics-75.png';
+import badge100 from './assets/badges/ej-physics-100.png';
 
 const topicList = [...new Map(
   questions.map(q => [q.topicCode, `${q.topicCode} ${q.topic}`])
@@ -23,6 +26,12 @@ function lastQuestionId() {
     return null;
   }
 }
+
+const MILESTONES = [
+  { percent: 50, image: badge50, label: '50% Complete' },
+  { percent: 75, image: badge75, label: '75% Complete' },
+  { percent: 100, image: badge100, label: '100% Complete' }
+];
 
 const blank = () => ({
   answer: '',
@@ -104,6 +113,8 @@ export default function App() {
   const [route, setRoute] = useState(
     location.hash === '#teacher' ? 'teacher' : 'student'
   );
+  const [showMilestones, setShowMilestones] = useState(false);
+  const [activeBadge, setActiveBadge] = useState(null);
 
   const filtered = useMemo(
     () => topic === 'all'
@@ -117,6 +128,32 @@ export default function App() {
   const [resumeId] = useState(() => lastQuestionId());
   const [showResume, setShowResume] = useState(() => !initialQuestion && !!lastQuestionId());
   const resumeQuestion = questions.find(item => item.id === resumeId) || null;
+
+  const progressStats = useMemo(() => {
+    const attempted = questions.filter(item => state[item.id]?.status);
+    const correct = attempted.filter(item => state[item.id]?.status === 'correct');
+    const scopeAttempted = filtered.filter(item => state[item.id]?.status);
+    const scopeCorrect = scopeAttempted.filter(item => state[item.id]?.status === 'correct');
+    const scopePercentCorrect = scopeAttempted.length
+      ? Math.round((scopeCorrect.length / scopeAttempted.length) * 100)
+      : null;
+
+    const milestones = MILESTONES.map(milestone => ({
+      ...milestone,
+      threshold: Math.ceil((questions.length * milestone.percent) / 100),
+      unlocked: attempted.length >= Math.ceil((questions.length * milestone.percent) / 100)
+    }));
+
+    return {
+      attempted: attempted.length,
+      correct: correct.length,
+      scopeAttempted: scopeAttempted.length,
+      scopeCorrect: scopeCorrect.length,
+      scopePercentCorrect,
+      milestones,
+      unlockedMilestones: milestones.filter(item => item.unlocked).length
+    };
+  }, [state, filtered]);
 
   useEffect(() => {
     const onHash = () =>
@@ -449,6 +486,32 @@ export default function App() {
                   <span>{filtered.length}</span>
                 </span>
               </div>
+
+              <div className="progress-summary" aria-label="Practice progress">
+              <div className="progress-summary-item">
+                <span className="progress-summary-label">{topic === 'all' ? 'All topics' : 'This topic'}</span>
+                <strong>{progressStats.scopeAttempted} of {filtered.length} attempted</strong>
+                <span className="progress-dot" aria-hidden="true">·</span>
+                <span>{progressStats.scopePercentCorrect === null ? '—' : `${progressStats.scopePercentCorrect}%`} correct</span>
+              </div>
+
+              <div className="progress-summary-item overall">
+                <span className="progress-summary-label">Overall</span>
+                <strong>{progressStats.correct} of {questions.length} correct</strong>
+                <span className="progress-dot" aria-hidden="true">·</span>
+                <span>{progressStats.attempted} attempted</span>
+              </div>
+
+              <button
+                className="milestone-button"
+                onClick={() => setShowMilestones(true)}
+                aria-label={`Open milestones. ${progressStats.unlockedMilestones} of ${progressStats.milestones.length} badges unlocked.`}
+              >
+                <span className="milestone-icon" aria-hidden="true">★</span>
+                <span>Milestones</span>
+                <strong>{progressStats.unlockedMilestones}/{progressStats.milestones.length}</strong>
+              </button>
+              </div>
             </div>
           </div>
 
@@ -476,7 +539,7 @@ export default function App() {
                     </span>
 
                     <span className={`status ${current.status}`}>
-                      {current.status ? (current.status === 'partial' ? 'Developing' : current.status === 'correct' ? 'Secure' : 'Needs work') : 'Not attempted'}
+                      {current.status ? (current.status === 'partial' ? 'Partially correct' : current.status === 'correct' ? 'Correct' : 'Incorrect') : 'Not attempted'}
                     </span>
                     </div>
                   </div>
@@ -635,6 +698,48 @@ export default function App() {
             )}
           </main>
         </>
+      )}
+
+      {showMilestones && (
+        <div className="milestone-overlay" role="presentation" onMouseDown={() => setShowMilestones(false)}>
+          <section className="milestone-panel" role="dialog" aria-modal="true" aria-labelledby="milestone-title" onMouseDown={e => e.stopPropagation()}>
+            <div className="milestone-panel-header">
+              <div>
+                <div className="milestone-kicker">Your achievements</div>
+                <h2 id="milestone-title">Physics practice milestones</h2>
+                <p>Badges unlock as you attempt more of the {questions.length}-question practice bank.</p>
+              </div>
+              <button className="milestone-close" onClick={() => setShowMilestones(false)} aria-label="Close milestones">×</button>
+            </div>
+
+            <div className="milestone-grid">
+              {progressStats.milestones.map(milestone => (
+                <button
+                  key={milestone.percent}
+                  className={`milestone-card ${milestone.unlocked ? 'unlocked' : 'locked'}`}
+                  disabled={!milestone.unlocked}
+                  onClick={() => milestone.unlocked && setActiveBadge(milestone)}
+                >
+                  <div className="milestone-art-wrap">
+                    <img src={milestone.image} alt={`${milestone.label} EJ Physics Practice badge`} />
+                  </div>
+                  <strong>{milestone.label}</strong>
+                  <span>{milestone.unlocked ? 'Unlocked · tap to enlarge' : `Unlock at ${milestone.threshold} attempted`}</span>
+                </button>
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
+
+      {activeBadge && (
+        <div className="badge-overlay" role="presentation" onMouseDown={() => setActiveBadge(null)}>
+          <section className="badge-showcase" role="dialog" aria-modal="true" aria-label={`${activeBadge.label} achievement badge`} onMouseDown={e => e.stopPropagation()}>
+            <button className="milestone-close badge-close" onClick={() => setActiveBadge(null)} aria-label="Close badge">×</button>
+            <img src={activeBadge.image} alt={`${activeBadge.label} EJ Physics Practice badge`} />
+            <div className="badge-showcase-note">Achievement unlocked — perfect for a screenshot.</div>
+          </section>
+        </div>
       )}
 
     </div>
