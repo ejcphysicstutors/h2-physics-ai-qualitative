@@ -1,6 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { Fragment, useEffect, useMemo, useState } from 'react';
 
-const rangeOptions = [
+const liveRangeOptions = [
+  { value: '20m', label: 'Last 20 min' },
+  { value: '30m', label: 'Last 30 min' },
+  { value: '60m', label: 'Last 1 hour' }
+];
+
+const reviewRangeOptions = [
   { value: '7', label: 'Last 7 days' },
   { value: '30', label: 'Last 30 days' },
   { value: 'all', label: 'All time' }
@@ -13,6 +19,8 @@ export default function TeacherDashboard({ onBack }) {
   const [err, setErr] = useState('');
   const [busy, setBusy] = useState(false);
   const [topicSort, setTopicSort] = useState('attention');
+  const [expandedTopic, setExpandedTopic] = useState('');
+  const [lastUpdated, setLastUpdated] = useState(null);
 
   async function load(nextRange = range) {
     setBusy(true);
@@ -28,6 +36,8 @@ export default function TeacherDashboard({ onBack }) {
       if (!r.ok) throw new Error(d.error || 'Unable to load');
       sessionStorage.setItem('teacherPassword', password);
       setData(d);
+      setLastUpdated(new Date());
+      setExpandedTopic('');
     } catch (e) {
       setErr(e.message);
     } finally {
@@ -43,15 +53,19 @@ export default function TeacherDashboard({ onBack }) {
     if (!data?.topics) return [];
     const rows = [...data.topics];
     if (topicSort === 'attention') {
-      return rows.sort((a, b) =>
-        (a.correct_pct - b.correct_pct) ||
-        (b.incorrect_pct - a.incorrect_pct) ||
-        (b.attempts - a.attempts)
-      );
+      return rows.sort((a, b) => {
+        if (!!a.assessed !== !!b.assessed) return a.assessed ? -1 : 1;
+        return (a.correct_pct - b.correct_pct) ||
+          (b.incorrect_pct - a.incorrect_pct) ||
+          (b.assessed - a.assessed) ||
+          (b.attempts - a.attempts);
+      });
     }
     if (topicSort === 'attempts') return rows.sort((a, b) => b.attempts - a.attempts);
     return rows.sort((a, b) => a.topic_code.localeCompare(b.topic_code));
   }, [data, topicSort]);
+
+  const isLiveRange = ['20m', '30m', '60m'].includes(range);
 
   return <div className="dashboard">
     <header className="site-header dashboard-header">
@@ -83,18 +97,28 @@ export default function TeacherDashboard({ onBack }) {
         <div className="dashboard-toolbar">
           <div>
             <div className="dashboard-kicker">Cohort activity</div>
-            <h2>Usage overview</h2>
+            <h2>{isLiveRange ? 'Live lesson view' : 'Usage overview'}</h2>
             <p className="muted">
-              Pseudonymous usage data only. Dates use Singapore time
-              {data.date_window ? ` (${data.date_window.start} to ${data.date_window.end}).` : '.'}
+              Pseudonymous usage data only. Singapore time · {data.window_label}.
             </p>
           </div>
-          <label className="range-control">
-            <span>Time range</span>
-            <select aria-label="Analytics time range" value={range} onChange={e => setRange(e.target.value)}>
-              {rangeOptions.map(x => <option value={x.value} key={x.value}>{x.label}</option>)}
-            </select>
-          </label>
+          <div className="dashboard-filter-actions">
+            <label className="range-control">
+              <span>Time range</span>
+              <select aria-label="Analytics time range" value={range} onChange={e => setRange(e.target.value)}>
+                <optgroup label="Live lesson">
+                  {liveRangeOptions.map(x => <option value={x.value} key={x.value}>{x.label}</option>)}
+                </optgroup>
+                <optgroup label="Review">
+                  {reviewRangeOptions.map(x => <option value={x.value} key={x.value}>{x.label}</option>)}
+                </optgroup>
+              </select>
+            </label>
+            <button className="analytics-refresh-btn" onClick={() => load()} disabled={busy}>
+              {busy ? 'Refreshing…' : 'Refresh'}
+            </button>
+            {lastUpdated && <span className="last-updated">Updated {lastUpdated.toLocaleTimeString('en-SG', { hour: 'numeric', minute: '2-digit' })}</span>}
+          </div>
         </div>
 
         {err && <p className="error">{err}</p>}
@@ -102,13 +126,16 @@ export default function TeacherDashboard({ onBack }) {
         <div className="kpi-grid teacher-kpis">
           <Kpi value={data.kpis.students} label="Active students" detail="pseudonymous users" />
           <Kpi value={Number(data.kpis.questions_with_progress).toLocaleString()} label="Questions attempted" detail={`${data.kpis.avg_questions_per_student} per student`} />
-          <Kpi value={`${data.kpis.correct_rate}%`} label="Correct" detail={`${Number(data.kpis.correct_count).toLocaleString()} attempts`} />
-          <Kpi value={Number(data.kpis.ai_tutor_turns).toLocaleString()} label="Tutor feedback turns" detail={`${data.kpis.avg_ai_turns_per_attempt} per attempt`} />
-          <Kpi value={Number(data.kpis.mark_scheme_reveals).toLocaleString()} label="Answers revealed" detail="unique student-question reveals" />
+          <Kpi value={Number(data.kpis.assessed_count).toLocaleString()} label="Questions assessed" detail={`${data.kpis.assessed_rate}% of attempts · ${Number(data.kpis.unassessed_count).toLocaleString()} not assessed`} />
+          <Kpi value={`${data.kpis.correct_rate}%`} label="Correct of assessed" detail={`${Number(data.kpis.correct_count).toLocaleString()} correct · ${Number(data.kpis.assessed_count).toLocaleString()} assessed`} />
+          <Kpi value={Number(data.kpis.mark_scheme_reveals).toLocaleString()} label="Questions with answer revealed" detail="unique student-question reveals" />
         </div>
 
-        <div className="system-usage-strip" aria-label="System usage">
-          <span className="system-usage-label">System usage</span>
+        <div className="system-usage-strip" aria-label="Interaction and system usage">
+          <span className="system-usage-label">Interaction usage</span>
+          <span>Tutor feedback <strong>{Number(data.kpis.ai_tutor_turns).toLocaleString()}</strong></span>
+          <span>Reveal events <strong>{Number(data.kpis.mark_scheme_reveal_events).toLocaleString()}</strong></span>
+          <span className="system-usage-divider" aria-hidden="true"></span>
           <span>Input tokens <strong>{Number(data.kpis.input_tokens).toLocaleString()}</strong></span>
           <span>Output tokens <strong>{Number(data.kpis.output_tokens).toLocaleString()}</strong></span>
           <span>Estimated AI cost <strong>{data.kpis.estimated_ai_cost_usd}</strong></span>
@@ -117,7 +144,7 @@ export default function TeacherDashboard({ onBack }) {
         <section className="analytics-section analytics-section-first">
           <div className="section-heading">
             <div>
-              <h2>Usage over time</h2>
+              <h2>{isLiveRange ? 'Activity during this lesson window' : 'Usage over time'}</h2>
               <p className="muted">When students are asking for tutor feedback and revealing answers.</p>
             </div>
             <div className="chart-legend" aria-label="Chart legend">
@@ -132,7 +159,13 @@ export default function TeacherDashboard({ onBack }) {
           <div className="section-heading section-heading-with-control">
             <div>
               <h2>Performance by topic</h2>
-              <p className="muted">Use this to spot topics that may need review, then check the question-level evidence below.</p>
+              <p className="muted">Performance percentages use assessed responses only. Grey represents attempts without a tutor assessment.</p>
+              <div className="outcome-legend" aria-label="Outcome legend">
+                <span><i className="outcome-dot correct"></i> You’ve got it!</span>
+                <span><i className="outcome-dot partial"></i> Almost there!</span>
+                <span><i className="outcome-dot incorrect"></i> Keep going!</span>
+                <span><i className="outcome-dot unassessed"></i> Not assessed</span>
+              </div>
             </div>
             <label className="mini-select-control">
               <span>Sort</span>
@@ -151,36 +184,58 @@ export default function TeacherDashboard({ onBack }) {
                   <th>Topic</th>
                   <th>Students</th>
                   <th>Attempts</th>
+                  <th>Assessment</th>
                   <th>Outcome</th>
                   <th>Answer reveal</th>
                   <th>Tutor help</th>
                 </tr>
               </thead>
               <tbody>
-                {sortedTopics.map(x => <tr key={x.topic_code}>
-                  <td>
-                    <strong>{x.topic_code}</strong>
-                    <span className="cell-subtitle">{x.topic}</span>
-                  </td>
-                  <td>{x.students}</td>
-                  <td>{x.attempts}</td>
-                  <td>
-                    <OutcomeBar correct={x.correct_pct} partial={x.partial_pct} incorrect={x.incorrect_pct} />
-                  </td>
-                  <td>{x.reveal_rate}%</td>
-                  <td>{x.avg_ai_turns} turns / attempt</td>
-                </tr>)}
+                {sortedTopics.map(x => <Fragment key={x.topic_code}>
+                  <tr className={expandedTopic === x.topic_code ? 'topic-row expanded' : 'topic-row'}>
+                    <td>
+                      <button className="topic-expand-btn" onClick={() => setExpandedTopic(expandedTopic === x.topic_code ? '' : x.topic_code)} aria-expanded={expandedTopic === x.topic_code}>
+                        <span className="topic-chevron">{expandedTopic === x.topic_code ? '▾' : '▸'}</span>
+                        <span>
+                          <strong>{x.topic_code}</strong>
+                          <span className="cell-subtitle">{x.topic}</span>
+                        </span>
+                      </button>
+                    </td>
+                    <td>{x.students}</td>
+                    <td>{x.attempts}</td>
+                    <td>
+                      <strong className="assessment-count">{x.assessed} assessed</strong>
+                      <span className="cell-subtitle">{x.unassessed} not assessed</span>
+                    </td>
+                    <td>
+                      <OutcomeBar
+                        attempts={x.attempts}
+                        correctCount={x.correct}
+                        partialCount={x.partial}
+                        incorrectCount={x.incorrect}
+                        unassessedCount={x.unassessed}
+                        correct={x.correct_pct}
+                        partial={x.partial_pct}
+                        incorrect={x.incorrect_pct}
+                      />
+                    </td>
+                    <td>{x.reveal_rate}%</td>
+                    <td>{x.avg_ai_turns} turns / attempt</td>
+                  </tr>
+                  {expandedTopic === x.topic_code && <TopicDetailRow topic={x} />}
+                </Fragment>)}
               </tbody>
             </table>
           </div>
-          <p className="analytics-footnote">Outcome percentages are based on the latest recorded status for each student-question attempt in the selected time range.</p>
+          <p className="analytics-footnote">Each assessed percentage uses the latest recorded tutor status for student-question attempts in the selected time range. Unassessed attempts are shown separately rather than treated as wrong.</p>
         </section>
 
         <section className="analytics-section">
           <div className="section-heading">
             <div>
               <h2>Questions needing attention</h2>
-              <p className="muted">Questions rise here when students are incorrect or partial, reveal the answer, or need more tutor help.</p>
+              <p className="muted">Questions rise here when assessed responses are weak, students reveal the answer, or they need more tutor help.</p>
             </div>
           </div>
           <div className="question-grid">
@@ -191,12 +246,13 @@ export default function TeacherDashboard({ onBack }) {
                   <strong>{x.question_id}</strong>
                   <span>{x.topic_code} {x.topic}</span>
                 </div>
-                {x.attempts < 3 && <span className="sample-warning">Early signal</span>}
+                {x.assessed < 3 && <span className="sample-warning">Early signal</span>}
               </div>
               <p className="question-preview">{x.question}</p>
               <div className="mini-metrics">
                 <span><b>{x.attempts}</b> attempts</span>
-                <span><b>{x.correct_pct}%</b> correct</span>
+                <span><b>{x.assessed}</b> assessed</span>
+                <span><b>{x.assessed ? `${x.correct_pct}%` : '—'}</b> correct of assessed</span>
                 <span><b>{x.reveal_rate}%</b> revealed</span>
                 <span><b>{x.avg_ai_turns}</b> tutor turns / attempt</span>
               </div>
@@ -235,19 +291,53 @@ function Kpi({ value, label, detail }) {
   </div>;
 }
 
-function OutcomeBar({ correct, partial, incorrect }) {
-  return <div className="outcome-cell" title={`${correct}% correct, ${partial}% partial, ${incorrect}% incorrect`}>
+function OutcomeBar({ attempts, correctCount, partialCount, incorrectCount, unassessedCount, correct, partial, incorrect }) {
+  const width = count => attempts ? `${count / attempts * 100}%` : '0%';
+  const assessed = correctCount + partialCount + incorrectCount;
+  const title = assessed
+    ? `${correct}% You’ve got it!, ${partial}% Almost there!, ${incorrect}% Keep going! among ${assessed} assessed; ${unassessedCount} not assessed`
+    : `${unassessedCount} attempts not assessed`;
+
+  return <div className="outcome-cell" title={title}>
     <div className="outcome-bar" aria-hidden="true">
-      <span className="outcome-correct" style={{ width: `${correct}%` }}></span>
-      <span className="outcome-partial" style={{ width: `${partial}%` }}></span>
-      <span className="outcome-incorrect" style={{ width: `${incorrect}%` }}></span>
+      <span className="outcome-correct" style={{ width: width(correctCount) }}></span>
+      <span className="outcome-partial" style={{ width: width(partialCount) }}></span>
+      <span className="outcome-incorrect" style={{ width: width(incorrectCount) }}></span>
+      <span className="outcome-unassessed" style={{ width: width(unassessedCount) }}></span>
     </div>
     <div className="outcome-labels">
-      <span>{correct}% correct</span>
-      <span>{partial}% partial</span>
-      <span>{incorrect}% incorrect</span>
+      {assessed
+        ? <><span>{correct}% got it</span><span>{partial}% almost</span><span>{incorrect}% keep going</span></>
+        : <span>No assessed responses yet</span>}
     </div>
   </div>;
+}
+
+function TopicDetailRow({ topic }) {
+  return <tr className="topic-detail-row">
+    <td colSpan="7">
+      <div className="topic-detail-panel">
+        <div className="topic-detail-heading">
+          <strong>Questions to review in {topic.topic_code}</strong>
+          <span>Top signals within the selected time range</span>
+        </div>
+        <div className="topic-question-list">
+          {(topic.top_questions || []).length ? topic.top_questions.map(q => <div className="topic-question-item" key={q.question_id}>
+            <div>
+              <strong>{q.question_id}</strong>
+              <span>{q.question}</span>
+            </div>
+            <div className="topic-question-metrics">
+              <span>{q.assessed}/{q.attempts} assessed</span>
+              <span>{q.assessed ? `${q.correct_pct}% correct` : 'not assessed yet'}</span>
+              <span>{q.reveal_rate}% revealed</span>
+            </div>
+            <a href={`/question/${encodeURIComponent(q.question_id)}`} target="_blank" rel="noreferrer">Open ↗</a>
+          </div>) : <p className="muted">No question-level signals in this time range yet.</p>}
+        </div>
+      </div>
+    </td>
+  </tr>;
 }
 
 function UsageBars({ rows, range }) {
@@ -267,7 +357,7 @@ function UsageBars({ rows, range }) {
       <span><strong>{totalReveals.toLocaleString()}</strong> answer reveal events</span>
     </div>
     <div className="usage-chart" style={{ '--usage-columns': series.length }}>
-      {series.map((x, i) => <div className="usage-day" key={x.key} title={`${x.label}: ${x.ai_turns} tutor turns, ${x.reveals} answer reveals`}>
+      {series.map((x, i) => <div className="usage-day" key={x.key || x.date} title={`${x.label}: ${x.ai_turns} tutor turns, ${x.reveals} answer reveals`}>
         <div className="bar-stack">
           <div className="bar ai" style={{ height: `${x.ai_turns ? Math.max(4, x.ai_turns / max * 100) : 0}%` }}></div>
           <div className="bar reveals" style={{ height: `${x.reveals ? Math.max(4, x.reveals / max * 100) : 0}%` }}></div>
@@ -279,6 +369,10 @@ function UsageBars({ rows, range }) {
 }
 
 function prepareUsageSeries(rows, range) {
+  if (['20m', '30m', '60m'].includes(range)) {
+    return rows.map(x => ({ ...x, key: x.date }));
+  }
+
   if (range !== 'all' || rows.length <= 14) {
     return rows.map(x => ({ ...x, key: x.date }));
   }

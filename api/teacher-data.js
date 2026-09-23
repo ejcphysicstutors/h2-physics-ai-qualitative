@@ -2,6 +2,7 @@ import { adminClient, json, questionMap } from './_helpers.js';
 
 const SG_TIME_ZONE = 'Asia/Singapore';
 const DAY_MS = 24 * 60 * 60 * 1000;
+const MINUTE_MS = 60 * 1000;
 const PAGE_SIZE = 1000;
 
 function singaporeDateKey(value = new Date()) {
@@ -23,21 +24,53 @@ function addDaysToKey(dateKey, days) {
   return singaporeDateKey(new Date(d.getTime() + days * DAY_MS));
 }
 
-function rangeWindow(range) {
-  if (range === 'all') return null;
-  const days = Number(range) || 30;
-  const endKey = singaporeDateKey();
-  const startKey = addDaysToKey(endKey, -(days - 1));
-  const start = sgMidnightUtc(startKey).toISOString();
-  const endExclusive = new Date(sgMidnightUtc(endKey).getTime() + DAY_MS).toISOString();
-  const keys = Array.from({ length: days }, (_, i) => addDaysToKey(startKey, i));
-  return { days, startKey, endKey, start, endExclusive, keys };
+function formatSgTime(value) {
+  return new Intl.DateTimeFormat('en-SG', {
+    timeZone: SG_TIME_ZONE,
+    hour: 'numeric', minute: '2-digit'
+  }).format(value instanceof Date ? value : new Date(value));
 }
 
 function formatSgDay(dateKey) {
   return new Intl.DateTimeFormat('en-SG', {
     day: 'numeric', month: 'short', timeZone: SG_TIME_ZONE
   }).format(sgMidnightUtc(dateKey));
+}
+
+function rangeWindow(range) {
+  if (range === 'all') return null;
+
+  const minuteRanges = { '20m': 20, '30m': 30, '60m': 60 };
+  if (minuteRanges[range]) {
+    const minutes = minuteRanges[range];
+    const now = new Date();
+    const startDate = new Date(now.getTime() - minutes * MINUTE_MS);
+    return {
+      kind: 'minutes',
+      minutes,
+      bucketMinutes: minutes <= 30 ? 5 : 10,
+      start: startDate.toISOString(),
+      endExclusive: new Date(now.getTime() + 1000).toISOString(),
+      label: `Last ${minutes === 60 ? '1 hour' : `${minutes} minutes`} · ${formatSgTime(startDate)}–${formatSgTime(now)} SGT`
+    };
+  }
+
+  const days = Number(range) || 30;
+  const endKey = singaporeDateKey();
+  const startKey = addDaysToKey(endKey, -(days - 1));
+  const start = sgMidnightUtc(startKey).toISOString();
+  const endExclusive = new Date(sgMidnightUtc(endKey).getTime() + DAY_MS).toISOString();
+  const keys = Array.from({ length: days }, (_, i) => addDaysToKey(startKey, i));
+  return {
+    kind: 'days',
+    days,
+    startKey,
+    endKey,
+    start,
+    endExclusive,
+    keys,
+    label: `${startKey} to ${endKey}`
+  };
 }
 
 function emptyQ(questionId) {
@@ -93,13 +126,73 @@ async function fetchAllEvents(supabase, window) {
   return rows;
 }
 
+function buildUsageSeries(events, window) {
+  if (window?.kind === 'minutes') {
+    const bucketMs = window.bucketMinutes * MINUTE_MS;
+    const startMs = new Date(window.start).getTime();
+    const bucketCount = Math.ceil(window.minutes / window.bucketMinutes);
+    const buckets = Array.from({ length: bucketCount }, (_, i) => {
+      const start = new Date(startMs + i * bucketMs);
+      return {
+        date: start.toISOString(),
+        label: formatSgTime(start),
+        ai_turns: 0,
+        reveals: 0,
+        users: new Set()
+      };
+    });
+
+    for (const e of events) {
+      if (!e.created_at) continue;
+      const index = Math.floor((new Date(e.created_at).getTime() - startMs) / bucketMs);
+      if (index < 0 || index >= buckets.length) continue;
+      const bucket = buckets[index];
+      if (e.user_id) bucket.users.add(e.user_id);
+      if (e.event_type === 'ai_feedback') bucket.ai_turns++;
+      if (e.event_type === 'mark_scheme_revealed') bucket.reveals++;
+    }
+
+    return buckets.map(x => ({
+      date: x.date,
+      label: x.label,
+      ai_turns: x.ai_turns,
+      reveals: x.reveals,
+      active_students: x.users.size
+    }));
+  }
+
+  const daily = new Map();
+  for (const e of events) {
+    if (!e.created_at) continue;
+    const date = singaporeDateKey(e.created_at);
+    const day = daily.get(date) || { date, ai_turns: 0, reveals: 0, users: new Set() };
+    if (e.user_id) day.users.add(e.user_id);
+    if (e.event_type === 'ai_feedback') day.ai_turns++;
+    if (e.event_type === 'mark_scheme_revealed') day.reveals++;
+    daily.set(date, day);
+  }
+
+  const usageKeys = window?.kind === 'days' ? window.keys : [...daily.keys()].sort();
+  return usageKeys.map(date => {
+    const d = daily.get(date) || { date, ai_turns: 0, reveals: 0, users: new Set() };
+    return {
+      date,
+      label: formatSgDay(date),
+      ai_turns: d.ai_turns,
+      reveals: d.reveals,
+      active_students: d.users.size
+    };
+  });
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') return json(res, 405, { error: 'Method not allowed' });
   if (!process.env.TEACHER_DASHBOARD_PASSWORD || req.body?.password !== process.env.TEACHER_DASHBOARD_PASSWORD) {
     return json(res, 401, { error: 'Incorrect dashboard password' });
   }
 
-  const range = ['7', '30', 'all'].includes(req.body?.range) ? req.body.range : '30';
+  const allowedRanges = ['20m', '30m', '60m', '7', '30', 'all'];
+  const range = allowedRanges.includes(req.body?.range) ? req.body.range : '30';
   const window = rangeWindow(range);
   const supabase = adminClient();
 
@@ -115,8 +208,8 @@ export default async function handler(req, res) {
   }
 
   const users = new Set();
-  progress.forEach(x => users.add(x.user_id));
-  events.forEach(x => users.add(x.user_id));
+  progress.forEach(x => x.user_id && users.add(x.user_id));
+  events.forEach(x => x.user_id && users.add(x.user_id));
 
   const byQ = {};
   const topicUsers = new Map();
@@ -135,7 +228,7 @@ export default async function handler(req, res) {
     const q = questionMap.get(p.question_id) || {};
     const topicCode = q.topicCode || 'Other';
     const set = topicUsers.get(topicCode) || new Set();
-    set.add(p.user_id);
+    if (p.user_id) set.add(p.user_id);
     topicUsers.set(topicCode, set);
   }
 
@@ -145,19 +238,9 @@ export default async function handler(req, res) {
   let input = 0;
   let output = 0;
   const missed = new Map();
-  const daily = new Map();
   const revealPairs = new Set();
 
   for (const e of events) {
-    const date = e.created_at ? singaporeDateKey(e.created_at) : '';
-    if (date) {
-      const day = daily.get(date) || { date, ai_turns: 0, reveals: 0, users: new Set() };
-      day.users.add(e.user_id);
-      if (e.event_type === 'ai_feedback') day.ai_turns++;
-      if (e.event_type === 'mark_scheme_revealed') day.reveals++;
-      daily.set(date, day);
-    }
-
     if (e.event_type === 'mark_scheme_revealed') {
       revealEvents++;
       if (e.user_id && e.question_id) revealPairs.add(`${e.user_id}::${e.question_id}`);
@@ -186,20 +269,29 @@ export default async function handler(req, res) {
   }
 
   const rows = Object.values(byQ).map(x => {
+    const assessed = x.correct + x.partial + x.incorrect;
+    const unassessed = Math.max(0, x.attempts - assessed);
     const revealRate = pct(x.reveals, x.attempts);
     const avgAi = x.attempts ? x.ai_turns / x.attempts : 0;
-    const outcomeDifficulty = x.attempts ? (x.incorrect + 0.55 * x.partial) / x.attempts * 100 : 0;
-    const difficulty = Math.round(Math.min(100, outcomeDifficulty * 0.6 + revealRate * 0.25 + Math.min(avgAi, 5) * 3));
+    const outcomeDifficulty = assessed ? (x.incorrect + 0.55 * x.partial) / assessed * 100 : 0;
+    const assessmentConfidence = Math.min(1, assessed / 5);
+    const difficulty = Math.round(Math.min(
+      100,
+      outcomeDifficulty * 0.58 * assessmentConfidence + revealRate * 0.24 + Math.min(avgAi, 5) * 3.6
+    ));
     return {
       ...x,
+      assessed,
+      unassessed,
       reveal_rate: revealRate,
-      correct_pct: pct(x.correct, x.attempts),
-      partial_pct: pct(x.partial, x.attempts),
-      incorrect_pct: pct(x.incorrect, x.attempts),
+      correct_pct: pct(x.correct, assessed),
+      partial_pct: pct(x.partial, assessed),
+      incorrect_pct: pct(x.incorrect, assessed),
+      not_assessed_pct: pct(unassessed, x.attempts),
       avg_ai_turns: Number(avgAi.toFixed(1)),
       difficulty_score: difficulty
     };
-  }).sort((a, b) => b.difficulty_score - a.difficulty_score || b.attempts - a.attempts);
+  }).sort((a, b) => b.difficulty_score - a.difficulty_score || b.assessed - a.assessed || b.attempts - a.attempts);
 
   const topicMap = {};
   for (const x of rows) {
@@ -222,28 +314,26 @@ export default async function handler(req, res) {
     t.ai_turns += x.ai_turns;
   }
 
-  const topics = Object.values(topicMap).map(t => ({
-    ...t,
-    students: (topicUsers.get(t.topic_code) || new Set()).size,
-    correct_pct: pct(t.correct, t.attempts),
-    partial_pct: pct(t.partial, t.attempts),
-    incorrect_pct: pct(t.incorrect, t.attempts),
-    reveal_rate: pct(t.reveals, t.attempts),
-    avg_ai_turns: t.attempts ? Number((t.ai_turns / t.attempts).toFixed(1)) : 0
-  })).sort((a, b) => a.topic_code.localeCompare(b.topic_code));
-
-  const usageKeys = window ? window.keys : [...daily.keys()].sort();
-  const usageByDay = usageKeys.map(date => {
-    const d = daily.get(date) || { date, ai_turns: 0, reveals: 0, users: new Set() };
+  const topics = Object.values(topicMap).map(t => {
+    const assessed = t.correct + t.partial + t.incorrect;
+    const unassessed = Math.max(0, t.attempts - assessed);
+    const topQuestions = rows.filter(q => (q.topic_code || 'Other') === t.topic_code).slice(0, 3);
     return {
-      date,
-      label: formatSgDay(date),
-      ai_turns: d.ai_turns,
-      reveals: d.reveals,
-      active_students: d.users.size
+      ...t,
+      assessed,
+      unassessed,
+      students: (topicUsers.get(t.topic_code) || new Set()).size,
+      correct_pct: pct(t.correct, assessed),
+      partial_pct: pct(t.partial, assessed),
+      incorrect_pct: pct(t.incorrect, assessed),
+      not_assessed_pct: pct(unassessed, t.attempts),
+      reveal_rate: pct(t.reveals, t.attempts),
+      avg_ai_turns: t.attempts ? Number((t.ai_turns / t.attempts).toFixed(1)) : 0,
+      top_questions: topQuestions
     };
-  });
+  }).sort((a, b) => a.topic_code.localeCompare(b.topic_code));
 
+  const usageSeries = buildUsageSeries(events, window);
   const missedConcepts = [...missed.entries()]
     .map(([concept, count]) => ({ concept, count }))
     .sort((a, b) => b.count - a.count || a.concept.localeCompare(b.concept))
@@ -251,19 +341,26 @@ export default async function handler(req, res) {
 
   const costDisplay = cost < 0.01 ? `$${cost.toFixed(4)}` : `$${cost.toFixed(2)}`;
   const attempts = progress.length;
+  const assessedCount = correctCount + partialCount + incorrectCount;
+  const unassessedCount = Math.max(0, attempts - assessedCount);
 
   res.setHeader('Cache-Control', 'no-store');
   return json(res, 200, {
     range,
     time_zone: SG_TIME_ZONE,
-    date_window: window ? { start: window.startKey, end: window.endKey } : null,
+    window_kind: window?.kind || 'all',
+    window_label: window?.label || 'All time',
+    date_window: window?.kind === 'days' ? { start: window.startKey, end: window.endKey } : null,
     kpis: {
       students: users.size,
       questions_with_progress: attempts,
+      assessed_count: assessedCount,
+      unassessed_count: unassessedCount,
       correct_count: correctCount,
       partial_count: partialCount,
       incorrect_count: incorrectCount,
-      correct_rate: pct(correctCount, attempts),
+      correct_rate: pct(correctCount, assessedCount),
+      assessed_rate: pct(assessedCount, attempts),
       ai_tutor_turns: aiTurns,
       mark_scheme_reveals: revealPairs.size,
       mark_scheme_reveal_events: revealEvents,
@@ -275,7 +372,7 @@ export default async function handler(req, res) {
     },
     questions: rows.slice(0, 50),
     topics,
-    usage_by_day: usageByDay,
+    usage_by_day: usageSeries,
     missed_concepts: missedConcepts
   });
 }
