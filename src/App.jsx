@@ -445,7 +445,7 @@ export default function App() {
 
                 <span className="progress-label" aria-label={`Question ${index + 1} of ${filtered.length}`}>
                   <span className="progress-current">{index + 1}</span>
-                  <span className="progress-separator"> / </span>
+                  <span className="progress-separator"> of </span>
                   <span>{filtered.length}</span>
                 </span>
               </div>
