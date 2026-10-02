@@ -206,7 +206,7 @@
     "topic": "Gravitational Field",
     "sourceNumber": "3",
     "question": "Explain why the gravitational potential near an isolated mass is always negative.",
-    "markScheme": "gravitational force is attractive\n\ngravitational potential at infinity is zero\n\ndecrease in potential energy as masses approach\n(or displacement and force in opposite directions)",
+    "markScheme": "gravitational force is attractive\n\ngravitational potential at infinity is zero\n\nwork done per unit mass by external force (gravitational potential) is negative as external force is in the opposite direction to displacement when bringing a mass from infinity to that point",
     "images": [],
     "syllabusVersion": "2026",
     "marks": 3
