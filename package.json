@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run sync-questions && vite build",
     "preview": "vite preview",
-    "test:acceptance": "node tests/acceptance.mjs"
+    "test:acceptance": "node tests/tutor-9478-acceptance.mjs",
+    "sync-questions": "node scripts/build-public-questions.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
