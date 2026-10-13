@@ -1,0 +1,102 @@
+[
+  {
+    "number": 1,
+    "title": "Quantities and Measurement",
+    "code": "9478-01"
+  },
+  {
+    "number": 2,
+    "title": "Forces and Moments",
+    "code": "9478-02"
+  },
+  {
+    "number": 3,
+    "title": "Motion and Forces",
+    "code": "9478-03"
+  },
+  {
+    "number": 4,
+    "title": "Energy and Fields",
+    "code": "9478-04"
+  },
+  {
+    "number": 5,
+    "title": "Projectile Motion",
+    "code": "9478-05"
+  },
+  {
+    "number": 6,
+    "title": "Collisions",
+    "code": "9478-06"
+  },
+  {
+    "number": 7,
+    "title": "Circular Motion",
+    "code": "9478-07"
+  },
+  {
+    "number": 8,
+    "title": "Gravitational Fields",
+    "code": "9478-08"
+  },
+  {
+    "number": 9,
+    "title": "Oscillations",
+    "code": "9478-09"
+  },
+  {
+    "number": 10,
+    "title": "Wave Motion",
+    "code": "9478-10"
+  },
+  {
+    "number": 11,
+    "title": "Superposition",
+    "code": "9478-11"
+  },
+  {
+    "number": 12,
+    "title": "Temperature and Ideal Gases",
+    "code": "9478-12"
+  },
+  {
+    "number": 13,
+    "title": "Thermodynamic Systems",
+    "code": "9478-13"
+  },
+  {
+    "number": 14,
+    "title": "Electric Fields",
+    "code": "9478-14"
+  },
+  {
+    "number": 15,
+    "title": "Currents",
+    "code": "9478-15"
+  },
+  {
+    "number": 16,
+    "title": "Circuits",
+    "code": "9478-16"
+  },
+  {
+    "number": 17,
+    "title": "Electromagnetic Forces",
+    "code": "9478-17"
+  },
+  {
+    "number": 18,
+    "title": "Electromagnetic Induction",
+    "code": "9478-18"
+  },
+  {
+    "number": 19,
+    "title": "Quantum Physics",
+    "code": "9478-19"
+  },
+  {
+    "number": 20,
+    "title": "Nuclear Physics",
+    "code": "9478-20"
+  }
+]

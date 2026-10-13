@@ -1,14 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import questions from './data/questions.public.json';
+import syllabusTopics from './data/syllabus9478.json';
 import { supabase, supabaseConfigured, getAccessToken } from './lib/supabase';
 import TeacherDashboard from './components/TeacherDashboard.jsx';
 import badge50 from './assets/badges/ej-physics-50.png';
 import badge75 from './assets/badges/ej-physics-75.png';
 import badge100 from './assets/badges/ej-physics-100.png';
 
-const topicList = [...new Map(
-  questions.map(q => [q.topicCode, `${q.topicCode} ${q.topic}`])
-).entries()];
+const topicList = syllabusTopics.map(t => [t.code, `Topic ${t.number} — ${t.title}`]);
 
 const questionPath = id => `/question/${encodeURIComponent(id)}`;
 
@@ -519,7 +518,7 @@ export default function App() {
             {showResume && resumeQuestion && resumeQuestion.id !== q?.id && (
               <button className="resume-card" onClick={resumePractice}>
                 <span className="resume-kicker">Continue where you left off</span>
-                <span className="resume-title">{resumeQuestion.topicCode} {resumeQuestion.topic}</span>
+                <span className="resume-title">{resumeQuestion.topic}</span>
                 <span className="resume-question">{resumeQuestion.question}</span>
                 <span className="resume-action">Continue →</span>
               </button>
@@ -530,7 +529,7 @@ export default function App() {
 
                   <div className="q-card-header">
                     <span className="topic-badge">
-                      {q.topicCode} {q.topic}
+                      {q.topic}
                     </span>
 
                     <div className="question-meta">
